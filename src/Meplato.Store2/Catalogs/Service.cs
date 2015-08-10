@@ -1,0 +1,687 @@
+#region Copyright and terms of services
+// Copyright (c) 2015 Meplato GmbH, Switzerland.
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+// in compliance with the License. You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software distributed under the License
+// is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+// or implied. See the License for the specific language governing permissions and limitations under
+// the License.
+#endregion
+
+// THIS FILE IS AUTO-GENERATED. DO NOT MODIFY!
+
+// The file implements the Meplato Store 2 API.
+//
+// Author:  Meplato API Team <support@meplato.com>
+// Version: 2.0.0.beta2
+// License: Copyright (c) 2015 Meplato GmbH, Switzerland. All rights reserved.
+// See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
+// See <a href="https://developer.meplato.com/store2/">External documentation</a>
+
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Meplato.Store2;
+
+namespace Meplato.Store2.Catalogs
+{
+	/// <summary>
+	///     The Meplato Store 2 API enables technical integration of
+	///     customers and partners. 
+	/// </summary>
+	public class Service
+	{
+		#region Service
+		public const string Title = "Meplato Store 2 API";
+		public const string Version = "2.0.0.beta2";
+		public const string UserAgent = "meplato-csharp-client/2.0";
+		public const string DefaultBaseURL = "https://store2.meplato.com/api/v2";
+
+		/// <summary>
+		///     Initializes a new <see cref="Service"/>.
+		/// </summary>
+		/// <param name="client">Client to use for requests</param>
+		public Service(IClient client)
+		{
+			Client = client;
+			BaseURL = DefaultBaseURL;
+		}
+
+		/// <summary>
+		///     Returns the <see cref="IClient"/> to perform requests.
+		/// </summary>
+		public IClient Client { get; private set; }
+
+		/// <summary>
+		///     Represents the BaseURL to use for requests (default is <see
+		///     cref="DefaultBaseURL"/>).
+		/// </summary>
+		public string BaseURL { get; set; }
+
+		/// <summary>
+		///     Specifies the username to authenticate requests.
+		/// </summary>
+		public string User { get; set; }
+
+		/// <summary>
+		///     Specifies the password to authenticate requests.
+		/// </summary>
+		public string Password { get; set; }
+
+		/// <summary>
+		///     Returns the authentication header for HTTP Basic Author
+		///     <code>null</code> for unauthenticated requests.
+		/// </summary>
+		public string GetAuthorizationHeader()
+		{
+			if (!string.IsNullOrEmpty(User) || !string.IsNullOrEmpty(Password))
+			{
+				string userPass = "";
+				if (!string.IsNullOrEmpty(User))
+				{
+					userPass = User;
+				}
+				userPass = userPass + ":";
+				if (!string.IsNullOrEmpty(Password))
+				{
+					userPass = userPass + Password;
+				}
+				var bytes = Encoding.UTF8.GetBytes(userPass);
+				var credentials = Convert.ToBase64String(bytes);
+				return "Basic " + credentials;
+			}
+			return null;
+		}
+
+		/// <summary>
+		///     Get a single catalog.
+		/// </summary>
+		public GetService Get() {
+			return new GetService(this);
+		}
+
+		/// <summary>
+		///     Publishes a catalog.
+		/// </summary>
+		public PublishService Publish() {
+			return new PublishService(this);
+		}
+
+		/// <summary>
+		///     Status of a publish process.
+		/// </summary>
+		public PublishStatusService PublishStatus() {
+			return new PublishStatusService(this);
+		}
+
+		/// <summary>
+		///     Search for catalogs.
+		/// </summary>
+		public SearchService Search() {
+			return new SearchService(this);
+		}
+		#endregion // Service
+	}
+
+	/// <summary>
+	///     Catalog is a container for products, to be used in a certain
+	///     project.
+	/// </summary>
+	public class Catalog
+	{
+		#region Catalog
+
+		/// <summary>
+		///     Created is the creation date and time of the catalog.
+		/// </summary>
+		[JsonProperty("created")]
+		public DateTimeOffset? Created { get; set; }
+
+		/// <summary>
+		///     Currency is the ISO-4217 currency code that is used for all
+		///     products in the catalog.
+		/// </summary>
+		[JsonProperty("currency")]
+		public string Currency { get; set; }
+
+		/// <summary>
+		///     Description of the catalog.
+		/// </summary>
+		[JsonProperty("description")]
+		public string Description { get; set; }
+
+		/// <summary>
+		///     ERPNumberBuyer is the number of the merchant of this catalog in
+		///     the SAP/ERP system of the buyer.
+		/// </summary>
+		[JsonProperty("erpNumberBuyer")]
+		public string ErpNumberBuyer { get; set; }
+
+		/// <summary>
+		///     ID is a unique (internal) identifier of the catalog.
+		/// </summary>
+		[JsonProperty("id")]
+		public long Id { get; set; }
+
+		/// <summary>
+		///     Kind is store#catalog for a catalog entity.
+		/// </summary>
+		[JsonProperty("kind")]
+		public string Kind { get; set; }
+
+		/// <summary>
+		///     Language is the IETF language tag of the language of all
+		///     products in the catalog.
+		/// </summary>
+		[JsonProperty("language")]
+		public string Language { get; set; }
+
+		/// <summary>
+		///     LastImported is the date and time the catalog was last
+		///     imported.
+		/// </summary>
+		[JsonProperty("lastImported")]
+		public DateTimeOffset? LastImported { get; set; }
+
+		/// <summary>
+		///     LastPublished is the date and time the catalog was last
+		///     published.
+		/// </summary>
+		[JsonProperty("lastPublished")]
+		public DateTimeOffset? LastPublished { get; set; }
+
+		/// <summary>
+		///     ID of the merchant.
+		/// </summary>
+		[JsonProperty("merchantId")]
+		public long MerchantId { get; set; }
+
+		/// <summary>
+		///     Name of the merchant.
+		/// </summary>
+		[JsonProperty("merchantName")]
+		public string MerchantName { get; set; }
+
+		/// <summary>
+		///     Name of the catalog.
+		/// </summary>
+		[JsonProperty("name")]
+		public string Name { get; set; }
+
+		/// <summary>
+		///     Number of products currently in the live area (only returned
+		///     when getting the details of a catalog).
+		/// </summary>
+		[JsonProperty("numProductsLive")]
+		public long? NumProductsLive { get; set; }
+
+		/// <summary>
+		///     Number of products currently in the work area (only returned
+		///     when getting the details of a catalog).
+		/// </summary>
+		[JsonProperty("numProductsWork")]
+		public long? NumProductsWork { get; set; }
+
+		/// <summary>
+		///     PIN of the catalog.
+		/// </summary>
+		[JsonProperty("pin")]
+		public string Pin { get; set; }
+
+		/// <summary>
+		///     ID of the project.
+		/// </summary>
+		[JsonProperty("projectId")]
+		public long ProjectId { get; set; }
+
+		/// <summary>
+		///     PublishedVersion is the version number of the published
+		///     catalog. It is incremented when the publish task publishes the
+		///     catalog.
+		/// </summary>
+		[JsonProperty("publishedVersion")]
+		public long? PublishedVersion { get; set; }
+
+		/// <summary>
+		///     URL to this page.
+		/// </summary>
+		[JsonProperty("selfLink")]
+		public string SelfLink { get; set; }
+
+		/// <summary>
+		///     Slug of the catalog.
+		/// </summary>
+		[JsonProperty("slug")]
+		public string Slug { get; set; }
+
+		/// <summary>
+		///     State describes the current state of the catalog, e.g. idle.
+		/// </summary>
+		[JsonProperty("state")]
+		public string State { get; set; }
+
+		/// <summary>
+		///     Updated is the last modification date and time of the catalog.
+		/// </summary>
+		[JsonProperty("updated")]
+		public DateTimeOffset? Updated { get; set; }
+
+		/// <summary>
+		///     ValidFrom is the date the catalog becomes effective.
+		/// </summary>
+		[JsonProperty("validFrom")]
+		public string ValidFrom { get; set; }
+
+		/// <summary>
+		///     ValidUntil is the date the catalog expires.
+		/// </summary>
+		[JsonProperty("validUntil")]
+		public string ValidUntil { get; set; }
+
+		#endregion // Catalog
+	}
+
+	/// <summary>
+	///     PublishResponse is the response of the request to publish a
+	///     catalog.
+	/// </summary>
+	public class PublishResponse
+	{
+		#region PublishResponse
+
+		/// <summary>
+		///     Kind is store#catalogPublish for this kind of response.
+		/// </summary>
+		[JsonProperty("kind")]
+		public string Kind { get; set; }
+
+		/// <summary>
+		///     SelfLink returns the URL to this page.
+		/// </summary>
+		[JsonProperty("selfLink")]
+		public string SelfLink { get; set; }
+
+		/// <summary>
+		///     StatusLink returns the URL that returns the current status of
+		///     the request.
+		/// </summary>
+		[JsonProperty("statusLink")]
+		public string StatusLink { get; set; }
+
+		#endregion // PublishResponse
+	}
+
+	/// <summary>
+	///     PublishStatusResponse returns current information about the
+	///     status of a publish request.
+	/// </summary>
+	public class PublishStatusResponse
+	{
+		#region PublishStatusResponse
+
+		/// <summary>
+		///     CurrentStep is an indicator of the current step in the total
+		///     list of steps. Use in combination with TotalSteps to retrieve
+		///     the progress in percent.
+		/// </summary>
+		[JsonProperty("currentStep")]
+		public int CurrentStep { get; set; }
+
+		/// <summary>
+		///     Kind is store#catalogPublishStatus for this kind of response.
+		/// </summary>
+		[JsonProperty("kind")]
+		public string Kind { get; set; }
+
+		/// <summary>
+		///     SelfLink returns the URL to this page.
+		/// </summary>
+		[JsonProperty("selfLink")]
+		public string SelfLink { get; set; }
+
+		/// <summary>
+		///     Status describes the general status of the publish request.
+		/// </summary>
+		[JsonProperty("status")]
+		public string Status { get; set; }
+
+		/// <summary>
+		///     TotalSteps is an indicator of the total number steps required
+		///     to complete the publish request. Use in combination with
+		///     CurrentStep.
+		/// </summary>
+		[JsonProperty("totalSteps")]
+		public int TotalSteps { get; set; }
+
+		#endregion // PublishStatusResponse
+	}
+
+	/// <summary>
+	///     SearchResponse is a partial listing of catalogs.
+	/// </summary>
+	public class SearchResponse
+	{
+		#region SearchResponse
+
+		/// <summary>
+		///     Items is the slice of catalogs of this result.
+		/// </summary>
+		[JsonProperty("items")]
+		public Catalog[] Items { get; set; }
+
+		/// <summary>
+		///     Kind is store#catalogs for this kind of response.
+		/// </summary>
+		[JsonProperty("kind")]
+		public string Kind { get; set; }
+
+		/// <summary>
+		///     NextLink returns the URL to the next slice of catalogs (if
+		///     any).
+		/// </summary>
+		[JsonProperty("nextLink")]
+		public string NextLink { get; set; }
+
+		/// <summary>
+		///     PreviousLink returns the URL of the previous slice of catalogs
+		///     (if any).
+		/// </summary>
+		[JsonProperty("previousLink")]
+		public string PreviousLink { get; set; }
+
+		/// <summary>
+		///     SelfLink returns the URL to this page.
+		/// </summary>
+		[JsonProperty("selfLink")]
+		public string SelfLink { get; set; }
+
+		/// <summary>
+		///     TotalItems describes the total number of catalogs found.
+		/// </summary>
+		[JsonProperty("totalItems")]
+		public long TotalItems { get; set; }
+
+		#endregion // SearchResponse
+	}
+
+	/// <summary>
+	///     GetService: Get a single catalog.
+	/// </summary>
+	public class GetService
+	{
+		#region GetService
+
+		private readonly Service _service;
+		private readonly IDictionary<string, object> _opt = new Dictionary<string, object>();
+		private readonly IDictionary<string, string> _hdr = new Dictionary<string, string>();
+
+		private string _pin;
+
+		/// <summary>
+		///     Creates a new instance of GetService.
+		/// </summary>
+		public GetService(Service service)
+		{
+			_service = service;
+		}
+
+		/// <summary>
+		///     PIN of the catalog.
+		/// </summary>
+		public GetService Pin(string pin)
+		{
+			_pin = pin;
+			return this;
+		}
+
+		/// <summary>
+		///     Execute the operation.
+		/// </summary>
+		public async Task<Catalog> Do()
+			{
+			// Make a copy of the parameters and add the path parameters to it
+			var parameters = new Dictionary<string, object>();
+			// UriTemplates package wants path parameters as strings
+			parameters["pin"] = string.Format("{0}", _pin);
+
+			// Make a copy of the header parameters and set UA
+			var headers = new Dictionary<string, string>();
+			string authorization = _service.GetAuthorizationHeader();
+			if (!string.IsNullOrEmpty(authorization))
+			{
+				headers["Authorization"] = authorization;
+			}
+
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}";
+			var response = await _service.Client.Execute(
+				HttpMethod.Get,
+				uriTemplate,
+				parameters,
+				headers,
+				null);
+			return response.GetBodyJSON<Catalog>();
+		}
+
+		#endregion // GetService
+	}
+
+	/// <summary>
+	///     PublishService: Publishes a catalog.
+	/// </summary>
+	public class PublishService
+	{
+		#region PublishService
+
+		private readonly Service _service;
+		private readonly IDictionary<string, object> _opt = new Dictionary<string, object>();
+		private readonly IDictionary<string, string> _hdr = new Dictionary<string, string>();
+
+		private string _pin;
+
+		/// <summary>
+		///     Creates a new instance of PublishService.
+		/// </summary>
+		public PublishService(Service service)
+		{
+			_service = service;
+		}
+
+		/// <summary>
+		///     PIN of the catalog to publish.
+		/// </summary>
+		public PublishService Pin(string pin)
+		{
+			_pin = pin;
+			return this;
+		}
+
+		/// <summary>
+		///     Execute the operation.
+		/// </summary>
+		public async Task<PublishResponse> Do()
+			{
+			// Make a copy of the parameters and add the path parameters to it
+			var parameters = new Dictionary<string, object>();
+			// UriTemplates package wants path parameters as strings
+			parameters["pin"] = string.Format("{0}", _pin);
+
+			// Make a copy of the header parameters and set UA
+			var headers = new Dictionary<string, string>();
+			string authorization = _service.GetAuthorizationHeader();
+			if (!string.IsNullOrEmpty(authorization))
+			{
+				headers["Authorization"] = authorization;
+			}
+
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/publish";
+			var response = await _service.Client.Execute(
+				HttpMethod.Post,
+				uriTemplate,
+				parameters,
+				headers,
+				null);
+			return response.GetBodyJSON<PublishResponse>();
+		}
+
+		#endregion // PublishService
+	}
+
+	/// <summary>
+	///     PublishStatusService: Status of a publish process.
+	/// </summary>
+	public class PublishStatusService
+	{
+		#region PublishStatusService
+
+		private readonly Service _service;
+		private readonly IDictionary<string, object> _opt = new Dictionary<string, object>();
+		private readonly IDictionary<string, string> _hdr = new Dictionary<string, string>();
+
+		private string _pin;
+
+		/// <summary>
+		///     Creates a new instance of PublishStatusService.
+		/// </summary>
+		public PublishStatusService(Service service)
+		{
+			_service = service;
+		}
+
+		/// <summary>
+		///     PIN of the catalog to get the publish status from.
+		/// </summary>
+		public PublishStatusService Pin(string pin)
+		{
+			_pin = pin;
+			return this;
+		}
+
+		/// <summary>
+		///     Execute the operation.
+		/// </summary>
+		public async Task<PublishStatusResponse> Do()
+			{
+			// Make a copy of the parameters and add the path parameters to it
+			var parameters = new Dictionary<string, object>();
+			// UriTemplates package wants path parameters as strings
+			parameters["pin"] = string.Format("{0}", _pin);
+
+			// Make a copy of the header parameters and set UA
+			var headers = new Dictionary<string, string>();
+			string authorization = _service.GetAuthorizationHeader();
+			if (!string.IsNullOrEmpty(authorization))
+			{
+				headers["Authorization"] = authorization;
+			}
+
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/publish/status";
+			var response = await _service.Client.Execute(
+				HttpMethod.Get,
+				uriTemplate,
+				parameters,
+				headers,
+				null);
+			return response.GetBodyJSON<PublishStatusResponse>();
+		}
+
+		#endregion // PublishStatusService
+	}
+
+	/// <summary>
+	///     SearchService: Search for catalogs.
+	/// </summary>
+	public class SearchService
+	{
+		#region SearchService
+
+		private readonly Service _service;
+		private readonly IDictionary<string, object> _opt = new Dictionary<string, object>();
+		private readonly IDictionary<string, string> _hdr = new Dictionary<string, string>();
+
+		/// <summary>
+		///     Creates a new instance of SearchService.
+		/// </summary>
+		public SearchService(Service service)
+		{
+			_service = service;
+		}
+
+		/// <summary>
+		///     Skip specifies how many catalogs to skip (default 0).
+		/// </summary>
+		public SearchService Skip(long skip)
+		{
+			_opt["skip"] = skip;
+			return this;
+		}
+
+		/// <summary>
+		///     Sort order, e.g. name or id or -created (default: name).
+		/// </summary>
+		public SearchService Sort(string sort)
+		{
+			_opt["sort"] = sort;
+			return this;
+		}
+
+		/// <summary>
+		///     Take defines how many catalogs to return (max 100, default 20).
+		/// </summary>
+		public SearchService Take(long take)
+		{
+			_opt["take"] = take;
+			return this;
+		}
+
+		/// <summary>
+		///     Execute the operation.
+		/// </summary>
+		public async Task<SearchResponse> Do()
+			{
+			// Make a copy of the parameters and add the path parameters to it
+			var parameters = new Dictionary<string, object>();
+			if (_opt.ContainsKey("skip"))
+			{
+				// UriTemplates package wants query parameters as strings
+				parameters["skip"] = string.Format("{0}", _opt["skip"]);
+			}
+			if (_opt.ContainsKey("sort"))
+			{
+				// UriTemplates package wants query parameters as strings
+				parameters["sort"] = string.Format("{0}", _opt["sort"]);
+			}
+			if (_opt.ContainsKey("take"))
+			{
+				// UriTemplates package wants query parameters as strings
+				parameters["take"] = string.Format("{0}", _opt["take"]);
+			}
+
+			// Make a copy of the header parameters and set UA
+			var headers = new Dictionary<string, string>();
+			string authorization = _service.GetAuthorizationHeader();
+			if (!string.IsNullOrEmpty(authorization))
+			{
+				headers["Authorization"] = authorization;
+			}
+
+			var uriTemplate = _service.BaseURL + "/catalogs{?skip,take,sort}";
+			var response = await _service.Client.Execute(
+				HttpMethod.Get,
+				uriTemplate,
+				parameters,
+				headers,
+				null);
+			return response.GetBodyJSON<SearchResponse>();
+		}
+
+		#endregion // SearchService
+	}
+}
+
