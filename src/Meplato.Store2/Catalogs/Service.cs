@@ -327,18 +327,43 @@ namespace Meplato.Store2.Catalogs
 		#region PublishStatusResponse
 
 		/// <summary>
+		///     Busy indicates whether the catalog is still busy.
+		/// </summary>
+		[JsonProperty("busy")]
+		public bool Busy { get; set; }
+
+		/// <summary>
+		///     Canceled indicates whether the publishing process has been
+		///     canceled.
+		/// </summary>
+		[JsonProperty("canceled")]
+		public bool Canceled { get; set; }
+
+		/// <summary>
 		///     CurrentStep is an indicator of the current step in the total
 		///     list of steps. Use in combination with TotalSteps to retrieve
 		///     the progress in percent.
 		/// </summary>
 		[JsonProperty("currentStep")]
-		public int CurrentStep { get; set; }
+		public long CurrentStep { get; set; }
+
+		/// <summary>
+		///     Done indicates whether publishing is finished.
+		/// </summary>
+		[JsonProperty("done")]
+		public bool Done { get; set; }
 
 		/// <summary>
 		///     Kind is store#catalogPublishStatus for this kind of response.
 		/// </summary>
 		[JsonProperty("kind")]
 		public string Kind { get; set; }
+
+		/// <summary>
+		///     Percent indicates the progress of the publish request.
+		/// </summary>
+		[JsonProperty("percent")]
+		public int Percent { get; set; }
 
 		/// <summary>
 		///     SelfLink returns the URL to this page.
@@ -358,7 +383,7 @@ namespace Meplato.Store2.Catalogs
 		///     CurrentStep.
 		/// </summary>
 		[JsonProperty("totalSteps")]
-		public int TotalSteps { get; set; }
+		public long TotalSteps { get; set; }
 
 		#endregion // PublishStatusResponse
 	}

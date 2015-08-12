@@ -374,6 +374,14 @@ namespace Meplato.Store2.Products
 		public string ErpGroupSupplier { get; set; }
 
 		/// <summary>
+		///     Excluded is a flag that indicates whether to exclude this
+		///     product from the catalog. If true, this product will not be
+		///     published into the live area.
+		/// </summary>
+		[JsonProperty("excluded")]
+		public bool Excluded { get; set; }
+
+		/// <summary>
 		///     ExtCategory is the EXT_CATEGORY field of the SAP OCI
 		///     specification.
 		/// </summary>
@@ -851,6 +859,14 @@ namespace Meplato.Store2.Products
 		public string ErpGroupSupplier { get; set; }
 
 		/// <summary>
+		///     Excluded is a flag that indicates whether to exclude this
+		///     product from the catalog. If true, this product will not be
+		///     published into the live area.
+		/// </summary>
+		[JsonProperty("excluded")]
+		public bool Excluded { get; set; }
+
+		/// <summary>
 		///     ExtCategory is the EXT_CATEGORY field of the SAP OCI
 		///     specification.
 		/// </summary>
@@ -1267,6 +1283,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("erpGroupSupplier")]
 		public string ErpGroupSupplier { get; set; }
+
+		/// <summary>
+		///     Excluded is a flag that indicates whether to exclude this
+		///     product from the catalog. If true, this product will not be
+		///     published into the live area.
+		/// </summary>
+		[JsonProperty("excluded")]
+		public bool Excluded { get; set; }
 
 		/// <summary>
 		///     ExtCategory is the EXT_CATEGORY field of the SAP OCI
@@ -1756,6 +1780,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("erpGroupSupplier")]
 		public string ErpGroupSupplier { get; set; }
+
+		/// <summary>
+		///     Excluded is a flag that indicates whether to exclude this
+		///     product from the catalog. If true, this product will not be
+		///     published into the live area.
+		/// </summary>
+		[JsonProperty("excluded")]
+		public bool? Excluded { get; set; }
 
 		/// <summary>
 		///     ExtCategory is the EXT_CATEGORY field of the SAP OCI
