@@ -29,7 +29,7 @@ namespace Meplato.Store2.Tests.Products
             var service = GetProductsService();
             Assert.NotNull(service);
 
-            var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Id("50763599@12").Do();
+            var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Spn("50763599").Do();
             Assert.NotNull(product);
             Assert.IsNotNullOrEmpty(product.Id);
             Assert.IsNotNullOrEmpty(product.Spn);
@@ -46,14 +46,14 @@ namespace Meplato.Store2.Tests.Products
             Assert.NotNull(product.CustFields);
             Assert.AreEqual(1, product.CustFields.Length);
             Assert.AreEqual("Steuersatz", product.CustFields[0].Name);
-            Assert.AreEqual("0.19", product.CustFields[0].Value);
+            Assert.AreEqual("19%", product.CustFields[0].Value);
 
             Assert.NotNull(product.Blobs);
             Assert.AreEqual(1, product.Blobs.Length);
             Assert.AreEqual("normal", product.Blobs[0].Kind);
             Assert.AreEqual("Normalbild", product.Blobs[0].Text);
             Assert.AreEqual("50763599.jpg", product.Blobs[0].Source);
-            Assert.AreEqual("de", product.Blobs[0].Language);
+            Assert.IsNull(product.Blobs[0].Language);
         }
 
         [Test]
@@ -65,7 +65,7 @@ namespace Meplato.Store2.Tests.Products
             var service = GetProductsService();
             Assert.NotNull(service);
 
-            var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Id("no-such-product").Do();
+            var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do();
             Assert.Null(product);
         }
 
@@ -80,7 +80,7 @@ namespace Meplato.Store2.Tests.Products
             service.User = "";
             service.Password = "";
 
-            var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Id("no-such-product").Do();
+            var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do();
             Assert.Null(product);
         }
     }

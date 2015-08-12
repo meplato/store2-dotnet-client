@@ -14,33 +14,34 @@
 
 #endregion
 
-using Meplato.Store2.Products;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests.Products
 {
     [TestFixture]
-    public class UpdateTests : TestCase
+    public class DeleteTests : TestCase
     {
         [Test]
-        public async void TestUpdate()
+        public async void TestDelete()
         {
-            MockFromFile("products.update.success");
+            MockFromFile("products.delete.success");
 
             var service = GetProductsService();
             Assert.NotNull(service);
 
-            var update = new UpdateProduct
-            {
-                Name = "Produkt 1000 (NEU!)",
-                Price = 2.50,
-                OrderUnit = "PCE"
-            };
+            service.Delete().Pin("AD8CCDD5F9").Area("work").Spn("50763599").Do();
+        }
 
-            var response = await service.Update().Pin("AD8CCDD5F9").Area("work").Spn("MBA").Product(update).Do();
-            Assert.NotNull(response);
-            Assert.IsNotNullOrEmpty(response.Link);
-            Assert.AreEqual("store#productsUpdateResponse", response.Kind);
+        [Test]
+        [ExpectedException(typeof(ServiceException), ExpectedMessage = "Product not found")]
+        public async void TestGetNotFound()
+        {
+            MockFromFile("products.delete.not_found");
+
+            var service = GetProductsService();
+            Assert.NotNull(service);
+
+            service.Delete().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do();
         }
     }
 }

@@ -37,10 +37,10 @@ namespace Meplato.Store2.Tests.Products
                 OrderUnit = "PCE"
             };
 
-            var response = await service.Replace().Pin("AD8CCDD5F9").Area("work").Id("1000@12").Product(replace).Do();
+            var response = await service.Replace().Pin("AD8CCDD5F9").Area("work").Spn("1000").Product(replace).Do();
             Assert.NotNull(response);
             Assert.IsNotNullOrEmpty(response.Link);
-            Assert.IsNotNullOrEmpty(response.Id);
+            Assert.AreEqual("store#productsReplaceResponse", response.Kind);
         }
     }
 }

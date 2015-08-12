@@ -41,7 +41,7 @@ namespace Meplato.Store2.Tests.Products
             var response = await service.Create().Pin("AD8CCDD5F9").Area("work").Product(create).Do();
             Assert.NotNull(response);
             Assert.IsNotNullOrEmpty(response.Link);
-            Assert.IsNotNullOrEmpty(response.Id);
+            Assert.AreEqual("store#productsCreateResponse", response.Kind);
         }
 
         [Test]

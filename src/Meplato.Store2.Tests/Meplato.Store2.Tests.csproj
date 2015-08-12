@@ -70,6 +70,7 @@
     <Compile Include="MockClientTests.cs" />
     <Compile Include="PingTests.cs" />
     <Compile Include="Products\CreateTests.cs" />
+    <Compile Include="Products\DeleteTests.cs" />
     <Compile Include="Products\GetTests.cs" />
     <Compile Include="Products\ReplaceTests.cs" />
     <Compile Include="Products\ScrollTests.cs" />

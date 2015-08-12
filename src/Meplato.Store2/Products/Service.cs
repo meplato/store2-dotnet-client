@@ -115,7 +115,7 @@ namespace Meplato.Store2.Products
 		}
 
 		/// <summary>
-		///     Get returns a single product.
+		///     Get returns a single product by its Supplier Part Number (SPN).
 		/// </summary>
 		public GetService Get() {
 			return new GetService(this);
@@ -575,12 +575,6 @@ namespace Meplato.Store2.Products
 	public class CreateProductResponse
 	{
 		#region CreateProductResponse
-
-		/// <summary>
-		///     ID is the identifier of the newly created product.
-		/// </summary>
-		[JsonProperty("id")]
-		public string Id { get; set; }
 
 		/// <summary>
 		///     Kind describes this entity.
@@ -1472,12 +1466,6 @@ namespace Meplato.Store2.Products
 		#region ReplaceProductResponse
 
 		/// <summary>
-		///     ID is the identifier of the replaced product.
-		/// </summary>
-		[JsonProperty("id")]
-		public string Id { get; set; }
-
-		/// <summary>
 		///     Kind describes this entity.
 		/// </summary>
 		[JsonProperty("kind")]
@@ -1967,12 +1955,6 @@ namespace Meplato.Store2.Products
 		#region UpdateProductResponse
 
 		/// <summary>
-		///     ID is the identifier of the updated product.
-		/// </summary>
-		[JsonProperty("id")]
-		public string Id { get; set; }
-
-		/// <summary>
 		///     Kind describes this entity.
 		/// </summary>
 		[JsonProperty("kind")]
@@ -2085,7 +2067,7 @@ namespace Meplato.Store2.Products
 
 		private string _pin;
 		private string _area;
-		private string _id;
+		private string _spn;
 
 		/// <summary>
 		///     Creates a new instance of DeleteService.
@@ -2105,20 +2087,20 @@ namespace Meplato.Store2.Products
 		}
 
 		/// <summary>
-		///     ID is the identifier of the product to delete.
-		/// </summary>
-		public DeleteService Id(string id)
-		{
-			_id = id;
-			return this;
-		}
-
-		/// <summary>
 		///     PIN of the catalog.
 		/// </summary>
 		public DeleteService Pin(string pin)
 		{
 			_pin = pin;
+			return this;
+		}
+
+		/// <summary>
+		///     SPN is the supplier part number of the product to delete.
+		/// </summary>
+		public DeleteService Spn(string spn)
+		{
+			_spn = spn;
 			return this;
 		}
 
@@ -2132,9 +2114,9 @@ namespace Meplato.Store2.Products
 			// UriTemplates package wants path parameters as strings
 			parameters["area"] = string.Format("{0}", _area);
 			// UriTemplates package wants path parameters as strings
-			parameters["id"] = string.Format("{0}", _id);
-			// UriTemplates package wants path parameters as strings
 			parameters["pin"] = string.Format("{0}", _pin);
+			// UriTemplates package wants path parameters as strings
+			parameters["spn"] = string.Format("{0}", _spn);
 
 			// Make a copy of the header parameters and set UA
 			var headers = new Dictionary<string, string>();
@@ -2144,7 +2126,7 @@ namespace Meplato.Store2.Products
 				headers["Authorization"] = authorization;
 			}
 
-			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/{id}";
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/{spn}";
 			await _service.Client.Execute(
 				HttpMethod.Delete,
 				uriTemplate,
@@ -2157,7 +2139,8 @@ namespace Meplato.Store2.Products
 	}
 
 	/// <summary>
-	///     GetService: Get returns a single product.
+	///     GetService: Get returns a single product by its Supplier Part
+	///     Number (SPN).
 	/// </summary>
 	public class GetService
 	{
@@ -2169,7 +2152,7 @@ namespace Meplato.Store2.Products
 
 		private string _pin;
 		private string _area;
-		private string _id;
+		private string _spn;
 
 		/// <summary>
 		///     Creates a new instance of GetService.
@@ -2189,20 +2172,20 @@ namespace Meplato.Store2.Products
 		}
 
 		/// <summary>
-		///     ID of the product to get.
-		/// </summary>
-		public GetService Id(string id)
-		{
-			_id = id;
-			return this;
-		}
-
-		/// <summary>
 		///     PIN of the catalog.
 		/// </summary>
 		public GetService Pin(string pin)
 		{
 			_pin = pin;
+			return this;
+		}
+
+		/// <summary>
+		///     SPN is the supplier part number of the product to get.
+		/// </summary>
+		public GetService Spn(string spn)
+		{
+			_spn = spn;
 			return this;
 		}
 
@@ -2216,9 +2199,9 @@ namespace Meplato.Store2.Products
 			// UriTemplates package wants path parameters as strings
 			parameters["area"] = string.Format("{0}", _area);
 			// UriTemplates package wants path parameters as strings
-			parameters["id"] = string.Format("{0}", _id);
-			// UriTemplates package wants path parameters as strings
 			parameters["pin"] = string.Format("{0}", _pin);
+			// UriTemplates package wants path parameters as strings
+			parameters["spn"] = string.Format("{0}", _spn);
 
 			// Make a copy of the header parameters and set UA
 			var headers = new Dictionary<string, string>();
@@ -2228,7 +2211,7 @@ namespace Meplato.Store2.Products
 				headers["Authorization"] = authorization;
 			}
 
-			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/{id}";
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/{spn}";
 			var response = await _service.Client.Execute(
 				HttpMethod.Get,
 				uriTemplate,
@@ -2255,7 +2238,7 @@ namespace Meplato.Store2.Products
 
 		private string _pin;
 		private string _area;
-		private string _id;
+		private string _spn;
 		private ReplaceProduct _product;
 
 		/// <summary>
@@ -2272,15 +2255,6 @@ namespace Meplato.Store2.Products
 		public ReplaceService Area(string area)
 		{
 			_area = area;
-			return this;
-		}
-
-		/// <summary>
-		///     ID is the identifier of the product to replace.
-		/// </summary>
-		public ReplaceService Id(string id)
-		{
-			_id = id;
 			return this;
 		}
 
@@ -2303,6 +2277,15 @@ namespace Meplato.Store2.Products
 		}
 
 		/// <summary>
+		///     SPN is the supplier part number of the product to replace.
+		/// </summary>
+		public ReplaceService Spn(string spn)
+		{
+			_spn = spn;
+			return this;
+		}
+
+		/// <summary>
 		///     Execute the operation.
 		/// </summary>
 		public async Task<ReplaceProductResponse> Do()
@@ -2312,9 +2295,9 @@ namespace Meplato.Store2.Products
 			// UriTemplates package wants path parameters as strings
 			parameters["area"] = string.Format("{0}", _area);
 			// UriTemplates package wants path parameters as strings
-			parameters["id"] = string.Format("{0}", _id);
-			// UriTemplates package wants path parameters as strings
 			parameters["pin"] = string.Format("{0}", _pin);
+			// UriTemplates package wants path parameters as strings
+			parameters["spn"] = string.Format("{0}", _spn);
 
 			// Make a copy of the header parameters and set UA
 			var headers = new Dictionary<string, string>();
@@ -2324,7 +2307,7 @@ namespace Meplato.Store2.Products
 				headers["Authorization"] = authorization;
 			}
 
-			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/{id}";
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/{spn}";
 			var response = await _service.Client.Execute(
 				HttpMethod.Put,
 				uriTemplate,
@@ -2566,7 +2549,7 @@ namespace Meplato.Store2.Products
 
 		private string _pin;
 		private string _area;
-		private string _id;
+		private string _spn;
 		private UpdateProduct _product;
 
 		/// <summary>
@@ -2583,15 +2566,6 @@ namespace Meplato.Store2.Products
 		public UpdateService Area(string area)
 		{
 			_area = area;
-			return this;
-		}
-
-		/// <summary>
-		///     ID is the identifier of the product to update.
-		/// </summary>
-		public UpdateService Id(string id)
-		{
-			_id = id;
 			return this;
 		}
 
@@ -2614,6 +2588,15 @@ namespace Meplato.Store2.Products
 		}
 
 		/// <summary>
+		///     SPN is the supplier part number of the product to update.
+		/// </summary>
+		public UpdateService Spn(string spn)
+		{
+			_spn = spn;
+			return this;
+		}
+
+		/// <summary>
 		///     Execute the operation.
 		/// </summary>
 		public async Task<UpdateProductResponse> Do()
@@ -2623,9 +2606,9 @@ namespace Meplato.Store2.Products
 			// UriTemplates package wants path parameters as strings
 			parameters["area"] = string.Format("{0}", _area);
 			// UriTemplates package wants path parameters as strings
-			parameters["id"] = string.Format("{0}", _id);
-			// UriTemplates package wants path parameters as strings
 			parameters["pin"] = string.Format("{0}", _pin);
+			// UriTemplates package wants path parameters as strings
+			parameters["spn"] = string.Format("{0}", _spn);
 
 			// Make a copy of the header parameters and set UA
 			var headers = new Dictionary<string, string>();
@@ -2635,7 +2618,7 @@ namespace Meplato.Store2.Products
 				headers["Authorization"] = authorization;
 			}
 
-			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/{id}";
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/{spn}";
 			var response = await _service.Client.Execute(
 				HttpMethod.Post,
 				uriTemplate,
