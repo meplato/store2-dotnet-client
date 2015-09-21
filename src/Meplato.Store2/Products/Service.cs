@@ -185,7 +185,7 @@ namespace Meplato.Store2.Products
 		///     updated. 
 		/// </summary>
 		[JsonProperty("updated")]
-		public DateTimeOffset? Updated { get; set; }
+		public string Updated { get; set; }
 
 		#endregion // Availability
 	}
