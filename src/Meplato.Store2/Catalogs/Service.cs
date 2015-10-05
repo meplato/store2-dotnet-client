@@ -17,7 +17,7 @@
 // The file implements the Meplato Store 2 API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.0.beta2
+// Version: 2.0.0.beta3
 // License: Copyright (c) 2015 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store 2 API";
-		public const string Version = "2.0.0.beta2";
+		public const string Version = "2.0.0.beta3";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store2.meplato.com/api/v2";
 
@@ -119,6 +119,15 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		public PublishStatusService PublishStatus() {
 			return new PublishStatusService(this);
+		}
+
+		/// <summary>
+		///     Purge the work or live area of a catalog, i.e. remove all
+		///     products in the given area, but do not delete the catalog
+		///     itself.
+		/// </summary>
+		public PurgeService Purge() {
+			return new PurgeService(this);
 		}
 
 		/// <summary>
@@ -389,6 +398,23 @@ namespace Meplato.Store2.Catalogs
 	}
 
 	/// <summary>
+	///     PurgeResponse is the response of the request to purge an area
+	///     of a catalog.
+	/// </summary>
+	public class PurgeResponse
+	{
+		#region PurgeResponse
+
+		/// <summary>
+		///     Kind is store#catalogPurge for this kind of response.
+		/// </summary>
+		[JsonProperty("kind")]
+		public string Kind { get; set; }
+
+		#endregion // PurgeResponse
+	}
+
+	/// <summary>
 	///     SearchResponse is a partial listing of catalogs.
 	/// </summary>
 	public class SearchResponse
@@ -617,6 +643,81 @@ namespace Meplato.Store2.Catalogs
 		}
 
 		#endregion // PublishStatusService
+	}
+
+	/// <summary>
+	///     PurgeService: Purge the work or live area of a catalog, i.e.
+	///     remove all products in the given area, but do not delete the
+	///     catalog itself.
+	/// </summary>
+	public class PurgeService
+	{
+		#region PurgeService
+
+		private readonly Service _service;
+		private readonly IDictionary<string, object> _opt = new Dictionary<string, object>();
+		private readonly IDictionary<string, string> _hdr = new Dictionary<string, string>();
+
+		private string _pin;
+		private string _area;
+
+		/// <summary>
+		///     Creates a new instance of PurgeService.
+		/// </summary>
+		public PurgeService(Service service)
+		{
+			_service = service;
+		}
+
+		/// <summary>
+		///     Area of the catalog to purge, i.e. work or live.
+		/// </summary>
+		public PurgeService Area(string area)
+		{
+			_area = area;
+			return this;
+		}
+
+		/// <summary>
+		///     PIN of the catalog to purge.
+		/// </summary>
+		public PurgeService Pin(string pin)
+		{
+			_pin = pin;
+			return this;
+		}
+
+		/// <summary>
+		///     Execute the operation.
+		/// </summary>
+		public async Task<PurgeResponse> Do()
+			{
+			// Make a copy of the parameters and add the path parameters to it
+			var parameters = new Dictionary<string, object>();
+			// UriTemplates package wants path parameters as strings
+			parameters["area"] = string.Format("{0}", _area);
+			// UriTemplates package wants path parameters as strings
+			parameters["pin"] = string.Format("{0}", _pin);
+
+			// Make a copy of the header parameters and set UA
+			var headers = new Dictionary<string, string>();
+			string authorization = _service.GetAuthorizationHeader();
+			if (!string.IsNullOrEmpty(authorization))
+			{
+				headers["Authorization"] = authorization;
+			}
+
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}";
+			var response = await _service.Client.Execute(
+				HttpMethod.Delete,
+				uriTemplate,
+				parameters,
+				headers,
+				null);
+			return response.GetBodyJSON<PurgeResponse>();
+		}
+
+		#endregion // PurgeService
 	}
 
 	/// <summary>

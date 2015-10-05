@@ -17,7 +17,7 @@
 // The file implements the Meplato Store 2 API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.0.beta2
+// Version: 2.0.0.beta3
 // License: Copyright (c) 2015 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Products
 	{
 		#region Service
 		public const string Title = "Meplato Store 2 API";
-		public const string Version = "2.0.0.beta2";
+		public const string Version = "2.0.0.beta3";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store2.meplato.com/api/v2";
 
@@ -154,6 +154,15 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		public UpdateService Update() {
 			return new UpdateService(this);
+		}
+
+		/// <summary>
+		///     Upsert a product in the given catalog and area. Upsert will
+		///     create if the product does not exist yet, otherwise it will
+		///     update.
+		/// </summary>
+		public UpsertService Upsert() {
+			return new UpsertService(this);
 		}
 		#endregion // Service
 	}
@@ -355,7 +364,7 @@ namespace Meplato.Store2.Products
 		public string Datasheet { get; set; }
 
 		/// <summary>
-		///     Description of the catalog.
+		///     Description of the product.
 		/// </summary>
 		[JsonProperty("description")]
 		public string Description { get; set; }
@@ -473,7 +482,7 @@ namespace Meplato.Store2.Products
 		public string Mpn { get; set; }
 
 		/// <summary>
-		///     Name of the catalog.
+		///     Name of the product.
 		/// </summary>
 		[JsonProperty("name")]
 		public string Name { get; set; }
@@ -840,7 +849,7 @@ namespace Meplato.Store2.Products
 		public string DatasheetURL { get; set; }
 
 		/// <summary>
-		///     Description of the catalog.
+		///     Description of the product.
 		/// </summary>
 		[JsonProperty("description")]
 		public string Description { get; set; }
@@ -995,7 +1004,7 @@ namespace Meplato.Store2.Products
 		public string Mpn { get; set; }
 
 		/// <summary>
-		///     Name of the catalog.
+		///     Name of the product.
 		/// </summary>
 		[JsonProperty("name")]
 		public string Name { get; set; }
@@ -1266,7 +1275,7 @@ namespace Meplato.Store2.Products
 		public string Datasheet { get; set; }
 
 		/// <summary>
-		///     Description of the catalog.
+		///     Description of the product.
 		/// </summary>
 		[JsonProperty("description")]
 		public string Description { get; set; }
@@ -1384,7 +1393,7 @@ namespace Meplato.Store2.Products
 		public string Mpn { get; set; }
 
 		/// <summary>
-		///     Name of the catalog.
+		///     Name of the product.
 		/// </summary>
 		[JsonProperty("name")]
 		public string Name { get; set; }
@@ -1763,7 +1772,7 @@ namespace Meplato.Store2.Products
 		public string Datasheet { get; set; }
 
 		/// <summary>
-		///     Description of the catalog.
+		///     Description of the product.
 		/// </summary>
 		[JsonProperty("description")]
 		public string Description { get; set; }
@@ -1881,7 +1890,7 @@ namespace Meplato.Store2.Products
 		public string Mpn { get; set; }
 
 		/// <summary>
-		///     Name of the catalog.
+		///     Name of the product.
 		/// </summary>
 		[JsonProperty("name")]
 		public string Name { get; set; }
@@ -2000,6 +2009,357 @@ namespace Meplato.Store2.Products
 		public string Link { get; set; }
 
 		#endregion // UpdateProductResponse
+	}
+
+	/// <summary>
+	///     UpsertProduct holds the properties of the product to create or
+	///     update.
+	/// </summary>
+	public class UpsertProduct
+	{
+		#region UpsertProduct
+
+		/// <summary>
+		///     Availability allows the update of product availability data,
+		///     e.g. the number of items in stock or the date when the product
+		///     will be available again. 
+		/// </summary>
+		[JsonProperty("availability")]
+		public Availability Availability { get; set; }
+
+		/// <summary>
+		///     Blobs specifies external data, e.g. images or datasheets.
+		/// </summary>
+		[JsonProperty("blobs")]
+		public Blob[] Blobs { get; set; }
+
+		/// <summary>
+		///     BPN is the buyer part number of the product.
+		/// </summary>
+		[JsonProperty("bpn")]
+		public string Bpn { get; set; }
+
+		/// <summary>
+		///     Categories is a list of (supplier-specific) category names the
+		///     product belongs to.
+		/// </summary>
+		[JsonProperty("categories")]
+		public string[] Categories { get; set; }
+
+		/// <summary>
+		///     Conditions describes the product conditions, e.g. refurbished
+		///     or used.
+		/// </summary>
+		[JsonProperty("conditions")]
+		public Condition[] Conditions { get; set; }
+
+		/// <summary>
+		///     ContentUnit is the content unit of the product, a 3-character
+		///     ISO code (usually project-specific).
+		/// </summary>
+		[JsonProperty("cu")]
+		public string ContentUnit { get; set; }
+
+		/// <summary>
+		///     CuPerOu describes the number of content units per order unit,
+		///     e.g. the 12 in '1 case contains 12 bottles'.
+		/// </summary>
+		[JsonProperty("cuPerOu")]
+		public double? CuPerOu { get; set; }
+
+		/// <summary>
+		///     CustField1 is the CUST_FIELD1 of the SAP OCI specification. It
+		///     has a maximum length of 10 characters. 
+		/// </summary>
+		[JsonProperty("custField1")]
+		public string CustField1 { get; set; }
+
+		/// <summary>
+		///     CustField2 is the CUST_FIELD2 of the SAP OCI specification. It
+		///     has a maximum length of 10 characters. 
+		/// </summary>
+		[JsonProperty("custField2")]
+		public string CustField2 { get; set; }
+
+		/// <summary>
+		///     CustField3 is the CUST_FIELD3 of the SAP OCI specification. It
+		///     has a maximum length of 10 characters. 
+		/// </summary>
+		[JsonProperty("custField3")]
+		public string CustField3 { get; set; }
+
+		/// <summary>
+		///     CustField4 is the CUST_FIELD4 of the SAP OCI specification. It
+		///     has a maximum length of 20 characters. 
+		/// </summary>
+		[JsonProperty("custField4")]
+		public string CustField4 { get; set; }
+
+		/// <summary>
+		///     CustField5 is the CUST_FIELD5 of the SAP OCI specification. It
+		///     has a maximum length of 50 characters. 
+		/// </summary>
+		[JsonProperty("custField5")]
+		public string CustField5 { get; set; }
+
+		/// <summary>
+		///     CustFields is an array of generic name/value pairs for
+		///     customer-specific attributes.
+		/// </summary>
+		[JsonProperty("custFields")]
+		public CustField[] CustFields { get; set; }
+
+		/// <summary>
+		///     Datasheet is the name of an datasheet file (in the media files)
+		///     or a URL to the datasheet on the internet.
+		/// </summary>
+		[JsonProperty("datasheet")]
+		public string Datasheet { get; set; }
+
+		/// <summary>
+		///     Description of the product.
+		/// </summary>
+		[JsonProperty("description")]
+		public string Description { get; set; }
+
+		/// <summary>
+		///     Eclasses is a list of eCl@ss categories the product belongs to.
+		/// </summary>
+		[JsonProperty("eclasses")]
+		public Eclass[] Eclasses { get; set; }
+
+		/// <summary>
+		///     erpGroupSupplier is the material group of the product on the
+		///     merchant-/supplier-side.
+		/// </summary>
+		[JsonProperty("erpGroupSupplier")]
+		public string ErpGroupSupplier { get; set; }
+
+		/// <summary>
+		///     Excluded is a flag that indicates whether to exclude this
+		///     product from the catalog. If true, this product will not be
+		///     published into the live area.
+		/// </summary>
+		[JsonProperty("excluded")]
+		public bool Excluded { get; set; }
+
+		/// <summary>
+		///     ExtCategory is the EXT_CATEGORY field of the SAP OCI
+		///     specification.
+		/// </summary>
+		[JsonProperty("extCategory")]
+		public string ExtCategory { get; set; }
+
+		/// <summary>
+		///     ExtCategoryID is the EXT_CATEGORY_ID field of the SAP OCI
+		///     specification.
+		/// </summary>
+		[JsonProperty("extCategoryId")]
+		public string ExtCategoryId { get; set; }
+
+		/// <summary>
+		///     ExtSchemaType is the EXT_SCHEMA_TYPE field of the SAP OCI
+		///     specification.
+		/// </summary>
+		[JsonProperty("extSchemaType")]
+		public string ExtSchemaType { get; set; }
+
+		/// <summary>
+		///     Features defines product features, i.e. additional properties
+		///     of the product.
+		/// </summary>
+		[JsonProperty("features")]
+		public Feature[] Features { get; set; }
+
+		/// <summary>
+		///     GTIN is the global trade item number of the product (used to be
+		///     EAN).
+		/// </summary>
+		[JsonProperty("gtin")]
+		public string Gtin { get; set; }
+
+		/// <summary>
+		///     Hazmats classifies hazardous/dangerous goods.
+		/// </summary>
+		[JsonProperty("hazmats")]
+		public Hazmat[] Hazmats { get; set; }
+
+		/// <summary>
+		///     Image is the name of an image file (in the media files) or a
+		///     URL to the image on the internet.
+		/// </summary>
+		[JsonProperty("image")]
+		public string Image { get; set; }
+
+		/// <summary>
+		///     Keywords is a list of aliases for the product.
+		/// </summary>
+		[JsonProperty("keywords")]
+		public string[] Keywords { get; set; }
+
+		/// <summary>
+		///     Leadtime is the number of days for delivery.
+		/// </summary>
+		[JsonProperty("leadtime")]
+		public double? Leadtime { get; set; }
+
+		/// <summary>
+		///     ListPrice is the net list price of the product.
+		/// </summary>
+		[JsonProperty("listPrice")]
+		public double? ListPrice { get; set; }
+
+		/// <summary>
+		///     Manufactcode is the manufacturer code as used in the SAP OCI
+		///     specification.
+		/// </summary>
+		[JsonProperty("manufactcode")]
+		public string Manufactcode { get; set; }
+
+		/// <summary>
+		///     Manufacturer is the name of the manufacturer.
+		/// </summary>
+		[JsonProperty("manufacturer")]
+		public string Manufacturer { get; set; }
+
+		/// <summary>
+		///     Matgroup is the material group of the product on the buy-side.
+		/// </summary>
+		[JsonProperty("matgroup")]
+		public string Matgroup { get; set; }
+
+		/// <summary>
+		///     MPN is the manufacturer part number.
+		/// </summary>
+		[JsonProperty("mpn")]
+		public string Mpn { get; set; }
+
+		/// <summary>
+		///     Name of the product. The product name is a required field
+		/// </summary>
+		[JsonProperty("name")]
+		public string Name { get; set; }
+
+		/// <summary>
+		///     OrderUnit is the order unit of the product, a 3-character ISO
+		///     code (usually project-specific). OrderUnit is a required field.
+		/// </summary>
+		[JsonProperty("ou")]
+		public string OrderUnit { get; set; }
+
+		/// <summary>
+		///     Price is the net price (per order unit) of the product for the
+		///     end-user. Price is a required field.
+		/// </summary>
+		[JsonProperty("price")]
+		public double Price { get; set; }
+
+		/// <summary>
+		///     PriceQty is the quantity for which the price is specified
+		///     (default: 1.0).
+		/// </summary>
+		[JsonProperty("priceQty")]
+		public double? PriceQty { get; set; }
+
+		/// <summary>
+		///     QuantityInterval is the interval in which this product can be
+		///     ordered. E.g. if the quantity interval is 5, the end-user can
+		///     only order in quantities of 5,10,15 etc. 
+		/// </summary>
+		[JsonProperty("quantityInterval")]
+		public double? QuantityInterval { get; set; }
+
+		/// <summary>
+		///     QuantityMax is the maximum order quantity for this product.
+		/// </summary>
+		[JsonProperty("quantityMax")]
+		public double? QuantityMax { get; set; }
+
+		/// <summary>
+		///     QuantityMin is the minimum order quantity for this product.
+		/// </summary>
+		[JsonProperty("quantityMin")]
+		public double? QuantityMin { get; set; }
+
+		/// <summary>
+		///     References defines cross-product references, e.g. alternatives
+		///     or follow-up products.
+		/// </summary>
+		[JsonProperty("references")]
+		public Reference[] References { get; set; }
+
+		/// <summary>
+		///     Safetysheet is the name of an safetysheet file (in the media
+		///     files) or a URL to the safetysheet on the internet.
+		/// </summary>
+		[JsonProperty("safetysheet")]
+		public string Safetysheet { get; set; }
+
+		/// <summary>
+		///     ScalePrices can be used when the price of the product is
+		///     dependent on the ordered quantity.
+		/// </summary>
+		[JsonProperty("scalePrices")]
+		public ScalePrice[] ScalePrices { get; set; }
+
+		/// <summary>
+		///     Service indicates if the is a good (false) or a service (true).
+		///     The default value is false.
+		/// </summary>
+		[JsonProperty("service")]
+		public bool Service { get; set; }
+
+		/// <summary>
+		///     SPN is the supplier part number. SPN is a required field.
+		/// </summary>
+		[JsonProperty("spn")]
+		public string Spn { get; set; }
+
+		/// <summary>
+		///     TaxCode to use for this product. This is typically
+		///     project-specific.
+		/// </summary>
+		[JsonProperty("taxCode")]
+		public string TaxCode { get; set; }
+
+		/// <summary>
+		///     Thumbnail is the name of an thumbnail image file (in the media
+		///     files) or a URL to the image on the internet.
+		/// </summary>
+		[JsonProperty("thumbnail")]
+		public string Thumbnail { get; set; }
+
+		/// <summary>
+		///     Unspscs is a list of UNSPSC categories the product belongs to.
+		/// </summary>
+		[JsonProperty("unspscs")]
+		public Unspsc[] Unspscs { get; set; }
+
+		#endregion // UpsertProduct
+	}
+
+	/// <summary>
+	///     UpsertProductResponse is the outcome of a successful request to
+	///     upsert a product.
+	/// </summary>
+	public class UpsertProductResponse
+	{
+		#region UpsertProductResponse
+
+		/// <summary>
+		///     Kind describes this entity.
+		/// </summary>
+		[JsonProperty("kind")]
+		public string Kind { get; set; }
+
+		/// <summary>
+		///     Link returns a URL to the representation of the created or
+		///     updated product.
+		/// </summary>
+		[JsonProperty("link")]
+		public string Link { get; set; }
+
+		#endregion // UpsertProductResponse
 	}
 
 	/// <summary>
@@ -2661,6 +3021,91 @@ namespace Meplato.Store2.Products
 		}
 
 		#endregion // UpdateService
+	}
+
+	/// <summary>
+	///     UpsertService: Upsert a product in the given catalog and area.
+	///     Upsert will create if the product does not exist yet, otherwise
+	///     it will update.
+	/// </summary>
+	public class UpsertService
+	{
+		#region UpsertService
+
+		private readonly Service _service;
+		private readonly IDictionary<string, object> _opt = new Dictionary<string, object>();
+		private readonly IDictionary<string, string> _hdr = new Dictionary<string, string>();
+
+		private string _pin;
+		private string _area;
+		private UpsertProduct _product;
+
+		/// <summary>
+		///     Creates a new instance of UpsertService.
+		/// </summary>
+		public UpsertService(Service service)
+		{
+			_service = service;
+		}
+
+		/// <summary>
+		///     Area of the catalog, e.g. work or live.
+		/// </summary>
+		public UpsertService Area(string area)
+		{
+			_area = area;
+			return this;
+		}
+
+		/// <summary>
+		///     PIN of the catalog.
+		/// </summary>
+		public UpsertService Pin(string pin)
+		{
+			_pin = pin;
+			return this;
+		}
+
+		/// <summary>
+		///     Product properties of the new product.
+		/// </summary>
+		public UpsertService Product(UpsertProduct product)
+		{
+			_product = product;
+			return this;
+		}
+
+		/// <summary>
+		///     Execute the operation.
+		/// </summary>
+		public async Task<UpsertProductResponse> Do()
+			{
+			// Make a copy of the parameters and add the path parameters to it
+			var parameters = new Dictionary<string, object>();
+			// UriTemplates package wants path parameters as strings
+			parameters["area"] = string.Format("{0}", _area);
+			// UriTemplates package wants path parameters as strings
+			parameters["pin"] = string.Format("{0}", _pin);
+
+			// Make a copy of the header parameters and set UA
+			var headers = new Dictionary<string, string>();
+			string authorization = _service.GetAuthorizationHeader();
+			if (!string.IsNullOrEmpty(authorization))
+			{
+				headers["Authorization"] = authorization;
+			}
+
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/upsert";
+			var response = await _service.Client.Execute(
+				HttpMethod.Post,
+				uriTemplate,
+				parameters,
+				headers,
+				_product);
+			return response.GetBodyJSON<UpsertProductResponse>();
+		}
+
+		#endregion // UpsertService
 	}
 }
 
