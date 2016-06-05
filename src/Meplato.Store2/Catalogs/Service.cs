@@ -1,5 +1,5 @@
 #region Copyright and terms of services
-// Copyright (c) 2015 Meplato GmbH, Switzerland.
+// Copyright (c) 2015-2016 Meplato GmbH, Switzerland.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
 // in compliance with the License. You may obtain a copy of the License at
@@ -17,8 +17,8 @@
 // The file implements the Meplato Store 2 API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.0.beta3
-// License: Copyright (c) 2015 Meplato GmbH, Switzerland. All rights reserved.
+// Version: 2.0.0.beta5
+// License: Copyright (c) 2015-2016 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
 
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store 2 API";
-		public const string Version = "2.0.0.beta3";
+		public const string Version = "2.0.0.beta5";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store2.meplato.com/api/v2";
 
@@ -174,6 +174,13 @@ namespace Meplato.Store2.Catalogs
 		public string ErpNumberBuyer { get; set; }
 
 		/// <summary>
+		///     HubURL represents the Meplato Hub URL for this catalog, e.g.
+		///     https://hub.meplato.de/forward/12345/shop
+		/// </summary>
+		[JsonProperty("hubUrl")]
+		public string HubUrl { get; set; }
+
+		/// <summary>
 		///     ID is a unique (internal) identifier of the catalog.
 		/// </summary>
 		[JsonProperty("id")]
@@ -237,6 +244,14 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("numProductsWork")]
 		public long? NumProductsWork { get; set; }
+
+		/// <summary>
+		///     OciURL represents the OCI punchout URL that the supplier
+		///     specified for this catalog, e.g.
+		///     https://my-shop.com/oci?param1=a
+		/// </summary>
+		[JsonProperty("ociUrl")]
+		public string OciUrl { get; set; }
 
 		/// <summary>
 		///     PIN of the catalog.

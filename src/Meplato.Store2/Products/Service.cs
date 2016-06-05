@@ -1,5 +1,5 @@
 #region Copyright and terms of services
-// Copyright (c) 2015 Meplato GmbH, Switzerland.
+// Copyright (c) 2015-2016 Meplato GmbH, Switzerland.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
 // in compliance with the License. You may obtain a copy of the License at
@@ -17,8 +17,8 @@
 // The file implements the Meplato Store 2 API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.0.beta3
-// License: Copyright (c) 2015 Meplato GmbH, Switzerland. All rights reserved.
+// Version: 2.0.0.beta5
+// License: Copyright (c) 2015-2016 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
 
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Products
 	{
 		#region Service
 		public const string Title = "Meplato Store 2 API";
-		public const string Version = "2.0.0.beta3";
+		public const string Version = "2.0.0.beta5";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store2.meplato.com/api/v2";
 
@@ -287,6 +287,13 @@ namespace Meplato.Store2.Products
 		public string Bpn { get; set; }
 
 		/// <summary>
+		///     CatalogManaged is a flag that indicates whether this product is
+		///     configurable (or catalog managed in OCI parlance).
+		/// </summary>
+		[JsonProperty("catalogManaged")]
+		public bool CatalogManaged { get; set; }
+
+		/// <summary>
 		///     Categories is a list of (supplier-specific) category names the
 		///     product belongs to.
 		/// </summary>
@@ -403,6 +410,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("extCategoryId")]
 		public string ExtCategoryId { get; set; }
+
+		/// <summary>
+		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
+		///     specification. It is e.g. required for configurable/catalog
+		///     managed products.
+		/// </summary>
+		[JsonProperty("extProductId")]
+		public string ExtProductId { get; set; }
 
 		/// <summary>
 		///     ExtSchemaType is the EXT_SCHEMA_TYPE field of the SAP OCI
@@ -753,6 +768,13 @@ namespace Meplato.Store2.Products
 		public long CatalogId { get; set; }
 
 		/// <summary>
+		///     CatalogManaged is a flag that indicates whether this product is
+		///     configurable (or catalog managed in OCI parlance).
+		/// </summary>
+		[JsonProperty("catalogManaged")]
+		public bool CatalogManaged { get; set; }
+
+		/// <summary>
 		///     Categories is a list of (supplier-specific) category names the
 		///     product belongs to.
 		/// </summary>
@@ -891,7 +913,8 @@ namespace Meplato.Store2.Products
 
 		/// <summary>
 		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
-		///     specification.
+		///     specification. It is e.g. required for configurable/catalog
+		///     managed products.
 		/// </summary>
 		[JsonProperty("extProductId")]
 		public string ExtProductId { get; set; }
@@ -1198,6 +1221,13 @@ namespace Meplato.Store2.Products
 		public string Bpn { get; set; }
 
 		/// <summary>
+		///     CatalogManaged is a flag that indicates whether this product is
+		///     configurable (or catalog managed in OCI parlance).
+		/// </summary>
+		[JsonProperty("catalogManaged")]
+		public bool CatalogManaged { get; set; }
+
+		/// <summary>
 		///     Categories is a list of (supplier-specific) category names the
 		///     product belongs to.
 		/// </summary>
@@ -1314,6 +1344,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("extCategoryId")]
 		public string ExtCategoryId { get; set; }
+
+		/// <summary>
+		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
+		///     specification. It is e.g. required for configurable/catalog
+		///     managed products.
+		/// </summary>
+		[JsonProperty("extProductId")]
+		public string ExtProductId { get; set; }
 
 		/// <summary>
 		///     ExtSchemaType is the EXT_SCHEMA_TYPE field of the SAP OCI
@@ -1695,6 +1733,13 @@ namespace Meplato.Store2.Products
 		public string Bpn { get; set; }
 
 		/// <summary>
+		///     CatalogManaged is a flag that indicates whether this product is
+		///     configurable (or catalog managed in OCI parlance).
+		/// </summary>
+		[JsonProperty("catalogManaged")]
+		public bool? CatalogManaged { get; set; }
+
+		/// <summary>
 		///     Categories is a list of (supplier-specific) category names the
 		///     product belongs to.
 		/// </summary>
@@ -1811,6 +1856,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("extCategoryId")]
 		public string ExtCategoryId { get; set; }
+
+		/// <summary>
+		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
+		///     specification. It is e.g. required for configurable/catalog
+		///     managed products.
+		/// </summary>
+		[JsonProperty("extProductId")]
+		public string ExtProductId { get; set; }
 
 		/// <summary>
 		///     ExtSchemaType is the EXT_SCHEMA_TYPE field of the SAP OCI
@@ -2040,6 +2093,13 @@ namespace Meplato.Store2.Products
 		public string Bpn { get; set; }
 
 		/// <summary>
+		///     CatalogManaged is a flag that indicates whether this product is
+		///     configurable (or catalog managed in OCI parlance).
+		/// </summary>
+		[JsonProperty("catalogManaged")]
+		public bool CatalogManaged { get; set; }
+
+		/// <summary>
 		///     Categories is a list of (supplier-specific) category names the
 		///     product belongs to.
 		/// </summary>
@@ -2156,6 +2216,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("extCategoryId")]
 		public string ExtCategoryId { get; set; }
+
+		/// <summary>
+		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
+		///     specification. It is e.g. required for configurable/catalog
+		///     managed products.
+		/// </summary>
+		[JsonProperty("extProductId")]
+		public string ExtProductId { get; set; }
 
 		/// <summary>
 		///     ExtSchemaType is the EXT_SCHEMA_TYPE field of the SAP OCI
