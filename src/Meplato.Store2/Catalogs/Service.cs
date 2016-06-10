@@ -17,7 +17,7 @@
 // The file implements the Meplato Store 2 API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.0.beta5
+// Version: 2.0.0.beta6
 // License: Copyright (c) 2015-2016 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store 2 API";
-		public const string Version = "2.0.0.beta5";
+		public const string Version = "2.0.0.beta6";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store2.meplato.com/api/v2";
 
@@ -148,6 +148,13 @@ namespace Meplato.Store2.Catalogs
 		#region Catalog
 
 		/// <summary>
+		///     Country is the ISO-3166 alpha-2 code for the country that the
+		///     catalog is destined for (e.g. DE or US).
+		/// </summary>
+		[JsonProperty("country")]
+		public string Country { get; set; }
+
+		/// <summary>
 		///     Created is the creation date and time of the catalog.
 		/// </summary>
 		[JsonProperty("created")]
@@ -155,7 +162,7 @@ namespace Meplato.Store2.Catalogs
 
 		/// <summary>
 		///     Currency is the ISO-4217 currency code that is used for all
-		///     products in the catalog.
+		///     products in the catalog (e.g. EUR or USD).
 		/// </summary>
 		[JsonProperty("currency")]
 		public string Currency { get; set; }
@@ -194,7 +201,7 @@ namespace Meplato.Store2.Catalogs
 
 		/// <summary>
 		///     Language is the IETF language tag of the language of all
-		///     products in the catalog.
+		///     products in the catalog (e.g. de or pt-BR).
 		/// </summary>
 		[JsonProperty("language")]
 		public string Language { get; set; }
@@ -266,6 +273,12 @@ namespace Meplato.Store2.Catalogs
 		public long ProjectId { get; set; }
 
 		/// <summary>
+		///     Name of the project.
+		/// </summary>
+		[JsonProperty("projectName")]
+		public string ProjectName { get; set; }
+
+		/// <summary>
 		///     PublishedVersion is the version number of the published
 		///     catalog. It is incremented when the publish task publishes the
 		///     catalog.
@@ -298,13 +311,14 @@ namespace Meplato.Store2.Catalogs
 		public DateTimeOffset? Updated { get; set; }
 
 		/// <summary>
-		///     ValidFrom is the date the catalog becomes effective.
+		///     ValidFrom is the date the catalog becomes effective
+		///     (YYYY-MM-DD).
 		/// </summary>
 		[JsonProperty("validFrom")]
 		public string ValidFrom { get; set; }
 
 		/// <summary>
-		///     ValidUntil is the date the catalog expires.
+		///     ValidUntil is the date the catalog expires (YYYY-MM-DD).
 		/// </summary>
 		[JsonProperty("validUntil")]
 		public string ValidUntil { get; set; }
