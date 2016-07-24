@@ -221,6 +221,13 @@ namespace Meplato.Store2.Catalogs
 		public DateTimeOffset? LastPublished { get; set; }
 
 		/// <summary>
+		///     LockedForDownload indicates whether a catalog is locked and
+		///     cannot be downloaded.
+		/// </summary>
+		[JsonProperty("lockedForDownload")]
+		public bool LockedForDownload { get; set; }
+
+		/// <summary>
 		///     ID of the merchant.
 		/// </summary>
 		[JsonProperty("merchantId")]
@@ -285,6 +292,20 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("publishedVersion")]
 		public long? PublishedVersion { get; set; }
+
+		/// <summary>
+		///     SageContract represents the internal identifier at Meplato for
+		///     the contract of this catalog.
+		/// </summary>
+		[JsonProperty("sageContract")]
+		public string SageContract { get; set; }
+
+		/// <summary>
+		///     SageNumber represents the internal identifier at Meplato for
+		///     the merchant of this catalog.
+		/// </summary>
+		[JsonProperty("sageNumber")]
+		public string SageNumber { get; set; }
 
 		/// <summary>
 		///     URL to this page.
