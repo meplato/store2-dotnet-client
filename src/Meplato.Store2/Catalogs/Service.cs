@@ -17,7 +17,7 @@
 // The file implements the Meplato Store 2 API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.0.beta6
+// Version: 2.0.0.beta8
 // License: Copyright (c) 2015-2016 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store 2 API";
-		public const string Version = "2.0.0.beta6";
+		public const string Version = "2.0.0.beta8";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store2.meplato.com/api/v2";
 
@@ -324,6 +324,55 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("state")]
 		public string State { get; set; }
+
+		/// <summary>
+		///     SupportsOciBackgroundsearch indicates whether a catalog
+		///     supports the OCI BACKGROUNDSEARCH transaction.
+		/// </summary>
+		[JsonProperty("supportsOciBackgroundsearch")]
+		public bool SupportsOciBackgroundsearch { get; set; }
+
+		/// <summary>
+		///     SupportsOciDetail indicates whether a catalog supports the OCI
+		///     DETAIL transaction.
+		/// </summary>
+		[JsonProperty("supportsOciDetail")]
+		public bool SupportsOciDetail { get; set; }
+
+		/// <summary>
+		///     SupportsOciDetailadd indicates whether a catalog supports the
+		///     OCI DETAILADD transaction.
+		/// </summary>
+		[JsonProperty("supportsOciDetailadd")]
+		public bool SupportsOciDetailadd { get; set; }
+
+		/// <summary>
+		///     SupportsOciDownloadjson indicates whether a catalog supports
+		///     the OCI DOWNLOADJSON transaction.
+		/// </summary>
+		[JsonProperty("supportsOciDownloadjson")]
+		public bool SupportsOciDownloadjson { get; set; }
+
+		/// <summary>
+		///     SupportsOciQuantitycheck indicates whether a catalog supports
+		///     the OCI QUANTITYCHECK transaction.
+		/// </summary>
+		[JsonProperty("supportsOciQuantitycheck")]
+		public bool SupportsOciQuantitycheck { get; set; }
+
+		/// <summary>
+		///     SupportsOciSourcing indicates whether a catalog supports the
+		///     OCI SOURCING transaction.
+		/// </summary>
+		[JsonProperty("supportsOciSourcing")]
+		public bool SupportsOciSourcing { get; set; }
+
+		/// <summary>
+		///     SupportsOciValidate indicates whether a catalog supports the
+		///     OCI VALIDATE transaction.
+		/// </summary>
+		[JsonProperty("supportsOciValidate")]
+		public bool SupportsOciValidate { get; set; }
 
 		/// <summary>
 		///     Updated is the last modification date and time of the catalog.
