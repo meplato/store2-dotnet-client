@@ -17,7 +17,7 @@
 // The file implements the Meplato Store 2 API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.0.beta8
+// Version: 2.0.0.beta9
 // License: Copyright (c) 2015-2016 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store 2 API";
-		public const string Version = "2.0.0.beta8";
+		public const string Version = "2.0.0.beta9";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store2.meplato.com/api/v2";
 
@@ -194,6 +194,13 @@ namespace Meplato.Store2.Catalogs
 		public long Id { get; set; }
 
 		/// <summary>
+		///     KeepOriginalBlobs indicates whether the URLs in a blob will be
+		///     passed through and not cached by Store.
+		/// </summary>
+		[JsonProperty("keepOriginalBlobs")]
+		public bool KeepOriginalBlobs { get; set; }
+
+		/// <summary>
 		///     Kind is store#catalog for a catalog entity.
 		/// </summary>
 		[JsonProperty("kind")]
@@ -272,6 +279,12 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("pin")]
 		public string Pin { get; set; }
+
+		/// <summary>
+		///     Project references the project that this catalog belongs to.
+		/// </summary>
+		[JsonProperty("project")]
+		public Project Project { get; set; }
 
 		/// <summary>
 		///     ID of the project.
@@ -394,6 +407,94 @@ namespace Meplato.Store2.Catalogs
 		public string ValidUntil { get; set; }
 
 		#endregion // Catalog
+	}
+
+	/// <summary>
+	///     Project describes customer-specific settings, typically
+	///     encompassing a set of catalogs.
+	/// </summary>
+	public class Project
+	{
+		#region Project
+
+		/// <summary>
+		///     Country specifies the country code where catalogs for this
+		///     project are located.
+		/// </summary>
+		[JsonProperty("country")]
+		public string Country { get; set; }
+
+		/// <summary>
+		///     Created is the creation date and time of the project.
+		/// </summary>
+		[JsonProperty("created")]
+		public DateTimeOffset? Created { get; set; }
+
+		/// <summary>
+		///     ID is a unique (internal) identifier of the project.
+		/// </summary>
+		[JsonProperty("id")]
+		public long Id { get; set; }
+
+		/// <summary>
+		///     Kind is store#project for a project entity.
+		/// </summary>
+		[JsonProperty("kind")]
+		public string Kind { get; set; }
+
+		/// <summary>
+		///     Language specifies the language code of the catalogs of this
+		///     project.
+		/// </summary>
+		[JsonProperty("language")]
+		public string Language { get; set; }
+
+		/// <summary>
+		///     MPBC is the Meplato Buyer Code that identifies a set of
+		///     buy-side companies that belong together.
+		/// </summary>
+		[JsonProperty("mpbc")]
+		public string Mpbc { get; set; }
+
+		/// <summary>
+		///     MPCC is the Meplato Company Code that uniquely identifies the
+		///     buy-side.
+		/// </summary>
+		[JsonProperty("mpcc")]
+		public string Mpcc { get; set; }
+
+		/// <summary>
+		///     Name is a short description of the project.
+		/// </summary>
+		[JsonProperty("name")]
+		public string Name { get; set; }
+
+		/// <summary>
+		///     URL to this page.
+		/// </summary>
+		[JsonProperty("selfLink")]
+		public string SelfLink { get; set; }
+
+		/// <summary>
+		///     Type describes the type of project which can be either
+		///     corporate or basic.
+		/// </summary>
+		[JsonProperty("type")]
+		public string Type { get; set; }
+
+		/// <summary>
+		///     Updated is the last modification date and time of the project.
+		/// </summary>
+		[JsonProperty("updated")]
+		public DateTimeOffset? Updated { get; set; }
+
+		/// <summary>
+		///     Visible indicates whether this project is visible to merchants.
+		/// </summary>
+		[JsonProperty("visible")]
+		public bool Visible { get; set; }
+
+		#endregion // Project
 	}
 
 	/// <summary>
