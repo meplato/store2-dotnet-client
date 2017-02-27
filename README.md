@@ -17,7 +17,7 @@ find it in the personalization section when logged into Meplato Store.
 
 ## Installation
 
-1. Open the solution in `.\src\Meplato.Store2.vs2013.sln`.
+1. Open the solution in `.\src\Meplato.Store2.vs2013.sln` (or `.\src\Meplato.Store2.vs2015.sln`).
 2. Build the solution.
 
 ## Using the library

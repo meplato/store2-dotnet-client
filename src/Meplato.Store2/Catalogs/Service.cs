@@ -14,11 +14,11 @@
 
 // THIS FILE IS AUTO-GENERATED. DO NOT MODIFY!
 
-// The file implements the Meplato Store 2 API.
+// The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.0.beta9
-// License: Copyright (c) 2015-2016 Meplato GmbH, Switzerland. All rights reserved.
+// Version: 2.0.0
+// License: Copyright (c) 2015-2017 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
 
@@ -33,16 +33,16 @@ using Meplato.Store2;
 namespace Meplato.Store2.Catalogs
 {
 	/// <summary>
-	///     The Meplato Store 2 API enables technical integration of
+	///     The Meplato Store API enables technical integration of
 	///     customers and partners. 
 	/// </summary>
 	public class Service
 	{
 		#region Service
-		public const string Title = "Meplato Store 2 API";
-		public const string Version = "2.0.0.beta9";
+		public const string Title = "Meplato Store API";
+		public const string Version = "2.0.0";
 		public const string UserAgent = "meplato-csharp-client/2.0";
-		public const string DefaultBaseURL = "https://store2.meplato.com/api/v2";
+		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
 		/// <summary>
 		///     Initializes a new <see cref="Service"/>.
