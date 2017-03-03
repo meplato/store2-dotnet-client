@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.0
+// Version: 2.0.1
 // License: Copyright (c) 2015-2017 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Products
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.0.0";
+		public const string Version = "2.0.1";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -3086,6 +3086,15 @@ namespace Meplato.Store2.Products
 		}
 
 		/// <summary>
+		///     Sort order, e.g. name, spn, id or -created (default: score).
+		/// </summary>
+		public SearchService Sort(string sort)
+		{
+			_opt["sort"] = sort;
+			return this;
+		}
+
+		/// <summary>
 		///     Take defines how many products to return (max 100, default 20).
 		/// </summary>
 		public SearchService Take(long take)
@@ -3115,6 +3124,11 @@ namespace Meplato.Store2.Products
 				// UriTemplates package wants query parameters as strings
 				parameters["skip"] = string.Format("{0}", _opt["skip"]);
 			}
+			if (_opt.ContainsKey("sort"))
+			{
+				// UriTemplates package wants query parameters as strings
+				parameters["sort"] = string.Format("{0}", _opt["sort"]);
+			}
 			if (_opt.ContainsKey("take"))
 			{
 				// UriTemplates package wants query parameters as strings
@@ -3129,7 +3143,7 @@ namespace Meplato.Store2.Products
 				headers["Authorization"] = authorization;
 			}
 
-			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products{?q,skip,take}";
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products{?q,skip,take,sort}";
 			var response = await _service.Client.Execute(
 				HttpMethod.Get,
 				uriTemplate,
