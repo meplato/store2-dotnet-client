@@ -30,17 +30,13 @@ namespace Meplato.Store2.Tests
             IDictionary<string, string> headers, object body)
         {
             if (Exception != null)
-            {
                 throw Exception;
-            }
 
             try
             {
                 var response = Response;
                 if (response.StatusCode >= 200 && response.StatusCode < 300)
-                {
                     return Task.FromResult(response);
-                }
                 throw ServiceException.FromResponse(response);
             }
             catch (ServiceException)

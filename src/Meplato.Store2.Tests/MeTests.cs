@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests
@@ -22,7 +23,7 @@ namespace Meplato.Store2.Tests
     public class MeTests : TestCase
     {
         [Test]
-        public async void TestMe()
+        public async Task TestMe()
         {
             MockFromFile("me.success");
 
@@ -35,15 +36,14 @@ namespace Meplato.Store2.Tests
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Unauthorized")]
-        public async void TestMeUnauthorized()
+        public void TestMeUnauthorized()
         {
             MockFromFile("me.unauthorized");
 
             var service = GetRootService();
             service.User = "";
             service.Password = "";
-            await service.Me().Do();
+            Assert.ThrowsAsync<ServiceException>(() => service.Me().Do());
         }
     }
 }

@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests.Catalogs
@@ -22,7 +23,7 @@ namespace Meplato.Store2.Tests.Catalogs
     public class GetTests : TestCase
     {
         [Test]
-        public async void TestGet()
+        public async Task TestGet()
         {
             MockFromFile("catalogs.get.success");
 
@@ -36,16 +37,14 @@ namespace Meplato.Store2.Tests.Catalogs
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Catalog not found")]
-        public async void TestGetNotFound()
+        public void TestGetNotFound()
         {
             MockFromFile("catalogs.get.not_found");
 
             var service = GetCatalogsService();
             Assert.NotNull(service);
 
-            var catalog = await service.Get().Pin("no-such-catalog").Do();
-            Assert.Null(catalog);
+            Assert.ThrowsAsync<ServiceException>(() => service.Get().Pin("no-such-catalog").Do());
         }
     }
 }

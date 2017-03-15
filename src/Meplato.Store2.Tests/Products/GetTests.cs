@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests.Products
@@ -22,7 +23,7 @@ namespace Meplato.Store2.Tests.Products
     public class GetTests : TestCase
     {
         [Test]
-        public async void TestGet()
+        public async Task TestGet()
         {
             MockFromFile("products.get.success");
 
@@ -31,11 +32,15 @@ namespace Meplato.Store2.Tests.Products
 
             var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Spn("50763599").Do();
             Assert.NotNull(product);
-            Assert.IsNotNullOrEmpty(product.Id);
-            Assert.IsNotNullOrEmpty(product.Spn);
-            Assert.IsNotNullOrEmpty(product.Name);
+            Assert.IsNotNull(product.Id);
+            Assert.IsNotEmpty(product.Id);
+            Assert.IsNotNull(product.Spn);
+            Assert.IsNotEmpty(product.Spn);
+            Assert.IsNotNull(product.Name);
+            Assert.IsNotEmpty(product.Name);
             Assert.Greater(product.Price, 0.0);
-            Assert.IsNotNullOrEmpty(product.OrderUnit);
+            Assert.IsNotNull(product.OrderUnit);
+            Assert.IsNotEmpty(product.OrderUnit);
             Assert.NotNull(product.Created);
             Assert.NotNull(product.Updated);
 
@@ -57,21 +62,19 @@ namespace Meplato.Store2.Tests.Products
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Product not found")]
-        public async void TestGetNotFound()
+        public void TestGetNotFound()
         {
             MockFromFile("products.get.not_found");
 
             var service = GetProductsService();
             Assert.NotNull(service);
 
-            var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do();
-            Assert.Null(product);
+            Assert.ThrowsAsync<ServiceException>(
+                () => service.Get().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do());
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Unauthorized")]
-        public async void TestGetUnauthorized()
+        public void TestGetUnauthorized()
         {
             MockFromFile("products.get.unauthorized");
 
@@ -80,8 +83,8 @@ namespace Meplato.Store2.Tests.Products
             service.User = "";
             service.Password = "";
 
-            var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do();
-            Assert.Null(product);
+            Assert.ThrowsAsync<ServiceException>(
+                () => service.Get().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do());
         }
     }
 }

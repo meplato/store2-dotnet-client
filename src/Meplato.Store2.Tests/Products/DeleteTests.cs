@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests.Products
@@ -22,26 +23,26 @@ namespace Meplato.Store2.Tests.Products
     public class DeleteTests : TestCase
     {
         [Test]
-        public async void TestDelete()
+        public async Task TestDelete()
         {
             MockFromFile("products.delete.success");
 
             var service = GetProductsService();
             Assert.NotNull(service);
 
-            service.Delete().Pin("AD8CCDD5F9").Area("work").Spn("50763599").Do();
+            await service.Delete().Pin("AD8CCDD5F9").Area("work").Spn("50763599").Do();
         }
 
         [Test]
-        [ExpectedException(typeof(ServiceException), ExpectedMessage = "Product not found")]
-        public async void TestGetNotFound()
+        public void TestGetNotFound()
         {
             MockFromFile("products.delete.not_found");
 
             var service = GetProductsService();
             Assert.NotNull(service);
 
-            service.Delete().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do();
+            Assert.ThrowsAsync<ServiceException>(
+                () => service.Delete().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do());
         }
     }
 }

@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests.Products
@@ -22,7 +23,7 @@ namespace Meplato.Store2.Tests.Products
     public class ScrollTests : TestCase
     {
         [Test]
-        public async void ScrollUpdate()
+        public async Task ScrollUpdate()
         {
             var service = GetProductsService();
             Assert.NotNull(service);
@@ -31,49 +32,59 @@ namespace Meplato.Store2.Tests.Products
             var response = await service.Scroll().Pin("AD8CCDD5F9").Area("work").Do();
             Assert.NotNull(response);
             Assert.AreEqual("store#products", response.Kind);
-            Assert.IsNotNullOrEmpty(response.PageToken);
+            Assert.IsNotNull(response.PageToken);
+            Assert.IsNotEmpty(response.PageToken);
             var pageToken = response.PageToken;
             Assert.IsTrue(response.TotalItems > 0);
             if (response.Items != null)
-            {
                 foreach (var product in response.Items)
                 {
                     Assert.NotNull(product);
-                    Assert.IsNotNullOrEmpty(product.Id);
-                    Assert.IsNotNullOrEmpty(product.Kind);
-                    Assert.IsNotNullOrEmpty(product.SelfLink);
-                    Assert.IsNotNullOrEmpty(product.Spn);
-                    Assert.IsNotNullOrEmpty(product.Name);
-                    Assert.IsNotNullOrEmpty(product.OrderUnit);
+                    Assert.IsNotNull(product.Id);
+                    Assert.IsNotEmpty(product.Id);
+                    Assert.IsNotNull(product.Kind);
+                    Assert.IsNotEmpty(product.Kind);
+                    Assert.IsNotNull(product.SelfLink);
+                    Assert.IsNotEmpty(product.SelfLink);
+                    Assert.IsNotNull(product.Spn);
+                    Assert.IsNotEmpty(product.Spn);
+                    Assert.IsNotNull(product.Name);
+                    Assert.IsNotEmpty(product.Name);
+                    Assert.IsNotNull(product.OrderUnit);
+                    Assert.IsNotEmpty(product.OrderUnit);
                     Assert.IsTrue(product.Price > 0);
                     Assert.NotNull(product.Created);
                     Assert.NotNull(product.Updated);
                 }
-            }
 
             MockFromFile("products.scroll.success.2");
             response = await service.Scroll().Pin("AD8CCDD5F9").Area("work").PageToken(pageToken).Do();
             Assert.NotNull(response);
             Assert.AreEqual("store#products", response.Kind);
-            Assert.IsNotNullOrEmpty(response.PageToken);
+            Assert.IsNotNull(response.PageToken);
+            Assert.IsNotEmpty(response.PageToken);
             Assert.IsTrue(response.TotalItems > 0);
             Assert.NotNull(response.Items);
             if (response.Items != null)
-            {
                 foreach (var product in response.Items)
                 {
                     Assert.NotNull(product);
-                    Assert.IsNotNullOrEmpty(product.Id);
-                    Assert.IsNotNullOrEmpty(product.Kind);
-                    Assert.IsNotNullOrEmpty(product.SelfLink);
-                    Assert.IsNotNullOrEmpty(product.Spn);
-                    Assert.IsNotNullOrEmpty(product.Name);
-                    Assert.IsNotNullOrEmpty(product.OrderUnit);
+                    Assert.IsNotNull(product.Id);
+                    Assert.IsNotEmpty(product.Id);
+                    Assert.IsNotNull(product.Kind);
+                    Assert.IsNotEmpty(product.Kind);
+                    Assert.IsNotNull(product.SelfLink);
+                    Assert.IsNotEmpty(product.SelfLink);
+                    Assert.IsNotNull(product.Spn);
+                    Assert.IsNotEmpty(product.Spn);
+                    Assert.IsNotNull(product.Name);
+                    Assert.IsNotEmpty(product.Name);
+                    Assert.IsNotNull(product.OrderUnit);
+                    Assert.IsNotEmpty(product.OrderUnit);
                     Assert.IsTrue(product.Price > 0);
                     Assert.NotNull(product.Created);
                     Assert.NotNull(product.Updated);
                 }
-            }
         }
     }
 }

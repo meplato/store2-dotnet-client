@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using Meplato.Store2.Products;
 using NUnit.Framework;
 
@@ -23,7 +24,7 @@ namespace Meplato.Store2.Tests.Products
     public class UpdateTests : TestCase
     {
         [Test]
-        public async void TestUpdate()
+        public async Task TestUpdate()
         {
             MockFromFile("products.update.success");
 
@@ -39,7 +40,8 @@ namespace Meplato.Store2.Tests.Products
 
             var response = await service.Update().Pin("AD8CCDD5F9").Area("work").Spn("MBA").Product(update).Do();
             Assert.NotNull(response);
-            Assert.IsNotNullOrEmpty(response.Link);
+            Assert.IsNotNull(response.Link);
+            Assert.IsNotEmpty(response.Link);
             Assert.AreEqual("store#productsUpdateResponse", response.Kind);
         }
     }

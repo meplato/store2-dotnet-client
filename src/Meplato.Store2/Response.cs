@@ -39,9 +39,7 @@ namespace Meplato.Store2
         {
             StatusCode = (int) message.StatusCode;
             if (message.Content != null)
-            {
                 _body = message.Content.ReadAsStringAsync();
-            }
         }
 
         /// <summary>
