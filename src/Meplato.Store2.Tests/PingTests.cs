@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests
@@ -22,17 +23,27 @@ namespace Meplato.Store2.Tests
     public class PingTests : TestCase
     {
         [Test]
-        public async void TestPing()
+        public async Task TestPing()
         {
             MockFromFile("ping.success");
             var service = GetRootService();
             Assert.IsNotNull(service);
-            service.Ping().Do();
+            await service.Ping().Do();
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Unauthorized")]
-        public async void TestPingUnauthorized()
+        public void TestPingInternalError()
+        {
+            MockFromFile("ping.internal_error");
+
+            var service = GetRootService();
+            service.User = "";
+            service.Password = "";
+            Assert.ThrowsAsync<ServiceException>(() => service.Ping().Do());
+        }
+
+        [Test]
+        public void TestPingUnauthorized()
         {
             //MockFromFile("ping.unauthorized");
             Mock(new Response(401, "{\"error\":{\"message\":\"Unauthorized\"}}"));
@@ -40,19 +51,7 @@ namespace Meplato.Store2.Tests
             var service = GetRootService();
             service.User = "";
             service.Password = "";
-            service.Ping().Do();
-        }
-
-        [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Request failed")]
-        public async void TestPingInternalError()
-        {
-            MockFromFile("ping.internal_error");
-
-            var service = GetRootService();
-            service.User = "";
-            service.Password = "";
-            service.Ping().Do();
+            Assert.ThrowsAsync<ServiceException>(() => service.Ping().Do());
         }
     }
 }

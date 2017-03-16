@@ -33,7 +33,7 @@ namespace Meplato.Store2
         /// <summary>
         ///     User Agent for .NET Clients.
         /// </summary>
-        public const string UserAgent = "meplato-api-csharp-client/1.0.0";
+        public const string UserAgent = "meplato-api-csharp-client/2.0.0";
 
         /// <summary>
         ///     Execute runs a HTTP request/response with the API endpoint.
@@ -63,9 +63,7 @@ namespace Meplato.Store2
                 var request = new HttpRequestMessage(method, url);
                 request.Headers.Add("User-Agent", UserAgent);
                 foreach (var kv in headers)
-                {
                     request.Headers.Add(kv.Key, kv.Value);
-                }
                 if (body != null)
                 {
                     var content = body is string ? (string) body : JsonConvert.SerializeObject(body);
@@ -79,9 +77,7 @@ namespace Meplato.Store2
                     var response = new Response(httpResponse);
 
                     if (httpResponse.IsSuccessStatusCode)
-                    {
                         return response;
-                    }
 
                     throw ServiceException.FromResponse(response);
                 }

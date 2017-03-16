@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests.Catalogs
@@ -22,7 +23,7 @@ namespace Meplato.Store2.Tests.Catalogs
     public class SearchTests : TestCase
     {
         [Test]
-        public async void TestSearch()
+        public async Task TestSearch()
         {
             MockFromFile("catalogs.search.success");
 
@@ -39,15 +40,15 @@ namespace Meplato.Store2.Tests.Catalogs
                 Assert.NotNull(catalog);
                 Assert.AreNotEqual("", catalog.SelfLink);
                 Assert.IsTrue(catalog.Id > 0);
-                Assert.IsNotNullOrEmpty(catalog.Name);
+                Assert.IsNotNull(catalog.Name);
+                Assert.IsNotEmpty(catalog.Name);
                 Assert.NotNull(catalog.Created);
                 Assert.NotNull(catalog.Updated);
             }
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Unauthorized")]
-        public async void TestSearchUnauthorized()
+        public void TestSearchUnauthorized()
         {
             MockFromFile("catalogs.search.unauthorized");
 
@@ -55,8 +56,7 @@ namespace Meplato.Store2.Tests.Catalogs
             Assert.NotNull(service);
             service.User = "";
             service.Password = "";
-            var response = await service.Search().Skip(0).Take(10).Do();
-            Assert.IsNull(response);
+            Assert.ThrowsAsync<ServiceException>(() => service.Search().Skip(0).Take(10).Do());
         }
     }
 }

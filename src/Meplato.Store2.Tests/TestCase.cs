@@ -17,6 +17,7 @@
 using System;
 using System.IO;
 using System.Net.Http;
+using NUnit.Framework;
 
 namespace Meplato.Store2.Tests
 {
@@ -77,9 +78,7 @@ namespace Meplato.Store2.Tests
         {
             var mockClient = Client as MockClient;
             if (mockClient == null)
-            {
                 throw new InvalidOperationException("Current IClient is not a MockClient");
-            }
             mockClient.Response = response;
         }
 
@@ -87,16 +86,14 @@ namespace Meplato.Store2.Tests
         {
             var mockClient = Client as MockClient;
             if (mockClient == null)
-            {
                 throw new InvalidOperationException("Current IClient is not a MockClient");
-            }
-            var msg = FromFile(Path.Combine(Environment.CurrentDirectory, "TestData", path));
+            var msg = FromFile(path);
             mockClient.Response = new Response(msg);
         }
 
         public static HttpResponseMessage FromFile(string path)
         {
-            return FromStream(File.OpenRead(Path.Combine(Environment.CurrentDirectory, "TestData", path)));
+            return FromStream(File.OpenRead(Path.Combine(TestContext.CurrentContext.TestDirectory, "TestData", path)));
         }
 
         public static HttpResponseMessage FromStream(Stream stream)

@@ -50,17 +50,13 @@ namespace Meplato.Store2
         public static ServiceException FromResponse(IResponse response)
         {
             if (response == null)
-            {
                 return new ServiceException("Request failed", null, null);
-            }
 
             try
             {
                 var error = response.GetBodyJSON<Error>();
                 if (error == null || error.Details == null)
-                {
                     return new ServiceException("Request failed", null, null);
-                }
                 return new ServiceException(error.Details.Message, error, null);
             }
             catch (Exception e)

@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using Meplato.Store2.Products;
 using NUnit.Framework;
 
@@ -23,7 +24,7 @@ namespace Meplato.Store2.Tests.Products
     public class CreateTests : TestCase
     {
         [Test]
-        public async void TestCreate()
+        public async Task TestCreate()
         {
             MockFromFile("products.create.success");
 
@@ -40,13 +41,13 @@ namespace Meplato.Store2.Tests.Products
 
             var response = await service.Create().Pin("AD8CCDD5F9").Area("work").Product(create).Do();
             Assert.NotNull(response);
-            Assert.IsNotNullOrEmpty(response.Link);
+            Assert.IsNotNull(response.Link);
+            Assert.IsNotEmpty(response.Link);
             Assert.AreEqual("store#productsCreateResponse", response.Kind);
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Bitte prüfen Sie Ihre Eingaben")]
-        public async void TestCreateParameterMissing()
+        public void TestCreateParameterMissing()
         {
             MockFromFile("products.create.parameter_missing");
 
@@ -61,8 +62,8 @@ namespace Meplato.Store2.Tests.Products
                 OrderUnit = ""
             };
 
-            var response = await service.Create().Pin("AD8CCDD5F9").Area("work").Product(create).Do();
-            Assert.Null(response);
+            Assert.ThrowsAsync<ServiceException>(
+                () => service.Create().Pin("AD8CCDD5F9").Area("work").Product(create).Do());
         }
     }
 }

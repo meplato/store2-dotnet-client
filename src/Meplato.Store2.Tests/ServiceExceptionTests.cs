@@ -22,29 +22,32 @@ namespace Meplato.Store2.Tests
     public class ServiceExceptionTests : TestCase
     {
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Unauthorized")]
         public void TestRaisesServiceException()
         {
             var response = new Response(401, "{\"error\":{\"message\":\"Unauthorized\"}}");
-            throw ServiceException.FromResponse(response);
+            var ex = ServiceException.FromResponse(response);
+            Assert.NotNull(ex);
+            Assert.AreEqual("Unauthorized", ex.Message);
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Unauthorized")]
         public void TestRaisesServiceExceptionFromFile()
         {
             var httpResponse = FromFile("me.unauthorized");
             var response = new Response(httpResponse);
-            throw ServiceException.FromResponse(response);
+            var ex = ServiceException.FromResponse(response);
+            Assert.NotNull(ex);
+            Assert.AreEqual("Unauthorized", ex.Message);
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Request failed")]
         public void TestRaisesServiceExceptionWithoutBody()
         {
             var httpResponse = FromFile("ping.unauthorized");
             var response = new Response(httpResponse);
-            throw ServiceException.FromResponse(response);
+            var ex = ServiceException.FromResponse(response);
+            Assert.NotNull(ex);
+            Assert.AreEqual("Request failed", ex.Message);
         }
     }
 }

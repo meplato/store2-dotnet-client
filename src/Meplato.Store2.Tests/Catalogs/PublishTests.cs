@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests.Catalogs
@@ -22,7 +23,7 @@ namespace Meplato.Store2.Tests.Catalogs
     public class PublishTests : TestCase
     {
         [Test]
-        public async void TestPublish()
+        public async Task TestPublish()
         {
             MockFromFile("catalogs.publish.success");
 

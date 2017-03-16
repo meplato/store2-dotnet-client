@@ -15,6 +15,7 @@
 #endregion
 
 using System.Net.Http;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests
@@ -23,7 +24,7 @@ namespace Meplato.Store2.Tests
     public class MockClientTests : TestCase
     {
         [Test]
-        public async void TestExecuteSuccess()
+        public async Task TestExecuteSuccess()
         {
             var client = new MockClient
             {
@@ -38,24 +39,20 @@ namespace Meplato.Store2.Tests
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Exception raised")]
-        public async void TestExecuteThrowsFromException()
+        public void TestExecuteThrowsFromException()
         {
             var client = new MockClient
             {
                 Exception = new ServiceException("Exception raised", null, null),
-                Response = new Response(200, "{\"error\":{\"message\":\"Something went wrong\"}}")
+                Response = null
             };
 
-            var response = await client.Execute(HttpMethod.Get, "http://localhost/", null, null, null);
-            Assert.NotNull(response);
-            Assert.AreEqual(200, response.StatusCode);
-            Assert.AreEqual("{\"error\":{\"message\":\"Something went wrong\"}}", response.GetBodyString());
+            Assert.ThrowsAsync<ServiceException>(
+                () => client.Execute(HttpMethod.Get, "http://localhost/", null, null, null));
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Something went wrong")]
-        public async void TestExecuteThrowsFromResponse()
+        public void TestExecuteThrowsFromResponse()
         {
             var client = new MockClient
             {
@@ -63,10 +60,8 @@ namespace Meplato.Store2.Tests
                 Response = new Response(500, "{\"error\":{\"message\":\"Something went wrong\"}}")
             };
 
-            var response = await client.Execute(HttpMethod.Get, "http://localhost/", null, null, null);
-            Assert.NotNull(response);
-            Assert.AreEqual(500, response.StatusCode);
-            Assert.AreEqual("{\"error\":{\"message\":\"Something went wrong\"}}", response.GetBodyString());
+            Assert.ThrowsAsync<ServiceException>(
+                () => client.Execute(HttpMethod.Get, "http://localhost/", null, null, null));
         }
     }
 }

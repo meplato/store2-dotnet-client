@@ -14,6 +14,7 @@
 
 #endregion
 
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests.Products
@@ -22,7 +23,7 @@ namespace Meplato.Store2.Tests.Products
     public class SearchTests : TestCase
     {
         [Test]
-        public async void SearchUpdate()
+        public async Task SearchUpdate()
         {
             var service = GetProductsService();
             Assert.NotNull(service);
@@ -35,22 +36,26 @@ namespace Meplato.Store2.Tests.Products
             Assert.NotNull(response.Items);
             foreach (var product in response.Items)
             {
-                Assert.NotNull(product);
-                Assert.IsNotNullOrEmpty(product.Id);
-                Assert.IsNotNullOrEmpty(product.Kind);
-                Assert.IsNotNullOrEmpty(product.SelfLink);
-                Assert.IsNotNullOrEmpty(product.Spn);
-                Assert.IsNotNullOrEmpty(product.Name);
-                Assert.IsNotNullOrEmpty(product.OrderUnit);
+                Assert.IsNotNull(product);
+                Assert.IsNotNull(product.Id);
+                Assert.IsNotEmpty(product.Id);
+                Assert.AreEqual("store#product", product.Kind);
+                Assert.IsNotNull(product.SelfLink);
+                Assert.IsNotEmpty(product.SelfLink);
+                Assert.IsNotNull(product.Spn);
+                Assert.IsNotEmpty(product.Spn);
+                Assert.IsNotNull(product.Name);
+                Assert.IsNotEmpty(product.Name);
+                Assert.IsNotNull(product.OrderUnit);
+                Assert.IsNotEmpty(product.OrderUnit);
                 Assert.IsTrue(product.Price > 0);
-                Assert.NotNull(product.Created);
-                Assert.NotNull(product.Updated);
+                Assert.IsNotNull(product.Created);
+                Assert.IsNotNull(product.Updated);
             }
         }
 
         [Test]
-        [ExpectedException(typeof (ServiceException), ExpectedMessage = "Unauthorized")]
-        public async void TestSearchUnauthorized()
+        public void TestSearchUnauthorized()
         {
             MockFromFile("products.search.unauthorized");
 
@@ -59,8 +64,8 @@ namespace Meplato.Store2.Tests.Products
             service.User = "";
             service.Password = "";
 
-            var response = await service.Search().Pin("AD8CCDD5F9").Area("work").Q("toner").Skip(0).Take(30).Do();
-            Assert.Null(response);
+            Assert.ThrowsAsync<ServiceException>(
+                () => service.Search().Pin("AD8CCDD5F9").Area("work").Q("toner").Skip(0).Take(30).Do());
         }
     }
 }
