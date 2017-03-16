@@ -33,7 +33,7 @@ namespace Meplato.Store2
         /// <summary>
         ///     User Agent for .NET Clients.
         /// </summary>
-        public const string UserAgent = "meplato-api-csharp-client/2.0.0";
+        public const string UserAgent = "meplato-api-csharp-client/2.0.2";
 
         /// <summary>
         ///     Execute runs a HTTP request/response with the API endpoint.
