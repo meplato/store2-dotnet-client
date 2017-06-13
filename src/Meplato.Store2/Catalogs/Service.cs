@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.2
+// Version: 2.0.3
 // License: Copyright (c) 2015-2017 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.0.2";
+		public const string Version = "2.0.3";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -179,6 +179,12 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("erpNumberBuyer")]
 		public string ErpNumberBuyer { get; set; }
+
+		/// <summary>
+		///     Expired indicates whether the catalog is expired as of now.
+		/// </summary>
+		[JsonProperty("expired")]
+		public bool Expired { get; set; }
 
 		/// <summary>
 		///     HubURL represents the Meplato Hub URL for this catalog, e.g.
