@@ -69,6 +69,9 @@
     <Compile Include="Catalogs\PurgeTests.cs" />
     <Compile Include="Catalogs\SearchTests.cs" />
     <Compile Include="Catalogs\TestCase.cs" />
+    <Compile Include="Jobs\GetTests.cs" />
+    <Compile Include="Jobs\SearchTests.cs" />
+    <Compile Include="Jobs\TestCase.cs" />
     <Compile Include="MeTests.cs" />
     <Compile Include="MockClient.cs" />
     <Compile Include="MockClientTests.cs" />
@@ -171,6 +174,18 @@
     </Content>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <Content Include="TestData\jobs.get.not_found">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\jobs.get.success">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\jobs.search.success">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\jobs.search.unauthorized">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="TestData\ping.internal_error">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

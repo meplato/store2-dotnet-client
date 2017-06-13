@@ -63,6 +63,17 @@ namespace Meplato.Store2.Tests
             return service;
         }
 
+        public Store2.Jobs.Service GetJobsService()
+        {
+            var service = new Store2.Jobs.Service(Client)
+            {
+                BaseURL = BaseURL ?? Store2.Jobs.Service.DefaultBaseURL,
+                User = User ?? Environment.GetEnvironmentVariable("STORE2_USER"),
+                Password = Password ?? Environment.GetEnvironmentVariable("STORE2_PASSWORD")
+            };
+            return service;
+        }
+
         public Service GetRootService()
         {
             var service = new Service(Client)
