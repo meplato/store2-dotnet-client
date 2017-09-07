@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.3
+// Version: 2.0.4
 // License: Copyright (c) 2015-2017 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.0.3";
+		public const string Version = "2.0.4";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -253,6 +253,12 @@ namespace Meplato.Store2.Catalogs
 		public string MerchantMpcc { get; set; }
 
 		/// <summary>
+		///     MPSC of the merchant.
+		/// </summary>
+		[JsonProperty("merchantMpsc")]
+		public string MerchantMpsc { get; set; }
+
+		/// <summary>
 		///     Name of the merchant.
 		/// </summary>
 		[JsonProperty("merchantName")]
@@ -303,6 +309,12 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("projectId")]
 		public long ProjectId { get; set; }
+
+		/// <summary>
+		///     MPBC of the project.
+		/// </summary>
+		[JsonProperty("projectMpbc")]
+		public string ProjectMpbc { get; set; }
 
 		/// <summary>
 		///     MPCC of the project.
