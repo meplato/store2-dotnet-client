@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.4
+// Version: 2.1.0
 // License: Copyright (c) 2015-2017 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Products
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.0.4";
+		public const string Version = "2.1.0";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -279,6 +279,14 @@ namespace Meplato.Store2.Products
 		public string Asin { get; set; }
 
 		/// <summary>
+		///     AutoConfigure is a flag that indicates whether this product can
+		///     be configured automatically. Please consult your Store Manager
+		///     before setting a value for this field.
+		/// </summary>
+		[JsonProperty("autoConfigure")]
+		public bool? AutoConfigure { get; set; }
+
+		/// <summary>
 		///     Availability allows the update of product availability data,
 		///     e.g. the number of items in stock or the date when the product
 		///     will be available again. 
@@ -291,6 +299,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("blobs")]
 		public Blob[] Blobs { get; set; }
+
+		/// <summary>
+		///     BoostFactor represents a positive or negative boost for the
+		///     product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("boostFactor")]
+		public double? BoostFactor { get; set; }
 
 		/// <summary>
 		///     BPN is the buyer part number of the product.
@@ -318,6 +334,38 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("conditions")]
 		public Condition[] Conditions { get; set; }
+
+		/// <summary>
+		///     Contract represents the contract number to be used when
+		///     purchasing this product. Please consult your Store Manager
+		///     before setting a value for this field.
+		/// </summary>
+		[JsonProperty("contract")]
+		public string Contract { get; set; }
+
+		/// <summary>
+		///     ContractItem represents line number in the contract to be used
+		///     when purchasing this product. See also Contract. Please consult
+		///     your Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("contractItem")]
+		public string ContractItem { get; set; }
+
+		/// <summary>
+		///     ConversionDenumerator is the denumerator for calculating price
+		///     quantities. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("conversionDenumerator")]
+		public double? ConversionDenumerator { get; set; }
+
+		/// <summary>
+		///     ConversionNumerator is the numerator for calculating price
+		///     quantities. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("conversionNumerator")]
+		public double? ConversionNumerator { get; set; }
 
 		/// <summary>
 		///     ContentUnit is the content unit of the product, a 3-character
@@ -376,6 +424,206 @@ namespace Meplato.Store2.Products
 		public CustField[] CustFields { get; set; }
 
 		/// <summary>
+		///     CustomField10 represents the 10th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField10")]
+		public string CustomField10 { get; set; }
+
+		/// <summary>
+		///     CustomField11 represents the 11th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField11")]
+		public string CustomField11 { get; set; }
+
+		/// <summary>
+		///     CustomField12 represents the 12th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField12")]
+		public string CustomField12 { get; set; }
+
+		/// <summary>
+		///     CustomField13 represents the 13th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField13")]
+		public string CustomField13 { get; set; }
+
+		/// <summary>
+		///     CustomField14 represents the 14th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField14")]
+		public string CustomField14 { get; set; }
+
+		/// <summary>
+		///     CustomField15 represents the 15th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField15")]
+		public string CustomField15 { get; set; }
+
+		/// <summary>
+		///     CustomField16 represents the 16th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField16")]
+		public string CustomField16 { get; set; }
+
+		/// <summary>
+		///     CustomField17 represents the 17th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField17")]
+		public string CustomField17 { get; set; }
+
+		/// <summary>
+		///     CustomField18 represents the 18th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField18")]
+		public string CustomField18 { get; set; }
+
+		/// <summary>
+		///     CustomField19 represents the 19th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField19")]
+		public string CustomField19 { get; set; }
+
+		/// <summary>
+		///     CustomField20 represents the 20th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField20")]
+		public string CustomField20 { get; set; }
+
+		/// <summary>
+		///     CustomField21 represents the 21st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField21")]
+		public string CustomField21 { get; set; }
+
+		/// <summary>
+		///     CustomField22 represents the 22nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField22")]
+		public string CustomField22 { get; set; }
+
+		/// <summary>
+		///     CustomField23 represents the 23rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField23")]
+		public string CustomField23 { get; set; }
+
+		/// <summary>
+		///     CustomField24 represents the 24th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField24")]
+		public string CustomField24 { get; set; }
+
+		/// <summary>
+		///     CustomField25 represents the 25th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField25")]
+		public string CustomField25 { get; set; }
+
+		/// <summary>
+		///     CustomField26 represents the 26th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField26")]
+		public string CustomField26 { get; set; }
+
+		/// <summary>
+		///     CustomField27 represents the 27th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField27")]
+		public string CustomField27 { get; set; }
+
+		/// <summary>
+		///     CustomField28 represents the 28th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField28")]
+		public string CustomField28 { get; set; }
+
+		/// <summary>
+		///     CustomField29 represents the 29th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField29")]
+		public string CustomField29 { get; set; }
+
+		/// <summary>
+		///     CustomField30 represents the 30th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField30")]
+		public string CustomField30 { get; set; }
+
+		/// <summary>
+		///     CustomField6 represents the 6th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField6")]
+		public string CustomField6 { get; set; }
+
+		/// <summary>
+		///     CustomField7 represents the 7th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField7")]
+		public string CustomField7 { get; set; }
+
+		/// <summary>
+		///     CustomField8 represents the 8th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField8")]
+		public string CustomField8 { get; set; }
+
+		/// <summary>
+		///     CustomField9 represents the 9th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField9")]
+		public string CustomField9 { get; set; }
+
+		/// <summary>
 		///     Datasheet is the name of an datasheet file (in the media files)
 		///     or a URL to the datasheet on the internet.
 		/// </summary>
@@ -424,6 +672,23 @@ namespace Meplato.Store2.Products
 		public string ExtCategoryId { get; set; }
 
 		/// <summary>
+		///     ExtConfigForm represents information required to make the
+		///     product configurable. Please consult your Store Manager before
+		///     setting a value for this field.
+		/// </summary>
+		[JsonProperty("extConfigForm")]
+		public string ExtConfigForm { get; set; }
+
+		/// <summary>
+		///     ExtConfigService represents additional information required to
+		///     make the product configurable. See also ExtConfigForm. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("extConfigService")]
+		public string ExtConfigService { get; set; }
+
+		/// <summary>
 		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
 		///     specification. It is e.g. required for configurable/catalog
 		///     managed products.
@@ -446,6 +711,14 @@ namespace Meplato.Store2.Products
 		public Feature[] Features { get; set; }
 
 		/// <summary>
+		///     GLAccount represents the GL account number to use for this
+		///     product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("glAccount")]
+		public string GlAccount { get; set; }
+
+		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
 		///     EAN).
 		/// </summary>
@@ -464,6 +737,32 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("image")]
 		public string Image { get; set; }
+
+		/// <summary>
+		///     Incomplete is a flag that indicates whether this product is
+		///     incomplete. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("incomplete")]
+		public bool? Incomplete { get; set; }
+
+		/// <summary>
+		///     IsPassword is a flag that indicates whether this product will
+		///     be used to purchase a password, e.g. for a software product.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("isPassword")]
+		public bool? IsPassword { get; set; }
+
+		/// <summary>
+		///     KeepPrice is a flag that indicates whether the price of the
+		///     product will or will not be calculated by the catalog. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("keepPrice")]
+		public bool? KeepPrice { get; set; }
 
 		/// <summary>
 		///     Keywords is a list of aliases for the product.
@@ -529,6 +828,62 @@ namespace Meplato.Store2.Products
 		public string Name { get; set; }
 
 		/// <summary>
+		///     NeedsGoodsReceipt is a flag that indicates whether this product
+		///     requires a goods receipt process. Please consult your Store
+		///     Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("needsGoodsReceipt")]
+		public bool? NeedsGoodsReceipt { get; set; }
+
+		/// <summary>
+		///     NFBasePrice represents a part for calculating metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfBasePrice")]
+		public double? NfBasePrice { get; set; }
+
+		/// <summary>
+		///     NFBasePriceQuantity represents a part for calculating metal
+		///     surcharges. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("nfBasePriceQuantity")]
+		public double? NfBasePriceQuantity { get; set; }
+
+		/// <summary>
+		///     NFCndID represents the key to calculate metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfCndId")]
+		public string NfCndId { get; set; }
+
+		/// <summary>
+		///     NFScale represents a part for calculating metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfScale")]
+		public double? NfScale { get; set; }
+
+		/// <summary>
+		///     NFScaleQuantity represents a part for calculating metal
+		///     surcharges. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("nfScaleQuantity")]
+		public double? NfScaleQuantity { get; set; }
+
+		/// <summary>
+		///     Orderable is a flag that indicates whether this product will be
+		///     orderable to the end-user when shopping. Please consult your
+		///     Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("orderable")]
+		public bool? Orderable { get; set; }
+
+		/// <summary>
 		///     OrderUnit is the order unit of the product, a 3-character ISO
 		///     code (usually project-specific).
 		/// </summary>
@@ -541,6 +896,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("price")]
 		public double Price { get; set; }
+
+		/// <summary>
+		///     PriceFormula represents the formula to calculate the price of
+		///     the product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("priceFormula")]
+		public string PriceFormula { get; set; }
 
 		/// <summary>
 		///     PriceQty is the quantity for which the price is specified
@@ -568,6 +931,22 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("quantityMin")]
 		public double? QuantityMin { get; set; }
+
+		/// <summary>
+		///     Rateable is a flag that indicates whether the product can be
+		///     rated by end-users. Please consult your Store Manager before
+		///     setting a value for this field.
+		/// </summary>
+		[JsonProperty("rateable")]
+		public bool? Rateable { get; set; }
+
+		/// <summary>
+		///     RateableOnlyIfOrdered is a flag that indicates whether the
+		///     product can be rated only after being ordered. Please consult
+		///     your Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("rateableOnlyIfOrdered")]
+		public bool? RateableOnlyIfOrdered { get; set; }
 
 		/// <summary>
 		///     References defines cross-product references, e.g. alternatives
@@ -628,6 +1007,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("unspscs")]
 		public Unspsc[] Unspscs { get; set; }
+
+		/// <summary>
+		///     Visible is a flag that indicates whether this product will be
+		///     visible to the end-user when shopping. Please consult your
+		///     Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("visible")]
+		public bool? Visible { get; set; }
 
 		#endregion // CreateProduct
 	}
@@ -780,6 +1167,13 @@ namespace Meplato.Store2.Products
 		public string Asin { get; set; }
 
 		/// <summary>
+		///     AutoConfigure is a flag that indicates whether this product can
+		///     be configured automatically.
+		/// </summary>
+		[JsonProperty("autoConfigure")]
+		public bool? AutoConfigure { get; set; }
+
+		/// <summary>
 		///     Availability allows the update of product availability data,
 		///     e.g. the number of items in stock or the date when the product
 		///     will be available again. 
@@ -792,6 +1186,13 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("blobs")]
 		public Blob[] Blobs { get; set; }
+
+		/// <summary>
+		///     BoostFactor represents a positive or negative boost for the
+		///     product.
+		/// </summary>
+		[JsonProperty("boostFactor")]
+		public double? BoostFactor { get; set; }
 
 		/// <summary>
 		///     BPN is the buyer part number of the product.
@@ -825,6 +1226,34 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("conditions")]
 		public Condition[] Conditions { get; set; }
+
+		/// <summary>
+		///     Contract represents the contract number to be used when
+		///     purchasing this product.
+		/// </summary>
+		[JsonProperty("contract")]
+		public string Contract { get; set; }
+
+		/// <summary>
+		///     ContractItem represents line number in the contract to be used
+		///     when purchasing this product. See also Contract.
+		/// </summary>
+		[JsonProperty("contractItem")]
+		public string ContractItem { get; set; }
+
+		/// <summary>
+		///     ConversionDenumerator is the denumerator for calculating price
+		///     quantities.
+		/// </summary>
+		[JsonProperty("conversionDenumerator")]
+		public double? ConversionDenumerator { get; set; }
+
+		/// <summary>
+		///     ConversionNumerator is the numerator for calculating price
+		///     quantities.
+		/// </summary>
+		[JsonProperty("conversionNumerator")]
+		public double? ConversionNumerator { get; set; }
 
 		/// <summary>
 		///     Created is the creation date and time of the product.
@@ -896,6 +1325,156 @@ namespace Meplato.Store2.Products
 		public CustField[] CustFields { get; set; }
 
 		/// <summary>
+		///     CustomField10 represents the 10th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField10")]
+		public string CustomField10 { get; set; }
+
+		/// <summary>
+		///     CustomField11 represents the 11th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField11")]
+		public string CustomField11 { get; set; }
+
+		/// <summary>
+		///     CustomField12 represents the 12th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField12")]
+		public string CustomField12 { get; set; }
+
+		/// <summary>
+		///     CustomField13 represents the 13th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField13")]
+		public string CustomField13 { get; set; }
+
+		/// <summary>
+		///     CustomField14 represents the 14th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField14")]
+		public string CustomField14 { get; set; }
+
+		/// <summary>
+		///     CustomField15 represents the 15th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField15")]
+		public string CustomField15 { get; set; }
+
+		/// <summary>
+		///     CustomField16 represents the 16th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField16")]
+		public string CustomField16 { get; set; }
+
+		/// <summary>
+		///     CustomField17 represents the 17th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField17")]
+		public string CustomField17 { get; set; }
+
+		/// <summary>
+		///     CustomField18 represents the 18th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField18")]
+		public string CustomField18 { get; set; }
+
+		/// <summary>
+		///     CustomField19 represents the 19th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField19")]
+		public string CustomField19 { get; set; }
+
+		/// <summary>
+		///     CustomField20 represents the 20th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField20")]
+		public string CustomField20 { get; set; }
+
+		/// <summary>
+		///     CustomField21 represents the 21st customer-specific field.
+		/// </summary>
+		[JsonProperty("customField21")]
+		public string CustomField21 { get; set; }
+
+		/// <summary>
+		///     CustomField22 represents the 22nd customer-specific field.
+		/// </summary>
+		[JsonProperty("customField22")]
+		public string CustomField22 { get; set; }
+
+		/// <summary>
+		///     CustomField23 represents the 23rd customer-specific field.
+		/// </summary>
+		[JsonProperty("customField23")]
+		public string CustomField23 { get; set; }
+
+		/// <summary>
+		///     CustomField24 represents the 24th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField24")]
+		public string CustomField24 { get; set; }
+
+		/// <summary>
+		///     CustomField25 represents the 25th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField25")]
+		public string CustomField25 { get; set; }
+
+		/// <summary>
+		///     CustomField26 represents the 26th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField26")]
+		public string CustomField26 { get; set; }
+
+		/// <summary>
+		///     CustomField27 represents the 27th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField27")]
+		public string CustomField27 { get; set; }
+
+		/// <summary>
+		///     CustomField28 represents the 28th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField28")]
+		public string CustomField28 { get; set; }
+
+		/// <summary>
+		///     CustomField29 represents the 29th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField29")]
+		public string CustomField29 { get; set; }
+
+		/// <summary>
+		///     CustomField30 represents the 30th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField30")]
+		public string CustomField30 { get; set; }
+
+		/// <summary>
+		///     CustomField6 represents the 6th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField6")]
+		public string CustomField6 { get; set; }
+
+		/// <summary>
+		///     CustomField7 represents the 7th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField7")]
+		public string CustomField7 { get; set; }
+
+		/// <summary>
+		///     CustomField8 represents the 8th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField8")]
+		public string CustomField8 { get; set; }
+
+		/// <summary>
+		///     CustomField9 represents the 9th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField9")]
+		public string CustomField9 { get; set; }
+
+		/// <summary>
 		///     Datasheet is the name of an datasheet file (in the media files)
 		///     or a URL to the datasheet on the internet.
 		/// </summary>
@@ -950,6 +1529,20 @@ namespace Meplato.Store2.Products
 		public string ExtCategoryId { get; set; }
 
 		/// <summary>
+		///     ExtConfigForm represents information required to make the
+		///     product configurable.
+		/// </summary>
+		[JsonProperty("extConfigForm")]
+		public string ExtConfigForm { get; set; }
+
+		/// <summary>
+		///     ExtConfigService represents additional information required to
+		///     make the product configurable. See also ExtConfigForm.
+		/// </summary>
+		[JsonProperty("extConfigService")]
+		public string ExtConfigService { get; set; }
+
+		/// <summary>
 		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
 		///     specification. It is e.g. required for configurable/catalog
 		///     managed products.
@@ -970,6 +1563,13 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("features")]
 		public Feature[] Features { get; set; }
+
+		/// <summary>
+		///     GLAccount represents the GL account number to use for this
+		///     product.
+		/// </summary>
+		[JsonProperty("glAccount")]
+		public string GlAccount { get; set; }
 
 		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
@@ -1002,6 +1602,27 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("imageURL")]
 		public string ImageURL { get; set; }
+
+		/// <summary>
+		///     Incomplete is a flag that indicates whether this product is
+		///     incomplete.
+		/// </summary>
+		[JsonProperty("incomplete")]
+		public bool? Incomplete { get; set; }
+
+		/// <summary>
+		///     IsPassword is a flag that indicates whether this product will
+		///     be used to purchase a password, e.g. for a software product.
+		/// </summary>
+		[JsonProperty("isPassword")]
+		public bool? IsPassword { get; set; }
+
+		/// <summary>
+		///     KeepPrice is a flag that indicates whether the price of the
+		///     product will or will not be calculated by the catalog.
+		/// </summary>
+		[JsonProperty("keepPrice")]
+		public bool? KeepPrice { get; set; }
 
 		/// <summary>
 		///     Keywords is a list of aliases for the product.
@@ -1085,6 +1706,52 @@ namespace Meplato.Store2.Products
 		public string Name { get; set; }
 
 		/// <summary>
+		///     NeedsGoodsReceipt is a flag that indicates whether this product
+		///     requires a goods receipt process.
+		/// </summary>
+		[JsonProperty("needsGoodsReceipt")]
+		public bool? NeedsGoodsReceipt { get; set; }
+
+		/// <summary>
+		///     NFBasePrice represents a part for calculating metal surcharges.
+		/// </summary>
+		[JsonProperty("nfBasePrice")]
+		public double? NfBasePrice { get; set; }
+
+		/// <summary>
+		///     NFBasePriceQuantity represents a part for calculating metal
+		///     surcharges.
+		/// </summary>
+		[JsonProperty("nfBasePriceQuantity")]
+		public double? NfBasePriceQuantity { get; set; }
+
+		/// <summary>
+		///     NFCndID represents the key to calculate metal surcharges.
+		/// </summary>
+		[JsonProperty("nfCndId")]
+		public string NfCndId { get; set; }
+
+		/// <summary>
+		///     NFScale represents a part for calculating metal surcharges.
+		/// </summary>
+		[JsonProperty("nfScale")]
+		public double? NfScale { get; set; }
+
+		/// <summary>
+		///     NFScaleQuantity represents a part for calculating metal
+		///     surcharges.
+		/// </summary>
+		[JsonProperty("nfScaleQuantity")]
+		public double? NfScaleQuantity { get; set; }
+
+		/// <summary>
+		///     Orderable is a flag that indicates whether this product will be
+		///     orderable to the end-user when shopping.
+		/// </summary>
+		[JsonProperty("orderable")]
+		public bool? Orderable { get; set; }
+
+		/// <summary>
 		///     OrderUnit is the order unit of the product, a 3-character ISO
 		///     code (usually project-specific).
 		/// </summary>
@@ -1097,6 +1764,13 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("price")]
 		public double Price { get; set; }
+
+		/// <summary>
+		///     PriceFormula represents the formula to calculate the price of
+		///     the product.
+		/// </summary>
+		[JsonProperty("priceFormula")]
+		public string PriceFormula { get; set; }
 
 		/// <summary>
 		///     PriceQty is the quantity for which the price is specified
@@ -1130,6 +1804,20 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("quantityMin")]
 		public double? QuantityMin { get; set; }
+
+		/// <summary>
+		///     Rateable is a flag that indicates whether the product can be
+		///     rated by end-users.
+		/// </summary>
+		[JsonProperty("rateable")]
+		public bool? Rateable { get; set; }
+
+		/// <summary>
+		///     RateableOnlyIfOrdered is a flag that indicates whether the
+		///     product can be rated only after being ordered.
+		/// </summary>
+		[JsonProperty("rateableOnlyIfOrdered")]
+		public bool? RateableOnlyIfOrdered { get; set; }
 
 		/// <summary>
 		///     References defines cross-product references, e.g. alternatives
@@ -1215,6 +1903,13 @@ namespace Meplato.Store2.Products
 		[JsonProperty("updated")]
 		public DateTimeOffset? Updated { get; set; }
 
+		/// <summary>
+		///     Visible is a flag that indicates whether this product will be
+		///     visible to the end-user when shopping.
+		/// </summary>
+		[JsonProperty("visible")]
+		public bool? Visible { get; set; }
+
 		#endregion // Product
 	}
 
@@ -1263,6 +1958,14 @@ namespace Meplato.Store2.Products
 		public string Asin { get; set; }
 
 		/// <summary>
+		///     AutoConfigure is a flag that indicates whether this product can
+		///     be configured automatically. Please consult your Store Manager
+		///     before setting a value for this field.
+		/// </summary>
+		[JsonProperty("autoConfigure")]
+		public bool? AutoConfigure { get; set; }
+
+		/// <summary>
 		///     Availability allows the update of product availability data,
 		///     e.g. the number of items in stock or the date when the product
 		///     will be available again. 
@@ -1276,6 +1979,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("blobs")]
 		public Blob[] Blobs { get; set; }
+
+		/// <summary>
+		///     BoostFactor represents a positive or negative boost for the
+		///     product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("boostFactor")]
+		public double? BoostFactor { get; set; }
 
 		/// <summary>
 		///     BPN is the buyer part number of the product.
@@ -1303,6 +2014,38 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("conditions")]
 		public Condition[] Conditions { get; set; }
+
+		/// <summary>
+		///     Contract represents the contract number to be used when
+		///     purchasing this product. Please consult your Store Manager
+		///     before setting a value for this field.
+		/// </summary>
+		[JsonProperty("contract")]
+		public string Contract { get; set; }
+
+		/// <summary>
+		///     ContractItem represents line number in the contract to be used
+		///     when purchasing this product. See also Contract. Please consult
+		///     your Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("contractItem")]
+		public string ContractItem { get; set; }
+
+		/// <summary>
+		///     ConversionDenumerator is the denumerator for calculating price
+		///     quantities. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("conversionDenumerator")]
+		public double? ConversionDenumerator { get; set; }
+
+		/// <summary>
+		///     ConversionNumerator is the numerator for calculating price
+		///     quantities. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("conversionNumerator")]
+		public double? ConversionNumerator { get; set; }
 
 		/// <summary>
 		///     ContentUnit is the content unit of the product, a 3-character
@@ -1361,6 +2104,206 @@ namespace Meplato.Store2.Products
 		public CustField[] CustFields { get; set; }
 
 		/// <summary>
+		///     CustomField10 represents the 10th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField10")]
+		public string CustomField10 { get; set; }
+
+		/// <summary>
+		///     CustomField11 represents the 11th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField11")]
+		public string CustomField11 { get; set; }
+
+		/// <summary>
+		///     CustomField12 represents the 12th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField12")]
+		public string CustomField12 { get; set; }
+
+		/// <summary>
+		///     CustomField13 represents the 13th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField13")]
+		public string CustomField13 { get; set; }
+
+		/// <summary>
+		///     CustomField14 represents the 14th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField14")]
+		public string CustomField14 { get; set; }
+
+		/// <summary>
+		///     CustomField15 represents the 15th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField15")]
+		public string CustomField15 { get; set; }
+
+		/// <summary>
+		///     CustomField16 represents the 16th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField16")]
+		public string CustomField16 { get; set; }
+
+		/// <summary>
+		///     CustomField17 represents the 17th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField17")]
+		public string CustomField17 { get; set; }
+
+		/// <summary>
+		///     CustomField18 represents the 18th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField18")]
+		public string CustomField18 { get; set; }
+
+		/// <summary>
+		///     CustomField19 represents the 19th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField19")]
+		public string CustomField19 { get; set; }
+
+		/// <summary>
+		///     CustomField20 represents the 20th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField20")]
+		public string CustomField20 { get; set; }
+
+		/// <summary>
+		///     CustomField21 represents the 21st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField21")]
+		public string CustomField21 { get; set; }
+
+		/// <summary>
+		///     CustomField22 represents the 22nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField22")]
+		public string CustomField22 { get; set; }
+
+		/// <summary>
+		///     CustomField23 represents the 23rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField23")]
+		public string CustomField23 { get; set; }
+
+		/// <summary>
+		///     CustomField24 represents the 24th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField24")]
+		public string CustomField24 { get; set; }
+
+		/// <summary>
+		///     CustomField25 represents the 25th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField25")]
+		public string CustomField25 { get; set; }
+
+		/// <summary>
+		///     CustomField26 represents the 26th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField26")]
+		public string CustomField26 { get; set; }
+
+		/// <summary>
+		///     CustomField27 represents the 27th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField27")]
+		public string CustomField27 { get; set; }
+
+		/// <summary>
+		///     CustomField28 represents the 28th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField28")]
+		public string CustomField28 { get; set; }
+
+		/// <summary>
+		///     CustomField29 represents the 29th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField29")]
+		public string CustomField29 { get; set; }
+
+		/// <summary>
+		///     CustomField30 represents the 30th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField30")]
+		public string CustomField30 { get; set; }
+
+		/// <summary>
+		///     CustomField6 represents the 6th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField6")]
+		public string CustomField6 { get; set; }
+
+		/// <summary>
+		///     CustomField7 represents the 7th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField7")]
+		public string CustomField7 { get; set; }
+
+		/// <summary>
+		///     CustomField8 represents the 8th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField8")]
+		public string CustomField8 { get; set; }
+
+		/// <summary>
+		///     CustomField9 represents the 9th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField9")]
+		public string CustomField9 { get; set; }
+
+		/// <summary>
 		///     Datasheet is the name of an datasheet file (in the media files)
 		///     or a URL to the datasheet on the internet.
 		/// </summary>
@@ -1409,6 +2352,23 @@ namespace Meplato.Store2.Products
 		public string ExtCategoryId { get; set; }
 
 		/// <summary>
+		///     ExtConfigForm represents information required to make the
+		///     product configurable. Please consult your Store Manager before
+		///     setting a value for this field.
+		/// </summary>
+		[JsonProperty("extConfigForm")]
+		public string ExtConfigForm { get; set; }
+
+		/// <summary>
+		///     ExtConfigService represents additional information required to
+		///     make the product configurable. See also ExtConfigForm. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("extConfigService")]
+		public string ExtConfigService { get; set; }
+
+		/// <summary>
 		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
 		///     specification. It is e.g. required for configurable/catalog
 		///     managed products.
@@ -1431,6 +2391,14 @@ namespace Meplato.Store2.Products
 		public Feature[] Features { get; set; }
 
 		/// <summary>
+		///     GLAccount represents the GL account number to use for this
+		///     product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("glAccount")]
+		public string GlAccount { get; set; }
+
+		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
 		///     EAN).
 		/// </summary>
@@ -1449,6 +2417,32 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("image")]
 		public string Image { get; set; }
+
+		/// <summary>
+		///     Incomplete is a flag that indicates whether this product is
+		///     incomplete. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("incomplete")]
+		public bool? Incomplete { get; set; }
+
+		/// <summary>
+		///     IsPassword is a flag that indicates whether this product will
+		///     be used to purchase a password, e.g. for a software product.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("isPassword")]
+		public bool? IsPassword { get; set; }
+
+		/// <summary>
+		///     KeepPrice is a flag that indicates whether the price of the
+		///     product will or will not be calculated by the catalog. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("keepPrice")]
+		public bool? KeepPrice { get; set; }
 
 		/// <summary>
 		///     Keywords is a list of aliases for the product.
@@ -1514,6 +2508,62 @@ namespace Meplato.Store2.Products
 		public string Name { get; set; }
 
 		/// <summary>
+		///     NeedsGoodsReceipt is a flag that indicates whether this product
+		///     requires a goods receipt process. Please consult your Store
+		///     Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("needsGoodsReceipt")]
+		public bool? NeedsGoodsReceipt { get; set; }
+
+		/// <summary>
+		///     NFBasePrice represents a part for calculating metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfBasePrice")]
+		public double? NfBasePrice { get; set; }
+
+		/// <summary>
+		///     NFBasePriceQuantity represents a part for calculating metal
+		///     surcharges. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("nfBasePriceQuantity")]
+		public double? NfBasePriceQuantity { get; set; }
+
+		/// <summary>
+		///     NFCndID represents the key to calculate metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfCndId")]
+		public string NfCndId { get; set; }
+
+		/// <summary>
+		///     NFScale represents a part for calculating metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfScale")]
+		public double? NfScale { get; set; }
+
+		/// <summary>
+		///     NFScaleQuantity represents a part for calculating metal
+		///     surcharges. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("nfScaleQuantity")]
+		public double? NfScaleQuantity { get; set; }
+
+		/// <summary>
+		///     Orderable is a flag that indicates whether this product will be
+		///     orderable to the end-user when shopping. Please consult your
+		///     Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("orderable")]
+		public bool? Orderable { get; set; }
+
+		/// <summary>
 		///     OrderUnit is the order unit of the product, a 3-character ISO
 		///     code (usually project-specific).
 		/// </summary>
@@ -1526,6 +2576,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("price")]
 		public double Price { get; set; }
+
+		/// <summary>
+		///     PriceFormula represents the formula to calculate the price of
+		///     the product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("priceFormula")]
+		public string PriceFormula { get; set; }
 
 		/// <summary>
 		///     PriceQty is the quantity for which the price is specified
@@ -1553,6 +2611,22 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("quantityMin")]
 		public double? QuantityMin { get; set; }
+
+		/// <summary>
+		///     Rateable is a flag that indicates whether the product can be
+		///     rated by end-users. Please consult your Store Manager before
+		///     setting a value for this field.
+		/// </summary>
+		[JsonProperty("rateable")]
+		public bool? Rateable { get; set; }
+
+		/// <summary>
+		///     RateableOnlyIfOrdered is a flag that indicates whether the
+		///     product can be rated only after being ordered. Please consult
+		///     your Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("rateableOnlyIfOrdered")]
+		public bool? RateableOnlyIfOrdered { get; set; }
 
 		/// <summary>
 		///     References defines cross-product references, e.g. alternatives
@@ -1607,6 +2681,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("unspscs")]
 		public Unspsc[] Unspscs { get; set; }
+
+		/// <summary>
+		///     Visible is a flag that indicates whether this product will be
+		///     visible to the end-user when shopping. Please consult your
+		///     Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("visible")]
+		public bool? Visible { get; set; }
 
 		#endregion // ReplaceProduct
 	}
@@ -1814,6 +2896,14 @@ namespace Meplato.Store2.Products
 		public string Asin { get; set; }
 
 		/// <summary>
+		///     AutoConfigure is a flag that indicates whether this product can
+		///     be configured automatically. Please consult your Store Manager
+		///     before setting a value for this field.
+		/// </summary>
+		[JsonProperty("autoConfigure")]
+		public bool? AutoConfigure { get; set; }
+
+		/// <summary>
 		///     Availability allows the update of product availability data,
 		///     e.g. the number of items in stock or the date when the product
 		///     will be available again. 
@@ -1826,6 +2916,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("blobs")]
 		public Blob[] Blobs { get; set; }
+
+		/// <summary>
+		///     BoostFactor represents a positive or negative boost for the
+		///     product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("boostFactor")]
+		public double? BoostFactor { get; set; }
 
 		/// <summary>
 		///     BPN is the buyer part number of the product.
@@ -1853,6 +2951,38 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("conditions")]
 		public Condition[] Conditions { get; set; }
+
+		/// <summary>
+		///     Contract represents the contract number to be used when
+		///     purchasing this product. Please consult your Store Manager
+		///     before setting a value for this field.
+		/// </summary>
+		[JsonProperty("contract")]
+		public string Contract { get; set; }
+
+		/// <summary>
+		///     ContractItem represents line number in the contract to be used
+		///     when purchasing this product. See also Contract. Please consult
+		///     your Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("contractItem")]
+		public string ContractItem { get; set; }
+
+		/// <summary>
+		///     ConversionDenumerator is the denumerator for calculating price
+		///     quantities. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("conversionDenumerator")]
+		public double? ConversionDenumerator { get; set; }
+
+		/// <summary>
+		///     ConversionNumerator is the numerator for calculating price
+		///     quantities. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("conversionNumerator")]
+		public double? ConversionNumerator { get; set; }
 
 		/// <summary>
 		///     ContentUnit is the content unit of the product, a 3-character
@@ -1911,6 +3041,206 @@ namespace Meplato.Store2.Products
 		public CustField[] CustFields { get; set; }
 
 		/// <summary>
+		///     CustomField10 represents the 10th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField10")]
+		public string CustomField10 { get; set; }
+
+		/// <summary>
+		///     CustomField11 represents the 11th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField11")]
+		public string CustomField11 { get; set; }
+
+		/// <summary>
+		///     CustomField12 represents the 12th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField12")]
+		public string CustomField12 { get; set; }
+
+		/// <summary>
+		///     CustomField13 represents the 13th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField13")]
+		public string CustomField13 { get; set; }
+
+		/// <summary>
+		///     CustomField14 represents the 14th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField14")]
+		public string CustomField14 { get; set; }
+
+		/// <summary>
+		///     CustomField15 represents the 15th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField15")]
+		public string CustomField15 { get; set; }
+
+		/// <summary>
+		///     CustomField16 represents the 16th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField16")]
+		public string CustomField16 { get; set; }
+
+		/// <summary>
+		///     CustomField17 represents the 17th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField17")]
+		public string CustomField17 { get; set; }
+
+		/// <summary>
+		///     CustomField18 represents the 18th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField18")]
+		public string CustomField18 { get; set; }
+
+		/// <summary>
+		///     CustomField19 represents the 19th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField19")]
+		public string CustomField19 { get; set; }
+
+		/// <summary>
+		///     CustomField20 represents the 20th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField20")]
+		public string CustomField20 { get; set; }
+
+		/// <summary>
+		///     CustomField21 represents the 21st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField21")]
+		public string CustomField21 { get; set; }
+
+		/// <summary>
+		///     CustomField22 represents the 22nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField22")]
+		public string CustomField22 { get; set; }
+
+		/// <summary>
+		///     CustomField23 represents the 23rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField23")]
+		public string CustomField23 { get; set; }
+
+		/// <summary>
+		///     CustomField24 represents the 24th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField24")]
+		public string CustomField24 { get; set; }
+
+		/// <summary>
+		///     CustomField25 represents the 25th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField25")]
+		public string CustomField25 { get; set; }
+
+		/// <summary>
+		///     CustomField26 represents the 26th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField26")]
+		public string CustomField26 { get; set; }
+
+		/// <summary>
+		///     CustomField27 represents the 27th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField27")]
+		public string CustomField27 { get; set; }
+
+		/// <summary>
+		///     CustomField28 represents the 28th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField28")]
+		public string CustomField28 { get; set; }
+
+		/// <summary>
+		///     CustomField29 represents the 29th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField29")]
+		public string CustomField29 { get; set; }
+
+		/// <summary>
+		///     CustomField30 represents the 30th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField30")]
+		public string CustomField30 { get; set; }
+
+		/// <summary>
+		///     CustomField6 represents the 6th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField6")]
+		public string CustomField6 { get; set; }
+
+		/// <summary>
+		///     CustomField7 represents the 7th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField7")]
+		public string CustomField7 { get; set; }
+
+		/// <summary>
+		///     CustomField8 represents the 8th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField8")]
+		public string CustomField8 { get; set; }
+
+		/// <summary>
+		///     CustomField9 represents the 9th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField9")]
+		public string CustomField9 { get; set; }
+
+		/// <summary>
 		///     Datasheet is the name of an datasheet file (in the media files)
 		///     or a URL to the datasheet on the internet.
 		/// </summary>
@@ -1959,6 +3289,23 @@ namespace Meplato.Store2.Products
 		public string ExtCategoryId { get; set; }
 
 		/// <summary>
+		///     ExtConfigForm represents information required to make the
+		///     product configurable. Please consult your Store Manager before
+		///     setting a value for this field.
+		/// </summary>
+		[JsonProperty("extConfigForm")]
+		public string ExtConfigForm { get; set; }
+
+		/// <summary>
+		///     ExtConfigService represents additional information required to
+		///     make the product configurable. See also ExtConfigForm. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("extConfigService")]
+		public string ExtConfigService { get; set; }
+
+		/// <summary>
 		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
 		///     specification. It is e.g. required for configurable/catalog
 		///     managed products.
@@ -1981,6 +3328,14 @@ namespace Meplato.Store2.Products
 		public Feature[] Features { get; set; }
 
 		/// <summary>
+		///     GLAccount represents the GL account number to use for this
+		///     product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("glAccount")]
+		public string GlAccount { get; set; }
+
+		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
 		///     EAN).
 		/// </summary>
@@ -1999,6 +3354,32 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("image")]
 		public string Image { get; set; }
+
+		/// <summary>
+		///     Incomplete is a flag that indicates whether this product is
+		///     incomplete. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("incomplete")]
+		public bool? Incomplete { get; set; }
+
+		/// <summary>
+		///     IsPassword is a flag that indicates whether this product will
+		///     be used to purchase a password, e.g. for a software product.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("isPassword")]
+		public bool? IsPassword { get; set; }
+
+		/// <summary>
+		///     KeepPrice is a flag that indicates whether the price of the
+		///     product will or will not be calculated by the catalog. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("keepPrice")]
+		public bool? KeepPrice { get; set; }
 
 		/// <summary>
 		///     Keywords is a list of aliases for the product.
@@ -2064,6 +3445,62 @@ namespace Meplato.Store2.Products
 		public string Name { get; set; }
 
 		/// <summary>
+		///     NeedsGoodsReceipt is a flag that indicates whether this product
+		///     requires a goods receipt process. Please consult your Store
+		///     Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("needsGoodsReceipt")]
+		public bool? NeedsGoodsReceipt { get; set; }
+
+		/// <summary>
+		///     NFBasePrice represents a part for calculating metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfBasePrice")]
+		public double? NfBasePrice { get; set; }
+
+		/// <summary>
+		///     NFBasePriceQuantity represents a part for calculating metal
+		///     surcharges. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("nfBasePriceQuantity")]
+		public double? NfBasePriceQuantity { get; set; }
+
+		/// <summary>
+		///     NFCndID represents the key to calculate metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfCndId")]
+		public string NfCndId { get; set; }
+
+		/// <summary>
+		///     NFScale represents a part for calculating metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfScale")]
+		public double? NfScale { get; set; }
+
+		/// <summary>
+		///     NFScaleQuantity represents a part for calculating metal
+		///     surcharges. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("nfScaleQuantity")]
+		public double? NfScaleQuantity { get; set; }
+
+		/// <summary>
+		///     Orderable is a flag that indicates whether this product will be
+		///     orderable to the end-user when shopping. Please consult your
+		///     Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("orderable")]
+		public bool? Orderable { get; set; }
+
+		/// <summary>
 		///     OrderUnit is the order unit of the product, a 3-character ISO
 		///     code (usually project-specific).
 		/// </summary>
@@ -2076,6 +3513,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("price")]
 		public double? Price { get; set; }
+
+		/// <summary>
+		///     PriceFormula represents the formula to calculate the price of
+		///     the product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("priceFormula")]
+		public string PriceFormula { get; set; }
 
 		/// <summary>
 		///     PriceQty is the quantity for which the price is specified
@@ -2103,6 +3548,22 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("quantityMin")]
 		public double? QuantityMin { get; set; }
+
+		/// <summary>
+		///     Rateable is a flag that indicates whether the product can be
+		///     rated by end-users. Please consult your Store Manager before
+		///     setting a value for this field.
+		/// </summary>
+		[JsonProperty("rateable")]
+		public bool? Rateable { get; set; }
+
+		/// <summary>
+		///     RateableOnlyIfOrdered is a flag that indicates whether the
+		///     product can be rated only after being ordered. Please consult
+		///     your Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("rateableOnlyIfOrdered")]
+		public bool? RateableOnlyIfOrdered { get; set; }
 
 		/// <summary>
 		///     References defines cross-product references, e.g. alternatives
@@ -2158,6 +3619,14 @@ namespace Meplato.Store2.Products
 		[JsonProperty("unspscs")]
 		public Unspsc[] Unspscs { get; set; }
 
+		/// <summary>
+		///     Visible is a flag that indicates whether this product will be
+		///     visible to the end-user when shopping. Please consult your
+		///     Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("visible")]
+		public bool? Visible { get; set; }
+
 		#endregion // UpdateProduct
 	}
 
@@ -2200,6 +3669,14 @@ namespace Meplato.Store2.Products
 		public string Asin { get; set; }
 
 		/// <summary>
+		///     AutoConfigure is a flag that indicates whether this product can
+		///     be configured automatically. Please consult your Store Manager
+		///     before setting a value for this field.
+		/// </summary>
+		[JsonProperty("autoConfigure")]
+		public bool? AutoConfigure { get; set; }
+
+		/// <summary>
 		///     Availability allows the update of product availability data,
 		///     e.g. the number of items in stock or the date when the product
 		///     will be available again. 
@@ -2212,6 +3689,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("blobs")]
 		public Blob[] Blobs { get; set; }
+
+		/// <summary>
+		///     BoostFactor represents a positive or negative boost for the
+		///     product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("boostFactor")]
+		public double? BoostFactor { get; set; }
 
 		/// <summary>
 		///     BPN is the buyer part number of the product.
@@ -2239,6 +3724,38 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("conditions")]
 		public Condition[] Conditions { get; set; }
+
+		/// <summary>
+		///     Contract represents the contract number to be used when
+		///     purchasing this product. Please consult your Store Manager
+		///     before setting a value for this field.
+		/// </summary>
+		[JsonProperty("contract")]
+		public string Contract { get; set; }
+
+		/// <summary>
+		///     ContractItem represents line number in the contract to be used
+		///     when purchasing this product. See also Contract. Please consult
+		///     your Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("contractItem")]
+		public string ContractItem { get; set; }
+
+		/// <summary>
+		///     ConversionDenumerator is the denumerator for calculating price
+		///     quantities. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("conversionDenumerator")]
+		public double? ConversionDenumerator { get; set; }
+
+		/// <summary>
+		///     ConversionNumerator is the numerator for calculating price
+		///     quantities. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("conversionNumerator")]
+		public double? ConversionNumerator { get; set; }
 
 		/// <summary>
 		///     ContentUnit is the content unit of the product, a 3-character
@@ -2297,6 +3814,206 @@ namespace Meplato.Store2.Products
 		public CustField[] CustFields { get; set; }
 
 		/// <summary>
+		///     CustomField10 represents the 10th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField10")]
+		public string CustomField10 { get; set; }
+
+		/// <summary>
+		///     CustomField11 represents the 11th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField11")]
+		public string CustomField11 { get; set; }
+
+		/// <summary>
+		///     CustomField12 represents the 12th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField12")]
+		public string CustomField12 { get; set; }
+
+		/// <summary>
+		///     CustomField13 represents the 13th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField13")]
+		public string CustomField13 { get; set; }
+
+		/// <summary>
+		///     CustomField14 represents the 14th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField14")]
+		public string CustomField14 { get; set; }
+
+		/// <summary>
+		///     CustomField15 represents the 15th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField15")]
+		public string CustomField15 { get; set; }
+
+		/// <summary>
+		///     CustomField16 represents the 16th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField16")]
+		public string CustomField16 { get; set; }
+
+		/// <summary>
+		///     CustomField17 represents the 17th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField17")]
+		public string CustomField17 { get; set; }
+
+		/// <summary>
+		///     CustomField18 represents the 18th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField18")]
+		public string CustomField18 { get; set; }
+
+		/// <summary>
+		///     CustomField19 represents the 19th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField19")]
+		public string CustomField19 { get; set; }
+
+		/// <summary>
+		///     CustomField20 represents the 20th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField20")]
+		public string CustomField20 { get; set; }
+
+		/// <summary>
+		///     CustomField21 represents the 21st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField21")]
+		public string CustomField21 { get; set; }
+
+		/// <summary>
+		///     CustomField22 represents the 22nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField22")]
+		public string CustomField22 { get; set; }
+
+		/// <summary>
+		///     CustomField23 represents the 23rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField23")]
+		public string CustomField23 { get; set; }
+
+		/// <summary>
+		///     CustomField24 represents the 24th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField24")]
+		public string CustomField24 { get; set; }
+
+		/// <summary>
+		///     CustomField25 represents the 25th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField25")]
+		public string CustomField25 { get; set; }
+
+		/// <summary>
+		///     CustomField26 represents the 26th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField26")]
+		public string CustomField26 { get; set; }
+
+		/// <summary>
+		///     CustomField27 represents the 27th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField27")]
+		public string CustomField27 { get; set; }
+
+		/// <summary>
+		///     CustomField28 represents the 28th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField28")]
+		public string CustomField28 { get; set; }
+
+		/// <summary>
+		///     CustomField29 represents the 29th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField29")]
+		public string CustomField29 { get; set; }
+
+		/// <summary>
+		///     CustomField30 represents the 30th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField30")]
+		public string CustomField30 { get; set; }
+
+		/// <summary>
+		///     CustomField6 represents the 6th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField6")]
+		public string CustomField6 { get; set; }
+
+		/// <summary>
+		///     CustomField7 represents the 7th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField7")]
+		public string CustomField7 { get; set; }
+
+		/// <summary>
+		///     CustomField8 represents the 8th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField8")]
+		public string CustomField8 { get; set; }
+
+		/// <summary>
+		///     CustomField9 represents the 9th customer-specific field. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("customField9")]
+		public string CustomField9 { get; set; }
+
+		/// <summary>
 		///     Datasheet is the name of an datasheet file (in the media files)
 		///     or a URL to the datasheet on the internet.
 		/// </summary>
@@ -2345,6 +4062,23 @@ namespace Meplato.Store2.Products
 		public string ExtCategoryId { get; set; }
 
 		/// <summary>
+		///     ExtConfigForm represents information required to make the
+		///     product configurable. Please consult your Store Manager before
+		///     setting a value for this field.
+		/// </summary>
+		[JsonProperty("extConfigForm")]
+		public string ExtConfigForm { get; set; }
+
+		/// <summary>
+		///     ExtConfigService represents additional information required to
+		///     make the product configurable. See also ExtConfigForm. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("extConfigService")]
+		public string ExtConfigService { get; set; }
+
+		/// <summary>
 		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
 		///     specification. It is e.g. required for configurable/catalog
 		///     managed products.
@@ -2367,6 +4101,14 @@ namespace Meplato.Store2.Products
 		public Feature[] Features { get; set; }
 
 		/// <summary>
+		///     GLAccount represents the GL account number to use for this
+		///     product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("glAccount")]
+		public string GlAccount { get; set; }
+
+		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
 		///     EAN).
 		/// </summary>
@@ -2385,6 +4127,32 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("image")]
 		public string Image { get; set; }
+
+		/// <summary>
+		///     Incomplete is a flag that indicates whether this product is
+		///     incomplete. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("incomplete")]
+		public bool? Incomplete { get; set; }
+
+		/// <summary>
+		///     IsPassword is a flag that indicates whether this product will
+		///     be used to purchase a password, e.g. for a software product.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("isPassword")]
+		public bool? IsPassword { get; set; }
+
+		/// <summary>
+		///     KeepPrice is a flag that indicates whether the price of the
+		///     product will or will not be calculated by the catalog. Please
+		///     consult your Store Manager before setting a value for this
+		///     field.
+		/// </summary>
+		[JsonProperty("keepPrice")]
+		public bool? KeepPrice { get; set; }
 
 		/// <summary>
 		///     Keywords is a list of aliases for the product.
@@ -2450,6 +4218,62 @@ namespace Meplato.Store2.Products
 		public string Name { get; set; }
 
 		/// <summary>
+		///     NeedsGoodsReceipt is a flag that indicates whether this product
+		///     requires a goods receipt process. Please consult your Store
+		///     Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("needsGoodsReceipt")]
+		public bool? NeedsGoodsReceipt { get; set; }
+
+		/// <summary>
+		///     NFBasePrice represents a part for calculating metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfBasePrice")]
+		public double? NfBasePrice { get; set; }
+
+		/// <summary>
+		///     NFBasePriceQuantity represents a part for calculating metal
+		///     surcharges. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("nfBasePriceQuantity")]
+		public double? NfBasePriceQuantity { get; set; }
+
+		/// <summary>
+		///     NFCndID represents the key to calculate metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfCndId")]
+		public string NfCndId { get; set; }
+
+		/// <summary>
+		///     NFScale represents a part for calculating metal surcharges.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("nfScale")]
+		public double? NfScale { get; set; }
+
+		/// <summary>
+		///     NFScaleQuantity represents a part for calculating metal
+		///     surcharges. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("nfScaleQuantity")]
+		public double? NfScaleQuantity { get; set; }
+
+		/// <summary>
+		///     Orderable is a flag that indicates whether this product will be
+		///     orderable to the end-user when shopping. Please consult your
+		///     Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("orderable")]
+		public bool? Orderable { get; set; }
+
+		/// <summary>
 		///     OrderUnit is the order unit of the product, a 3-character ISO
 		///     code (usually project-specific). OrderUnit is a required field.
 		/// </summary>
@@ -2462,6 +4286,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("price")]
 		public double Price { get; set; }
+
+		/// <summary>
+		///     PriceFormula represents the formula to calculate the price of
+		///     the product. Please consult your Store Manager before setting a
+		///     value for this field.
+		/// </summary>
+		[JsonProperty("priceFormula")]
+		public string PriceFormula { get; set; }
 
 		/// <summary>
 		///     PriceQty is the quantity for which the price is specified
@@ -2489,6 +4321,22 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("quantityMin")]
 		public double? QuantityMin { get; set; }
+
+		/// <summary>
+		///     Rateable is a flag that indicates whether the product can be
+		///     rated by end-users. Please consult your Store Manager before
+		///     setting a value for this field.
+		/// </summary>
+		[JsonProperty("rateable")]
+		public bool? Rateable { get; set; }
+
+		/// <summary>
+		///     RateableOnlyIfOrdered is a flag that indicates whether the
+		///     product can be rated only after being ordered. Please consult
+		///     your Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("rateableOnlyIfOrdered")]
+		public bool? RateableOnlyIfOrdered { get; set; }
 
 		/// <summary>
 		///     References defines cross-product references, e.g. alternatives
@@ -2549,6 +4397,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("unspscs")]
 		public Unspsc[] Unspscs { get; set; }
+
+		/// <summary>
+		///     Visible is a flag that indicates whether this product will be
+		///     visible to the end-user when shopping. Please consult your
+		///     Store Manager before setting a value for this field.
+		/// </summary>
+		[JsonProperty("visible")]
+		public bool? Visible { get; set; }
 
 		#endregion // UpsertProduct
 	}

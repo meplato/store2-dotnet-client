@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.0.4
+// Version: 2.1.0
 // License: Copyright (c) 2015-2017 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.0.4";
+		public const string Version = "2.1.0";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -172,6 +172,27 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("description")]
 		public string Description { get; set; }
+
+		/// <summary>
+		///     DownloadChecksum represents the checksum of the catalog last
+		///     downloaded.
+		/// </summary>
+		[JsonProperty("downloadChecksum")]
+		public string DownloadChecksum { get; set; }
+
+		/// <summary>
+		///     DownloadInterval represents the interval to use for checking
+		///     new versions of a catalog at the DownloadURL.
+		/// </summary>
+		[JsonProperty("downloadInterval")]
+		public string DownloadInterval { get; set; }
+
+		/// <summary>
+		///     DownloadURL represents a URL which is periodically downloaded
+		///     and imported as a new catalog.
+		/// </summary>
+		[JsonProperty("downloadUrl")]
+		public string DownloadUrl { get; set; }
 
 		/// <summary>
 		///     ERPNumberBuyer is the number of the merchant of this catalog in
@@ -416,6 +437,12 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("supportsOciValidate")]
 		public bool SupportsOciValidate { get; set; }
+
+		/// <summary>
+		///     Type of catalog, e.g. corporate or basic.
+		/// </summary>
+		[JsonProperty("type")]
+		public string Type { get; set; }
 
 		/// <summary>
 		///     Updated is the last modification date and time of the catalog.
