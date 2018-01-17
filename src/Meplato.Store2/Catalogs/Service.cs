@@ -17,8 +17,8 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.0
-// License: Copyright (c) 2015-2017 Meplato GmbH, Switzerland. All rights reserved.
+// Version: 2.1.1
+// License: Copyright (c) 2015-2018 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
 
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.0";
+		public const string Version = "2.1.1";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -232,6 +232,13 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("kind")]
 		public string Kind { get; set; }
+
+		/// <summary>
+		///     KPISummary returns the outcome of analyzing the contents for
+		///     key performance indicators.
+		/// </summary>
+		[JsonProperty("kpiSummary")]
+		public KPISummary KpiSummary { get; set; }
 
 		/// <summary>
 		///     Language is the IETF language tag of the language of all
@@ -464,6 +471,69 @@ namespace Meplato.Store2.Catalogs
 		public string ValidUntil { get; set; }
 
 		#endregion // Catalog
+	}
+
+	/// <summary>
+	///     KPISummary represents the outcome of analyzing the contents for
+	///     key performance indicators.
+	/// </summary>
+	public class KPISummary
+	{
+		#region KPISummary
+
+		/// <summary>
+		///     Coefficients represents the weight that is used to calculate
+		///     the weighted coefficients for a criteria. It relies on the
+		///     medal stored in DegreesOfFulfillment.
+		/// </summary>
+		[JsonProperty("coefficients")]
+		public IDictionary<string, double> Coefficients { get; set; }
+
+		/// <summary>
+		///     CreatedAt is the date/time when the KPI summary has been
+		///     created.
+		/// </summary>
+		[JsonProperty("createdAt")]
+		public DateTimeOffset CreatedAt { get; set; }
+
+		/// <summary>
+		///     DegreesOfFulfillment represents the medal for all KPI criteria:
+		///     3 for gold, 2 for silver, 1 for bronze, 0 for no medal.
+		/// </summary>
+		[JsonProperty("degreesOfFulfillment")]
+		public IDictionary<string, int> DegreesOfFulfillment { get; set; }
+
+		/// <summary>
+		///     FinalResult returns a value between 0.0 and 1.0 that describes
+		///     the weighted sum of all content-related test criteria.
+		/// </summary>
+		[JsonProperty("finalResult")]
+		public double FinalResult { get; set; }
+
+		/// <summary>
+		///     OverallResult returns 3 for a gold medal, 2 for a silver medal,
+		///     1 for a bronze medal, and 0 for no medal.
+		/// </summary>
+		[JsonProperty("overallResult")]
+		public int OverallResult { get; set; }
+
+		/// <summary>
+		///     TestResults represents the unweighted outcome for a specific
+		///     KPI criteria, i.e. the percentage of products that fulfill the
+		///     criteria.
+		/// </summary>
+		[JsonProperty("testResults")]
+		public IDictionary<string, double> TestResults { get; set; }
+
+		/// <summary>
+		///     WeightedCoefficients is a value between 0.0 and 1.0 that
+		///     represents the weighted outcome of a KPI criteria, as
+		///     calculated by the coefficient and the test result.
+		/// </summary>
+		[JsonProperty("weightedCoefficients")]
+		public IDictionary<string, double> WeightedCoefficients { get; set; }
+
+		#endregion // KPISummary
 	}
 
 	/// <summary>
