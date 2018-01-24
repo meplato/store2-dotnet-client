@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.1
+// Version: 2.1.2
 // License: Copyright (c) 2015-2018 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.1";
+		public const string Version = "2.1.2";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -166,6 +166,13 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("currency")]
 		public string Currency { get; set; }
+
+		/// <summary>
+		///     CustFields is an array of generic name/value pairs for
+		///     customer-specific attributes.
+		/// </summary>
+		[JsonProperty("custFields")]
+		public CustField[] CustFields { get; set; }
 
 		/// <summary>
 		///     Description of the catalog.
@@ -471,6 +478,29 @@ namespace Meplato.Store2.Catalogs
 		public string ValidUntil { get; set; }
 
 		#endregion // Catalog
+	}
+
+	/// <summary>
+	///     CustField describes a generic name/value pair. Its purpose is
+	///     to provide a mechanism for customer-specific fields.
+	/// </summary>
+	public class CustField
+	{
+		#region CustField
+
+		/// <summary>
+		///     Name is the name of the customer-specific field, e.g. TaxRate.
+		/// </summary>
+		[JsonProperty("name")]
+		public string Name { get; set; }
+
+		/// <summary>
+		///     Value is the value of the customer-specific field, e.g. 19%.
+		/// </summary>
+		[JsonProperty("value")]
+		public string Value { get; set; }
+
+		#endregion // CustField
 	}
 
 	/// <summary>
