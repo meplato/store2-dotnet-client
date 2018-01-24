@@ -1,5 +1,7 @@
 # Meplato Store 2 API for .NET
 
+[![Build Status](https://travis-ci.org/meplato/store2-dotnet-client.svg?branch=master)](https://travis-ci.org/meplato/store2-dotnet-client)
+
 This is the .NET client for the Meplato Store 2 API. It consists of a library
 to integrate your infrastructure with Meplato suite for suppliers.
 
