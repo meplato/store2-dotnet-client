@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.2
+// Version: 2.1.3
 // License: Copyright (c) 2015-2018 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Products
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.2";
+		public const string Version = "2.1.3";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -747,6 +747,12 @@ namespace Meplato.Store2.Products
 		public bool? Incomplete { get; set; }
 
 		/// <summary>
+		///     Intrastat specifies required data for Intrastat messages. 
+		/// </summary>
+		[JsonProperty("intrastat")]
+		public Intrastat Intrastat { get; set; }
+
+		/// <summary>
 		///     IsPassword is a flag that indicates whether this product will
 		///     be used to purchase a password, e.g. for a software product.
 		///     Please consult your Store Manager before setting a value for
@@ -1151,6 +1157,78 @@ namespace Meplato.Store2.Products
 		public string Text { get; set; }
 
 		#endregion // Hazmat
+	}
+
+	/// <summary>
+	///     Intrastat represents data required for Intrastat messages.
+	/// </summary>
+	public class Intrastat
+	{
+		#region Intrastat
+
+		/// <summary>
+		///     Code represents an identifier for a product group, e.g. the
+		///     tariff code of "85167100" for "Electro-thermic coffee or tea
+		///     makers, for domestic use". See
+		///     https://www.zolltarifnummern.de/2018 for details. This is a
+		///     required field. 
+		/// </summary>
+		[JsonProperty("code")]
+		public string Code { get; set; }
+
+		/// <summary>
+		///     GrossWeight represents the gross weight of the product. 
+		/// </summary>
+		[JsonProperty("grossWeight")]
+		public double GrossWeight { get; set; }
+
+		/// <summary>
+		///     MeansOfTransport indicates how the product was delivered to its
+		///     destination, e.g. by air or by train. According to the
+		///     INTRASTAT documentation, the following values are permitted
+		///     (see
+		///     https://www-idev.destatis.de/idev/doc/intra/doc/Intrahandel_Leit
+		///     faden.pdf for a complete list): 1 - Maritime traffic 2 - Rail
+		///     transport 3 - Road traffic 4 - Air traffic 5 - Mailings /
+		///     postal service 7 - Pipings 8 - Inland waterways 9 - Own drive
+		///     The value of "6" is missing in that list, and it's not a typo. 
+		/// </summary>
+		[JsonProperty("meansOfTransport")]
+		public string MeansOfTransport { get; set; }
+
+		/// <summary>
+		///     NetWeight represents the net weight of the product. 
+		/// </summary>
+		[JsonProperty("netWeight")]
+		public double NetWeight { get; set; }
+
+		/// <summary>
+		///     OriginCountry represents the ISO code of the country where the
+		///     product has been created/produced, e.g. DE. This is a required
+		///     field. 
+		/// </summary>
+		[JsonProperty("originCountry")]
+		public string OriginCountry { get; set; }
+
+		/// <summary>
+		///     TransactionType indicates the type of transaction, e.g. if it
+		///     represents a purchase or a leasing contract. In the INTRASTAT
+		///     documentation, this is represented by two digits, e.g. "11" for
+		///     a purchase and "14" for leasing. See
+		///     https://www-idev.destatis.de/idev/doc/intra/doc/Intrahandel_Leit
+		///     faden.pdf for details. 
+		/// </summary>
+		[JsonProperty("transactionType")]
+		public string TransactionType { get; set; }
+
+		/// <summary>
+		///     WeightUnit is the ISO code of for NetWeight and/or GrossWeight,
+		///     e.g. KGM. 
+		/// </summary>
+		[JsonProperty("weightUnit")]
+		public string WeightUnit { get; set; }
+
+		#endregion // Intrastat
 	}
 
 	/// <summary>
@@ -1609,6 +1687,12 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("incomplete")]
 		public bool? Incomplete { get; set; }
+
+		/// <summary>
+		///     Intrastat specifies required data for Intrastat messages. 
+		/// </summary>
+		[JsonProperty("intrastat")]
+		public Intrastat Intrastat { get; set; }
 
 		/// <summary>
 		///     IsPassword is a flag that indicates whether this product will
@@ -2425,6 +2509,12 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("incomplete")]
 		public bool? Incomplete { get; set; }
+
+		/// <summary>
+		///     Intrastat specifies required data for Intrastat messages. 
+		/// </summary>
+		[JsonProperty("intrastat")]
+		public Intrastat Intrastat { get; set; }
 
 		/// <summary>
 		///     IsPassword is a flag that indicates whether this product will
@@ -3364,6 +3454,12 @@ namespace Meplato.Store2.Products
 		public bool? Incomplete { get; set; }
 
 		/// <summary>
+		///     Intrastat specifies required data for Intrastat messages. 
+		/// </summary>
+		[JsonProperty("intrastat")]
+		public Intrastat Intrastat { get; set; }
+
+		/// <summary>
 		///     IsPassword is a flag that indicates whether this product will
 		///     be used to purchase a password, e.g. for a software product.
 		///     Please consult your Store Manager before setting a value for
@@ -4135,6 +4231,12 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("incomplete")]
 		public bool? Incomplete { get; set; }
+
+		/// <summary>
+		///     Intrastat specifies required data for Intrastat messages. 
+		/// </summary>
+		[JsonProperty("intrastat")]
+		public Intrastat Intrastat { get; set; }
 
 		/// <summary>
 		///     IsPassword is a flag that indicates whether this product will
