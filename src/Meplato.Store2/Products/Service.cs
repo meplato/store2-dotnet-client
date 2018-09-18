@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.3
+// Version: 2.1.4
 // License: Copyright (c) 2015-2018 Meplato GmbH, Switzerland. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Products
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.3";
+		public const string Version = "2.1.4";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -1332,6 +1332,15 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("conversionNumerator")]
 		public double? ConversionNumerator { get; set; }
+
+		/// <summary>
+		///     Country represents the ISO code of the country of origin, i.e.
+		///     the country where the product has been created/produced, e.g.
+		///     DE. If unspecified, the field is initialized with the catalog's
+		///     country field. 
+		/// </summary>
+		[JsonProperty("country")]
+		public string Country { get; set; }
 
 		/// <summary>
 		///     Created is the creation date and time of the product.
