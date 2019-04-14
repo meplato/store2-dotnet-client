@@ -1,5 +1,5 @@
 #region Copyright and terms of services
-// Copyright (c) 2015-2016 Meplato GmbH, Switzerland.
+// Copyright (c) 2015-2016 Meplato GmbH.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
 // in compliance with the License. You may obtain a copy of the License at
@@ -18,7 +18,7 @@
 //
 // Author:  Meplato API Team <support@meplato.com>
 // Version: 2.1.5
-// License: Copyright (c) 2015-2018 Meplato GmbH, Switzerland. All rights reserved.
+// License: Copyright (c) 2015-2018 Meplato GmbH. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
 

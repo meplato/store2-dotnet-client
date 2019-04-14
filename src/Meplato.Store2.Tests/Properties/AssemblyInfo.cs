@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Meplato Store 2 Tests")]
-[assembly: AssemblyCopyright("Copyright © 2015 Meplato GmbH, Switzerland")]
+[assembly: AssemblyCopyright("Copyright © 2015 Meplato GmbH")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

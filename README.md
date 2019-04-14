@@ -51,6 +51,68 @@ foreach (var catalog in response.Items)
 }
 ```
 
+You should use e.g. [Polly](https://github.com/App-vNext/Polly)
+to make your API consumer resilient against network errors or
+API limits. Notice that Polly is much more versatile than this
+simple snippet; read up the
+[documentation](http://www.thepollyproject.org/)
+and [examples](https://github.com/App-vNext/Polly-Samples).
+
+The following snippet can also be found in
+[`PollyClientTests.cs`](https://github.com/meplato/store2-dotnet-client/blob/master/src/Meplato.Store2.Tests/PollyClientTests.cs) as executable code:
+
+```csharp
+// Client is used to perform HTTP requests.
+// The library comes with a default HTTP client,
+// but you can build or use your own.
+var client = new Meplato.Store2.Client();
+
+// Create and initialize the Catalogs service with your API token.
+var service = new Service(client) {
+    User = "<your-api-token>"
+};
+
+// Configure a Polly policy that handles exceptions with
+// HTTP requests and automatically retries up to 5 times,
+// waiting 0.1s at the 1st run, 0.2s at the 2nd, 0.4s at
+// the 3rd etc. (exponential backoff).
+var retries = 0;
+var policy = Policy.Handle<Exception>().WaitAndRetryAsync(
+    5,
+    attempt => TimeSpan.FromSeconds(0.1 * Math.Pow(2, attempt)),
+    (exception, waitTime) =>
+    {
+        /*
+        Assert.NotNull(exception);
+        Assert.IsInstanceOf<ServiceException>(exception);
+        Assert.AreEqual("Too many requests", exception.Message);
+        */
+        retries++;
+
+        Console.WriteLine($"Retry {retries} with a wait time of {waitTime}");
+    }
+);
+
+// Get the first 10 of your catalogs, sorted by creation date (descending), then by name.
+try {
+    await policy.ExecuteAsync(async () => {
+        var response = await service.Search().Skip(0).Take(10).Sort("-created,name").Do();
+        Console.WriteLine("You have {0} catalog(s).", response.TotalItems);
+        foreach (var catalog in response.Items)
+        {
+            Console.WriteLine("Catalog with ID={0} has name {1}", catalog.Id, catalog.Name);
+        }
+    });
+}
+catch (ServiceException ex) {
+    // After 5 retries and still failing, you'll be landing here
+    Console.WriteLine($"Request failed with HTTP status {ex.StatusCode}");
+}
+catch (Exception ex) {
+    // Something else went wrong.
+}
+```
+
 Feel free to read the unit tests for the various usage scenarios of the
 library.
 
@@ -67,7 +129,7 @@ Run the NUnit tests in the Visual Studio solution.
 
 This software is licensed under the Apache 2 license.
 
-    Copyright (c) 2015 Meplato GmbH, Switzerland <http://www.meplato.com>
+    Copyright (c) 2015 Meplato GmbH <http://www.meplato.com>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
