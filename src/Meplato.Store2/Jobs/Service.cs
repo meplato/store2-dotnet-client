@@ -1,5 +1,5 @@
 #region Copyright and terms of services
-// Copyright (c) 2015-2016 Meplato GmbH.
+// Copyright (c) 2013-present Meplato GmbH.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
 // in compliance with the License. You may obtain a copy of the License at
@@ -17,8 +17,8 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.6
-// License: Copyright (c) 2015-2018 Meplato GmbH. All rights reserved.
+// Version: 2.1.7
+// License: Copyright (c) 2015-2020 Meplato GmbH. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
 
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Jobs
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.6";
+		public const string Version = "2.1.7";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 

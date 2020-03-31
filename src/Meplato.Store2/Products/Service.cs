@@ -1,5 +1,5 @@
 #region Copyright and terms of services
-// Copyright (c) 2015-2016 Meplato GmbH.
+// Copyright (c) 2013-present Meplato GmbH.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
 // in compliance with the License. You may obtain a copy of the License at
@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.6
+// Version: 2.1.7
 // License: Copyright (c) 2015-2018 Meplato GmbH. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -41,7 +41,7 @@ namespace Meplato.Store2.Products
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.6";
+		public const string Version = "2.1.7";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -3381,6 +3381,30 @@ namespace Meplato.Store2.Products
 
 		private double? _cuPerOu;
 		private bool _hasCuPerOu;
+
+		/// <summary>
+		///     Currency is the ISO currency code for the prices, e.g. EUR or
+		///     GBP. If you pass an empty currency code, it will be initialized
+		///     with the catalog's currency. 
+		/// </summary>
+		public string Currency
+		{
+			get => _currency;
+			set
+			{
+				_currency = value;
+				_hasCurrency = true;
+			}
+		}
+		
+		public void ResetCurrency()
+		{
+			_currency = null;
+			_hasCurrency = false;
+		}
+
+		private string _currency;
+		private bool _hasCurrency;
 		
 		/// <summary>
 		///     CustField1 is the CUST_FIELD1 of the SAP OCI specification. It
@@ -5468,6 +5492,10 @@ namespace Meplato.Store2.Products
 			if (_hasCuPerOu)
 			{
 				info.AddValue("cuPerOu", _cuPerOu);
+			}
+			if (_hasCurrency)
+			{
+				info.AddValue("currency", _currency);
 			}
 			if (_hasCustFields)
 			{
