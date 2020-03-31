@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.5
+// Version: 2.1.6
 // License: Copyright (c) 2015-2018 Meplato GmbH. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -25,6 +25,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -40,7 +41,7 @@ namespace Meplato.Store2.Products
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.5";
+		public const string Version = "2.1.6";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -3002,104 +3003,313 @@ namespace Meplato.Store2.Products
 	///     UpdateProduct holds the properties of a product that need to be
 	///     updated.
 	/// </summary>
-	public class UpdateProduct
+	[Serializable]
+	public class UpdateProduct : ISerializable
 	{
 		#region UpdateProduct
-
 		/// <summary>
 		///     ASIN is the unique Amazon article number of the product.
 		/// </summary>
-		[JsonProperty("asin")]
-		public string Asin { get; set; }
+		public string Asin
+		{
+			get => _asin;
+			set
+			{
+				_asin = value;
+				_hasAsin = true;
+			}
+		}
+		
+		public void ResetAsin()
+		{
+			_asin = null;
+			_hasAsin = false;
+		}
+		
+		private string _asin;
+		private bool _hasAsin;
 
 		/// <summary>
 		///     AutoConfigure is a flag that indicates whether this product can
 		///     be configured automatically. Please consult your Store Manager
 		///     before setting a value for this field.
 		/// </summary>
-		[JsonProperty("autoConfigure")]
-		public bool? AutoConfigure { get; set; }
+		public bool? AutoConfigure
+		{
+			get => _autoConfigure;
+			set
+			{
+				_autoConfigure = value;
+				_hasAutoConfigure = true;
+			}
+		}
+		
+		public void ResetAutoConfigure()
+		{
+			_autoConfigure = null;
+			_hasAutoConfigure = false;
+		}
+		
+		private bool? _autoConfigure;
+		private bool _hasAutoConfigure;
 
 		/// <summary>
 		///     Availability allows the update of product availability data,
 		///     e.g. the number of items in stock or the date when the product
 		///     will be available again. 
 		/// </summary>
-		[JsonProperty("availability")]
-		public Availability Availability { get; set; }
+		public Availability Availability
+		{
+			get => _availability;
+			set
+			{
+				_availability = value;
+				_hasAvailability = true;
+			}
+		}
+		
+		public void ResetAvailability()
+		{
+			_availability = null;
+			_hasAvailability = false;
+		}
+
+		private Availability _availability;
+		private bool _hasAvailability;
 
 		/// <summary>
 		///     Blobs specifies external data, e.g. images or datasheets.
 		/// </summary>
-		[JsonProperty("blobs")]
-		public Blob[] Blobs { get; set; }
+		public Blob[] Blobs 
+		{
+			get => _blobs;
+			set
+			{
+				_blobs = value;
+				_hasBlobs = true;
+			}
+		}
+		
+		public void ResetBlobs()
+		{
+			_blobs = null;
+			_hasBlobs = false;
+		}
+
+		private Blob[] _blobs;
+		private bool _hasBlobs;
 
 		/// <summary>
 		///     BoostFactor represents a positive or negative boost for the
 		///     product. Please consult your Store Manager before setting a
 		///     value for this field.
 		/// </summary>
-		[JsonProperty("boostFactor")]
-		public double? BoostFactor { get; set; }
+		public double? BoostFactor 
+		{
+			get => _boostFactor;
+			set
+			{
+				_boostFactor = value;
+				_hasBoostFactor = true;
+			}
+		}
+		
+		public void ResetBoostFactor()
+		{
+			_boostFactor = null;
+			_hasBoostFactor = false;
+		}
+
+		private double? _boostFactor;
+		private bool _hasBoostFactor;
 
 		/// <summary>
 		///     BPN is the buyer part number of the product.
 		/// </summary>
-		[JsonProperty("bpn")]
-		public string Bpn { get; set; }
+		public string Bpn 
+		{
+			get => _bpn;
+			set
+			{
+				_bpn = value;
+				_hasBpn = true;
+			}
+		}
+		
+		public void ResetBpn()
+		{
+			_bpn = null;
+			_hasBpn = false;
+		}
 
+		private string _bpn;
+		private bool _hasBpn;
+
+		
 		/// <summary>
 		///     CatalogManaged is a flag that indicates whether this product is
 		///     configurable (or catalog managed in OCI parlance).
 		/// </summary>
-		[JsonProperty("catalogManaged")]
-		public bool? CatalogManaged { get; set; }
+		public bool? CatalogManaged
+		{
+			get => _catalogManaged;
+			set
+			{
+				_catalogManaged = value;
+				_hasCatalogManaged = true;
+			}
+		}
+		
+		public void ResetCatalogManaged()
+		{
+			_catalogManaged = null;
+			_hasCatalogManaged = false;
+		}
+
+		private bool? _catalogManaged;
+		private bool _hasCatalogManaged;
 
 		/// <summary>
 		///     Categories is a list of (supplier-specific) category names the
 		///     product belongs to.
 		/// </summary>
-		[JsonProperty("categories")]
-		public string[] Categories { get; set; }
+		public string[] Categories
+		{
+			get => _categories;
+			set
+			{
+				_categories = value;
+				_hasCategories = true;
+			}
+		}
+		
+		public void ResetCategories()
+		{
+			_categories = null;
+			_hasCategories = false;
+		}
+
+		private string[] _categories;
+		private bool _hasCategories;
 
 		/// <summary>
 		///     Conditions describes the product conditions, e.g. refurbished
 		///     or used.
 		/// </summary>
-		[JsonProperty("conditions")]
-		public Condition[] Conditions { get; set; }
+		public Condition[] Conditions
+		{
+			get => _conditions;
+			set
+			{
+				_conditions = value;
+				_hasConditions = true;
+			}
+		}
+		
+		public void ResetConditions()
+		{
+			_conditions = null;
+			_hasConditions = false;
+		}
+
+		private Condition[] _conditions;
+		private bool _hasConditions;
 
 		/// <summary>
 		///     Contract represents the contract number to be used when
 		///     purchasing this product. Please consult your Store Manager
 		///     before setting a value for this field.
 		/// </summary>
-		[JsonProperty("contract")]
-		public string Contract { get; set; }
+		public string Contract
+		{
+			get => _contract;
+			set
+			{
+				_contract = value;
+				_hasContract = true;
+			}
+		}
+		
+		public void ResetContract()
+		{
+			_contract = null;
+			_hasContract = false;
+		}
+
+		private string _contract;
+		private bool _hasContract;
 
 		/// <summary>
 		///     ContractItem represents line number in the contract to be used
 		///     when purchasing this product. See also Contract. Please consult
 		///     your Store Manager before setting a value for this field.
 		/// </summary>
-		[JsonProperty("contractItem")]
-		public string ContractItem { get; set; }
+		public string ContractItem
+		{
+			get => _contractItem;
+			set
+			{
+				_contractItem = value;
+				_hasContractItem = true;
+			}
+		}
+		
+		public void ResetContractItem()
+		{
+			_contractItem = null;
+			_hasContractItem = false;
+		}
+
+		private string _contractItem;
+		private bool _hasContractItem;
 
 		/// <summary>
 		///     ConversionDenumerator is the denumerator for calculating price
 		///     quantities. Please consult your Store Manager before setting a
 		///     value for this field.
 		/// </summary>
-		[JsonProperty("conversionDenumerator")]
-		public double? ConversionDenumerator { get; set; }
+		public double? ConversionDenumerator
+		{
+			get => _conversionDenumerator;
+			set
+			{
+				_conversionDenumerator = value;
+				_hasConversionDenumerator = true;
+			}
+		}
+		
+		public void ResetConversionDenumerator()
+		{
+			_conversionDenumerator = null;
+			_hasConversionDenumerator = false;
+		}
+
+		private double? _conversionDenumerator;
+		private bool _hasConversionDenumerator;
 
 		/// <summary>
 		///     ConversionNumerator is the numerator for calculating price
 		///     quantities. Please consult your Store Manager before setting a
 		///     value for this field.
 		/// </summary>
-		[JsonProperty("conversionNumerator")]
-		public double? ConversionNumerator { get; set; }
+		public double? ConversionNumerator
+		{
+			get => _conversionNumerator;
+			set
+			{
+				_conversionNumerator = value;
+				_hasConversionNumerator = true;
+			}
+		}
+		
+		public void ResetConversionNumerator()
+		{
+			_conversionNumerator = null;
+			_hasConversionNumerator = false;
+		}
+
+		private double? _conversionNumerator;
+		private bool _hasConversionNumerator;
 
 		/// <summary>
 		///     Country represents the ISO code of the country of origin, i.e.
@@ -3107,320 +3317,1001 @@ namespace Meplato.Store2.Products
 		///     DE. If unspecified, the field is initialized with the catalog's
 		///     country field. 
 		/// </summary>
-		[JsonProperty("country")]
-		public string Country { get; set; }
+		public string Country
+		{
+			get => _country;
+			set
+			{
+				_country = value;
+				_hasCountry = true;
+			}
+		}
+		
+		public void ResetCountry()
+		{
+			_country = null;
+			_hasCountry = false;
+		}
+
+		private string _country;
+		private bool _hasCountry;
 
 		/// <summary>
 		///     ContentUnit is the content unit of the product, a 3-character
 		///     ISO code (usually project-specific).
 		/// </summary>
-		[JsonProperty("cu")]
-		public string ContentUnit { get; set; }
+		public string ContentUnit
+		{
+			get => _cu;
+			set
+			{
+				_cu = value;
+				_hasCu = true;
+			}
+		}
+		
+		public void ResetContentUnit()
+		{
+			_cu = null;
+			_hasCu = false;
+		}
+
+		private string _cu;
+		private bool _hasCu;
 
 		/// <summary>
 		///     CuPerOu describes the number of content units per order unit,
 		///     e.g. the 12 in '1 case contains 12 bottles'.
 		/// </summary>
-		[JsonProperty("cuPerOu")]
-		public double? CuPerOu { get; set; }
+		public double? CuPerOu
+		{
+			get => _cuPerOu;
+			set
+			{
+				_cuPerOu = value;
+				_hasCuPerOu = true;
+			}
+		}
+		
+		public void ResetCuPerOu()
+		{
+			_cuPerOu = null;
+			_hasCuPerOu = false;
+		}
 
+		private double? _cuPerOu;
+		private bool _hasCuPerOu;
+		
 		/// <summary>
 		///     CustField1 is the CUST_FIELD1 of the SAP OCI specification. It
 		///     has a maximum length of 10 characters. 
 		/// </summary>
-		[JsonProperty("custField1")]
-		public string CustField1 { get; set; }
+		public string CustField1
+		{
+			get => _custField1;
+			set
+			{
+				_custField1 = value;
+				_hasCustField1 = true;
+			}
+		}
+		
+		public void ResetCustField1()
+		{
+			_custField1 = null;
+			_hasCustField1 = false;
+		}
+
+		private string _custField1;
+		private bool _hasCustField1;
 
 		/// <summary>
 		///     CustField2 is the CUST_FIELD2 of the SAP OCI specification. It
 		///     has a maximum length of 10 characters. 
 		/// </summary>
-		[JsonProperty("custField2")]
-		public string CustField2 { get; set; }
+		public string CustField2
+		{
+			get => _custField2;
+			set
+			{
+				_custField2 = value;
+				_hasCustField2 = true;
+			}
+		}
+		
+		public void ResetCustField2()
+		{
+			_custField2 = null;
+			_hasCustField2 = false;
+		}
+
+		private string _custField2;
+		private bool _hasCustField2;
 
 		/// <summary>
 		///     CustField3 is the CUST_FIELD3 of the SAP OCI specification. It
 		///     has a maximum length of 10 characters. 
 		/// </summary>
-		[JsonProperty("custField3")]
-		public string CustField3 { get; set; }
+		public string CustField3
+		{
+			get => _custField3;
+			set
+			{
+				_custField3 = value;
+				_hasCustField3 = true;
+			}
+		}
+		
+		public void ResetCustField3()
+		{
+			_custField3 = null;
+			_hasCustField3 = false;
+		}
+
+		private string _custField3;
+		private bool _hasCustField3;
 
 		/// <summary>
 		///     CustField4 is the CUST_FIELD4 of the SAP OCI specification. It
 		///     has a maximum length of 20 characters. 
 		/// </summary>
-		[JsonProperty("custField4")]
-		public string CustField4 { get; set; }
+		public string CustField4
+		{
+			get => _custField4;
+			set
+			{
+				_custField4 = value;
+				_hasCustField4 = true;
+			}
+		}
+		
+		public void ResetCustField4()
+		{
+			_custField4 = null;
+			_hasCustField4 = false;
+		}
+
+		private string _custField4;
+		private bool _hasCustField4;
 
 		/// <summary>
 		///     CustField5 is the CUST_FIELD5 of the SAP OCI specification. It
 		///     has a maximum length of 50 characters. 
 		/// </summary>
-		[JsonProperty("custField5")]
-		public string CustField5 { get; set; }
+		public string CustField5
+		{
+			get => _custField5;
+			set
+			{
+				_custField5 = value;
+				_hasCustField5 = true;
+			}
+		}
+		
+		public void ResetCustField5()
+		{
+			_custField5 = null;
+			_hasCustField5 = false;
+		}
 
+		private string _custField5;
+		private bool _hasCustField5;
+
+		
 		/// <summary>
 		///     CustFields is an array of generic name/value pairs for
 		///     customer-specific attributes.
 		/// </summary>
-		[JsonProperty("custFields")]
-		public CustField[] CustFields { get; set; }
+		public CustField[] CustFields
+		{
+			get => _custFields;
+			set
+			{
+				_custFields = value;
+				_hasCustFields = true;
+			}
+		}
+		
+		public void ResetCustFields()
+		{
+			_custFields = null;
+			_hasCustFields = false;
+		}
+
+		private CustField[] _custFields;
+		private bool _hasCustFields;
 
 		/// <summary>
 		///     CustomField10 represents the 10th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField10")]
-		public string CustomField10 { get; set; }
+		public string CustomField10
+		{
+			get => _customField10;
+			set
+			{
+				_customField10 = value;
+				_hasCustomField10 = true;
+			}
+		}
+		
+		public void ResetCustField10()
+		{
+			_customField10 = null;
+			_hasCustomField10 = false;
+		}
+
+		private string _customField10;
+		private bool _hasCustomField10;
 
 		/// <summary>
 		///     CustomField11 represents the 11th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField11")]
-		public string CustomField11 { get; set; }
+		public string CustomField11
+		{
+			get => _customField11;
+			set
+			{
+				_customField11 = value;
+				_hasCustomField11 = true;
+			}
+		}
+		
+		public void ResetCustField11()
+		{
+			_customField11 = null;
+			_hasCustomField11 = false;
+		}
+
+		private string _customField11;
+		private bool _hasCustomField11;
 
 		/// <summary>
 		///     CustomField12 represents the 12th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField12")]
-		public string CustomField12 { get; set; }
+		public string CustomField12
+		{
+			get => _customField12;
+			set
+			{
+				_customField12 = value;
+				_hasCustomField12 = true;
+			}
+		}
+		
+		public void ResetCustField12()
+		{
+			_customField12 = null;
+			_hasCustomField12 = false;
+		}
+
+		private string _customField12;
+		private bool _hasCustomField12;
 
 		/// <summary>
 		///     CustomField13 represents the 13th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField13")]
-		public string CustomField13 { get; set; }
+		public string CustomField13
+		{
+			get => _customField13;
+			set
+			{
+				_customField13 = value;
+				_hasCustomField13 = true;
+			}
+		}
+		
+		public void ResetCustField13()
+		{
+			_customField13 = null;
+			_hasCustomField13 = false;
+		}
+
+		private string _customField13;
+		private bool _hasCustomField13;
 
 		/// <summary>
 		///     CustomField14 represents the 14th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField14")]
-		public string CustomField14 { get; set; }
+		public string CustomField14
+		{
+			get => _customField14;
+			set
+			{
+				_customField14 = value;
+				_hasCustomField14 = true;
+			}
+		}
+		
+		public void ResetCustField14()
+		{
+			_customField14 = null;
+			_hasCustomField14 = false;
+		}
+
+		private string _customField14;
+		private bool _hasCustomField14;
 
 		/// <summary>
 		///     CustomField15 represents the 15th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField15")]
-		public string CustomField15 { get; set; }
+		public string CustomField15
+		{
+			get => _customField15;
+			set
+			{
+				_customField15 = value;
+				_hasCustomField15 = true;
+			}
+		}
+		
+		public void ResetCustField15()
+		{
+			_customField15 = null;
+			_hasCustomField15 = false;
+		}
 
+		private string _customField15;
+		private bool _hasCustomField15;
+		
 		/// <summary>
 		///     CustomField16 represents the 16th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField16")]
-		public string CustomField16 { get; set; }
+		public string CustomField16
+		{
+			get => _customField16;
+			set
+			{
+				_customField16 = value;
+				_hasCustomField16 = true;
+			}
+		}
+		
+		public void ResetCustField16()
+		{
+			_customField16 = null;
+			_hasCustomField16 = false;
+		}
+
+		private string _customField16;
+		private bool _hasCustomField16;
 
 		/// <summary>
 		///     CustomField17 represents the 17th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField17")]
-		public string CustomField17 { get; set; }
+		public string CustomField17		
+		{
+			get => _customField17;
+			set
+			{
+				_customField17 = value;
+				_hasCustomField17 = true;
+			}
+		}
+		
+		public void ResetCustField17()
+		{
+			_customField17 = null;
+			_hasCustomField17 = false;
+		}
+
+		private string _customField17;
+		private bool _hasCustomField17;
+
 
 		/// <summary>
 		///     CustomField18 represents the 18th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField18")]
-		public string CustomField18 { get; set; }
+		public string CustomField18		
+		{
+			get => _customField18;
+			set
+			{
+				_customField18 = value;
+				_hasCustomField18 = true;
+			}
+		}
+		
+		public void ResetCustField18()
+		{
+			_customField18 = null;
+			_hasCustomField18 = false;
+		}
+
+		private string _customField18;
+		private bool _hasCustomField18;
 
 		/// <summary>
 		///     CustomField19 represents the 19th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField19")]
-		public string CustomField19 { get; set; }
+		public string CustomField19		
+		{
+			get => _customField19;
+			set
+			{
+				_customField19 = value;
+				_hasCustomField19 = true;
+			}
+		}
+		
+		public void ResetCustField19()
+		{
+			_customField19 = null;
+			_hasCustomField19 = false;
+		}
+
+		private string _customField19;
+		private bool _hasCustomField19;
 
 		/// <summary>
 		///     CustomField20 represents the 20th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField20")]
-		public string CustomField20 { get; set; }
+		public string CustomField20
+		{
+			get => _customField20;
+			set
+			{
+				_customField20 = value;
+				_hasCustomField20 = true;
+			}
+		}
+		
+		public void ResetCustField20()
+		{
+			_customField20 = null;
+			_hasCustomField20 = false;
+		}
+
+		private string _customField20;
+		private bool _hasCustomField20;
 
 		/// <summary>
 		///     CustomField21 represents the 21st customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField21")]
-		public string CustomField21 { get; set; }
+		public string CustomField21
+		{
+			get => _customField21;
+			set
+			{
+				_customField21 = value;
+				_hasCustomField21 = true;
+			}
+		}
+		
+		public void ResetCustField21()
+		{
+			_customField21 = null;
+			_hasCustomField21 = false;
+		}
+
+		private string _customField21;
+		private bool _hasCustomField21;
 
 		/// <summary>
 		///     CustomField22 represents the 22nd customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField22")]
-		public string CustomField22 { get; set; }
+		public string CustomField22
+		{
+			get => _customField22;
+			set
+			{
+				_customField22 = value;
+				_hasCustomField22 = true;
+			}
+		}
+		
+		public void ResetCustField22()
+		{
+			_customField22 = null;
+			_hasCustomField22 = false;
+		}
+
+		private string _customField22;
+		private bool _hasCustomField22;
 
 		/// <summary>
 		///     CustomField23 represents the 23rd customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField23")]
-		public string CustomField23 { get; set; }
+		public string CustomField23
+		{
+			get => _customField23;
+			set
+			{
+				_customField23 = value;
+				_hasCustomField23 = true;
+			}
+		}
+		
+		public void ResetCustField23()
+		{
+			_customField23 = null;
+			_hasCustomField23 = false;
+		}
+
+		private string _customField23;
+		private bool _hasCustomField23;
 
 		/// <summary>
 		///     CustomField24 represents the 24th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField24")]
-		public string CustomField24 { get; set; }
+		public string CustomField24
+		{
+			get => _customField24;
+			set
+			{
+				_customField24 = value;
+				_hasCustomField24 = true;
+			}
+		}
+		
+		public void ResetCustField24()
+		{
+			_customField24 = null;
+			_hasCustomField24 = false;
+		}
 
+		private string _customField24;
+		private bool _hasCustomField24;
+		
 		/// <summary>
 		///     CustomField25 represents the 25th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField25")]
-		public string CustomField25 { get; set; }
+		public string CustomField25
+		{
+			get => _customField25;
+			set
+			{
+				_customField25 = value;
+				_hasCustomField25 = true;
+			}
+		}
+		
+		public void ResetCustField25()
+		{
+			_customField25 = null;
+			_hasCustomField25 = false;
+		}
 
+		private string _customField25;
+		private bool _hasCustomField25;
+		
 		/// <summary>
 		///     CustomField26 represents the 26th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField26")]
-		public string CustomField26 { get; set; }
+		public string CustomField26 
+		{
+			get => _customField26;
+			set
+			{
+				_customField26 = value;
+				_hasCustomField26 = true;
+			}
+		}
+		
+		public void ResetCustField26()
+		{
+			_customField26 = null;
+			_hasCustomField26 = false;
+		}
+
+		private string _customField26;
+		private bool _hasCustomField26;
 
 		/// <summary>
 		///     CustomField27 represents the 27th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField27")]
-		public string CustomField27 { get; set; }
+		public string CustomField27 
+		{
+			get => _customField27;
+			set
+			{
+				_customField27 = value;
+				_hasCustomField27 = true;
+			}
+		}
+		
+		public void ResetCustField27()
+		{
+			_customField27 = null;
+			_hasCustomField27 = false;
+		}
+
+		private string _customField27;
+		private bool _hasCustomField27;
+
 
 		/// <summary>
 		///     CustomField28 represents the 28th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField28")]
-		public string CustomField28 { get; set; }
+		public string CustomField28
+		{
+			get => _customField28;
+			set
+			{
+				_customField28 = value;
+				_hasCustomField28 = true;
+			}
+		}
+		
+		public void ResetCustField28()
+		{
+			_customField28 = null;
+			_hasCustomField28 = false;
+		}
+
+		private string _customField28;
+		private bool _hasCustomField28;
 
 		/// <summary>
 		///     CustomField29 represents the 29th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField29")]
-		public string CustomField29 { get; set; }
+		public string CustomField29 
+		{
+			get => _customField29;
+			set
+			{
+				_customField29 = value;
+				_hasCustomField29 = true;
+			}
+		}
+		
+		public void ResetCustField29()
+		{
+			_customField29 = null;
+			_hasCustomField29 = false;
+		}
+
+		private string _customField29;
+		private bool _hasCustomField29;
+
 
 		/// <summary>
 		///     CustomField30 represents the 30th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("customField30")]
-		public string CustomField30 { get; set; }
+		public string CustomField30 
+		{
+			get => _customField30;
+			set
+			{
+				_customField30 = value;
+				_hasCustomField30 = true;
+			}
+		}
+		
+		public void ResetCustField30()
+		{
+			_customField30 = null;
+			_hasCustomField30 = false;
+		}
+
+		private string _customField30;
+		private bool _hasCustomField30;
+
 
 		/// <summary>
 		///     CustomField6 represents the 6th customer-specific field. Please
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		[JsonProperty("customField6")]
-		public string CustomField6 { get; set; }
+		public string CustomField6 
+		{
+			get => _customField6;
+			set
+			{
+				_customField6 = value;
+				_hasCustomField6 = true;
+			}
+		}
+		
+		public void ResetCustField6()
+		{
+			_customField6 = null;
+			_hasCustomField6 = false;
+		}
+
+		private string _customField6;
+		private bool _hasCustomField6;
+
 
 		/// <summary>
 		///     CustomField7 represents the 7th customer-specific field. Please
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		[JsonProperty("customField7")]
-		public string CustomField7 { get; set; }
+		public string CustomField7 
+		{
+			get => _customField7;
+			set
+			{
+				_customField7 = value;
+				_hasCustomField7 = true;
+			}
+		}
+		
+		public void ResetCustField7()
+		{
+			_customField7 = null;
+			_hasCustomField7 = false;
+		}
+
+		private string _customField7;
+		private bool _hasCustomField7;
+
 
 		/// <summary>
 		///     CustomField8 represents the 8th customer-specific field. Please
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		[JsonProperty("customField8")]
-		public string CustomField8 { get; set; }
+		public string CustomField8 
+		{
+			get => _customField8;
+			set
+			{
+				_customField8 = value;
+				_hasCustomField8 = true;
+			}
+		}
+		
+		public void ResetCustField8()
+		{
+			_customField8 = null;
+			_hasCustomField8 = false;
+		}
+
+		private string _customField8;
+		private bool _hasCustomField8;
 
 		/// <summary>
 		///     CustomField9 represents the 9th customer-specific field. Please
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		[JsonProperty("customField9")]
-		public string CustomField9 { get; set; }
+		public string CustomField9 
+		{
+			get => _customField9;
+			set
+			{
+				_customField9 = value;
+				_hasCustomField9 = true;
+			}
+		}
+		
+		public void ResetCustField9()
+		{
+			_customField9 = null;
+			_hasCustomField9 = false;
+		}
 
+		private string _customField9;
+		private bool _hasCustomField9;
+		
 		/// <summary>
 		///     Datasheet is the name of an datasheet file (in the media files)
 		///     or a URL to the datasheet on the internet.
 		/// </summary>
-		[JsonProperty("datasheet")]
-		public string Datasheet { get; set; }
+		public string Datasheet
+		{
+			get => _datasheet;
+			set
+			{
+				_datasheet = value;
+				_hasDatasheet = true;
+			}
+		}
+		
+		public void ResetDatasheet()
+		{
+			_datasheet = null;
+			_hasDatasheet = false;
+		}
+
+		private string _datasheet;
+		private bool _hasDatasheet;
+
 
 		/// <summary>
 		///     Description of the product.
 		/// </summary>
-		[JsonProperty("description")]
-		public string Description { get; set; }
+		public string Description
+		{
+			get => _description;
+			set
+			{
+				_description = value;
+				_hasDescription = true;
+			}
+		}
+		
+		public void ResetDescription()
+		{
+			_description = null;
+			_hasDescription = false;
+		}
+
+		private string _description;
+		private bool _hasDescription;
+
 
 		/// <summary>
 		///     Eclasses is a list of eCl@ss categories the product belongs to.
 		/// </summary>
-		[JsonProperty("eclasses")]
-		public Eclass[] Eclasses { get; set; }
+		public Eclass[] Eclasses
+		{
+			get => _eclasses;
+			set
+			{
+				_eclasses = value;
+				_hasEclasses = true;
+			}
+		}
+		
+		public void ResetEclasses()
+		{
+			_eclasses = null;
+			_hasEclasses = false;
+		}
+
+		private Eclass[] _eclasses;
+		private bool _hasEclasses;
 
 		/// <summary>
 		///     erpGroupSupplier is the material group of the product on the
 		///     merchant-/supplier-side.
 		/// </summary>
-		[JsonProperty("erpGroupSupplier")]
-		public string ErpGroupSupplier { get; set; }
+		public string ErpGroupSupplier
+		{
+			get => _erpGroupSupplier;
+			set
+			{
+				_erpGroupSupplier = value;
+				_hasErpGroupSupplier = true;
+			}
+		}
+		
+		public void ResetErpGroupSupplier()
+		{
+			_erpGroupSupplier = null;
+			_hasErpGroupSupplier = false;
+		}
+
+		private string _erpGroupSupplier;
+		private bool _hasErpGroupSupplier;
 
 		/// <summary>
 		///     Excluded is a flag that indicates whether to exclude this
 		///     product from the catalog. If true, this product will not be
 		///     published into the live area.
 		/// </summary>
-		[JsonProperty("excluded")]
-		public bool? Excluded { get; set; }
+		public bool? Excluded
+		{
+			get => _excluded;
+			set
+			{
+				_excluded = value;
+				_hasExcluded = true;
+			}
+		}
+		
+		public void ResetExcluded()
+		{
+			_excluded = null;
+			_hasExcluded = false;
+		}
+
+		private bool? _excluded;
+		private bool _hasExcluded;
 
 		/// <summary>
 		///     ExtCategory is the EXT_CATEGORY field of the SAP OCI
 		///     specification.
 		/// </summary>
-		[JsonProperty("extCategory")]
-		public string ExtCategory { get; set; }
+		public string ExtCategory
+		{
+			get => _extCategory;
+			set
+			{
+				_extCategory = value;
+				_hasExtCategory = true;
+			}
+		}
+		
+		public void ResetExtCategory()
+		{
+			_extCategory = null;
+			_hasExtCategory = false;
+		}
+
+		private string _extCategory;
+		private bool _hasExtCategory;
 
 		/// <summary>
 		///     ExtCategoryID is the EXT_CATEGORY_ID field of the SAP OCI
 		///     specification.
 		/// </summary>
-		[JsonProperty("extCategoryId")]
-		public string ExtCategoryId { get; set; }
+		public string ExtCategoryId
+		{
+			get => _extCategoryId;
+			set
+			{
+				_extCategoryId = value;
+				_hasExtCategoryId = true;
+			}
+		}
+		
+		public void ResetExtCategoryId()
+		{
+			_extCategoryId = null;
+			_hasExtCategoryId = false;
+		}
+
+		private string _extCategoryId;
+		private bool _hasExtCategoryId;
 
 		/// <summary>
 		///     ExtConfigForm represents information required to make the
 		///     product configurable. Please consult your Store Manager before
 		///     setting a value for this field.
 		/// </summary>
-		[JsonProperty("extConfigForm")]
-		public string ExtConfigForm { get; set; }
+		public string ExtConfigForm
+		{
+			get => _extConfigForm;
+			set
+			{
+				_extConfigForm = value;
+				_hasExtConfigForm = true;
+			}
+		}
+		
+		public void ResetExtConfigForm()
+		{
+			_extConfigForm = null;
+			_hasExtConfigForm = false;
+		}
+
+		private string _extConfigForm;
+		private bool _hasExtConfigForm;
 
 		/// <summary>
 		///     ExtConfigService represents additional information required to
@@ -3428,72 +4319,232 @@ namespace Meplato.Store2.Products
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		[JsonProperty("extConfigService")]
-		public string ExtConfigService { get; set; }
+		public string ExtConfigService
+		{
+			get => _extConfigService;
+			set
+			{
+				_extConfigService = value;
+				_hasExtConfigService = true;
+			}
+		}
+		
+		public void ResetExtConfigService()
+		{
+			_extConfigService = null;
+			_hasExtConfigService = false;
+		}
+
+		private string _extConfigService;
+		private bool _hasExtConfigService;
 
 		/// <summary>
 		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
 		///     specification. It is e.g. required for configurable/catalog
 		///     managed products.
 		/// </summary>
-		[JsonProperty("extProductId")]
-		public string ExtProductId { get; set; }
+		public string ExtProductId
+		{
+			get => _extProductId;
+			set
+			{
+				_extProductId = value;
+				_hasExtProductId = true;
+			}
+		}
+		
+		public void ResetExtProductId()
+		{
+			_extProductId = null;
+			_hasExtProductId = false;
+		}
+
+		private string _extProductId;
+		private bool _hasExtProductId;
 
 		/// <summary>
 		///     ExtSchemaType is the EXT_SCHEMA_TYPE field of the SAP OCI
 		///     specification.
 		/// </summary>
-		[JsonProperty("extSchemaType")]
-		public string ExtSchemaType { get; set; }
+		public string ExtSchemaType
+		{
+			get => _extSchemaType;
+			set
+			{
+				_extSchemaType = value;
+				_hasExtSchemaType = true;
+			}
+		}
+		
+		public void ResetExtSchemaType()
+		{
+			_extSchemaType = null;
+			_hasExtSchemaType = false;
+		}
 
+		private string _extSchemaType;
+		private bool _hasExtSchemaType;
+		
 		/// <summary>
 		///     Features defines product features, i.e. additional properties
 		///     of the product.
 		/// </summary>
-		[JsonProperty("features")]
-		public Feature[] Features { get; set; }
+		public Feature[] Features
+		{
+			get => _features;
+			set
+			{
+				_features = value;
+				_hasFeatures = true;
+			}
+		}
+		
+		public void ResetFeatures()
+		{
+			_features = null;
+			_hasFeatures = false;
+		}
+
+		private Feature[] _features;
+		private bool _hasFeatures;
 
 		/// <summary>
 		///     GLAccount represents the GL account number to use for this
 		///     product. Please consult your Store Manager before setting a
 		///     value for this field.
 		/// </summary>
-		[JsonProperty("glAccount")]
-		public string GlAccount { get; set; }
+		public string GlAccount
+		{
+			get => _glAccount;
+			set
+			{
+				_glAccount = value;
+				_hasGlAccount = true;
+			}
+		}
+		
+		public void ResetGlAccount()
+		{
+			_glAccount = null;
+			_hasGlAccount = false;
+		}
+
+		private string _glAccount;
+		private bool _hasGlAccount;
 
 		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
 		///     EAN).
 		/// </summary>
-		[JsonProperty("gtin")]
-		public string Gtin { get; set; }
+		public string Gtin
+		{
+			get => _gtin;
+			set
+			{
+				_gtin = value;
+				_hasGtin = true;
+			}
+		}
+		
+		public void ResetGtin()
+		{
+			_gtin = null;
+			_hasGtin = false;
+		}
+
+		private string _gtin;
+		private bool _hasGtin;
 
 		/// <summary>
 		///     Hazmats classifies hazardous/dangerous goods.
 		/// </summary>
-		[JsonProperty("hazmats")]
-		public Hazmat[] Hazmats { get; set; }
+		public Hazmat[] Hazmats
+		{
+			get => _hazmats;
+			set
+			{
+				_hazmats = value;
+				_hasHazmats = true;
+			}
+		}
+		
+		public void ResetHazmats()
+		{
+			_hazmats = null;
+			_hasHazmats = false;
+		}
+
+		private Hazmat[] _hazmats;
+		private bool _hasHazmats;
 
 		/// <summary>
 		///     Image is the name of an image file (in the media files) or a
 		///     URL to the image on the internet.
 		/// </summary>
-		[JsonProperty("image")]
-		public string Image { get; set; }
+		public string Image
+		{
+			get => _image;
+			set
+			{
+				_image = value;
+				_hasImage = true;
+			}
+		}
+		
+		public void ResetImage()
+		{
+			_image = null;
+			_hasImage = false;
+		}
+
+		private string _image;
+		private bool _hasImage;
 
 		/// <summary>
 		///     Incomplete is a flag that indicates whether this product is
 		///     incomplete. Please consult your Store Manager before setting a
 		///     value for this field.
 		/// </summary>
-		[JsonProperty("incomplete")]
-		public bool? Incomplete { get; set; }
+		public bool? Incomplete
+		{
+			get => _incomplete;
+			set
+			{
+				_incomplete = value;
+				_hasIncomplete = true;
+			}
+		}
+		
+		public void ResetIncomplete()
+		{
+			_incomplete = null;
+			_hasIncomplete = false;
+		}
 
+		private bool? _incomplete;
+		private bool _hasIncomplete;
+		
 		/// <summary>
 		///     Intrastat specifies required data for Intrastat messages. 
 		/// </summary>
-		[JsonProperty("intrastat")]
-		public Intrastat Intrastat { get; set; }
+		public Intrastat Intrastat
+		{
+			get => _intrastat;
+			set
+			{
+				_intrastat = value;
+				_hasIntrastat = true;
+			}
+		}
+		
+		public void ResetIntrastat()
+		{
+			_intrastat = null;
+			_hasIntrastat = false;
+		}
+
+		private Intrastat _intrastat;
+		private bool _hasIntrastat;
 
 		/// <summary>
 		///     IsPassword is a flag that indicates whether this product will
@@ -3501,8 +4552,24 @@ namespace Meplato.Store2.Products
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("isPassword")]
-		public bool? IsPassword { get; set; }
+		public bool? IsPassword
+		{
+			get => _isPassword;
+			set
+			{
+				_isPassword = value;
+				_hasIsPassword = true;
+			}
+		}
+		
+		public void ResetIsPassword()
+		{
+			_isPassword = null;
+			_hasIsPassword = false;
+		}
+
+		private bool? _isPassword;
+		private bool _hasIsPassword;
 
 		/// <summary>
 		///     KeepPrice is a flag that indicates whether the price of the
@@ -3510,258 +4577,1246 @@ namespace Meplato.Store2.Products
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		[JsonProperty("keepPrice")]
-		public bool? KeepPrice { get; set; }
+		public bool? KeepPrice
+		{
+			get => _keepPrice;
+			set
+			{
+				_keepPrice = value;
+				_hasKeepPrice = true;
+			}
+		}
+		
+		public void ResetKeepPrice()
+		{
+			_keepPrice = null;
+			_hasKeepPrice = false;
+		}
+
+		private bool? _keepPrice;
+		private bool _hasKeepPrice;
 
 		/// <summary>
 		///     Keywords is a list of aliases for the product.
 		/// </summary>
-		[JsonProperty("keywords")]
-		public string[] Keywords { get; set; }
+		public string[] Keywords
+		{
+			get => _keywords;
+			set
+			{
+				_keywords = value;
+				_hasKeywords = true;
+			}
+		}
+		
+		public void ResetKeywords()
+		{
+			_keywords = null;
+			_hasKeywords = false;
+		}
+
+		private string[] _keywords;
+		private bool _hasKeywords;
 
 		/// <summary>
 		///     Leadtime is the number of days for delivery.
 		/// </summary>
-		[JsonProperty("leadtime")]
-		public double? Leadtime { get; set; }
+		public double? Leadtime
+		{
+			get => _leadtime;
+			set
+			{
+				_leadtime = value;
+				_hasLeadtime = true;
+			}
+		}
+		
+		public void ResetLeadtime()
+		{
+			_leadtime = null;
+			_hasLeadtime = false;
+		}
+
+		private double? _leadtime;
+		private bool _hasLeadtime;
 
 		/// <summary>
 		///     ListPrice is the net list price of the product.
 		/// </summary>
-		[JsonProperty("listPrice")]
-		public double? ListPrice { get; set; }
+		public double? ListPrice
+		{
+			get => _listPrice;
+			set
+			{
+				_listPrice = value;
+				_hasListPrice = true;
+			}
+		}
+		
+		public void ResetListPrice()
+		{
+			_listPrice = null;
+			_hasListPrice = false;
+		}
+
+		private double? _listPrice;
+		private bool _hasListPrice;
 
 		/// <summary>
 		///     Manufactcode is the manufacturer code as used in the SAP OCI
 		///     specification.
 		/// </summary>
-		[JsonProperty("manufactcode")]
-		public string Manufactcode { get; set; }
+		public string Manufactcode
+		{
+			get => _manufactcode;
+			set
+			{
+				_manufactcode = value;
+				_hasManufactcode = true;
+			}
+		}
+		
+		public void ResetManufactcode()
+		{
+			_manufactcode = null;
+			_hasManufactcode = false;
+		}
+
+		private string _manufactcode;
+		private bool _hasManufactcode;
 
 		/// <summary>
 		///     Manufacturer is the name of the manufacturer.
 		/// </summary>
-		[JsonProperty("manufacturer")]
-		public string Manufacturer { get; set; }
+		public string Manufacturer
+		{
+			get => _manufacturer;
+			set
+			{
+				_manufacturer = value;
+				_hasManufacturer = true;
+			}
+		}
+		
+		public void ResetManufacturer()
+		{
+			_manufacturer = null;
+			_hasManufacturer = false;
+		}
+
+		private string _manufacturer;
+		private bool _hasManufacturer;
 
 		/// <summary>
 		///     Matgroup is the material group of the product on the buy-side.
 		/// </summary>
-		[JsonProperty("matgroup")]
-		public string Matgroup { get; set; }
+		public string Matgroup
+		{
+			get => _matgroup;
+			set
+			{
+				_matgroup = value;
+				_hasMatgroup = true;
+			}
+		}
+		
+		public void ResetMatgroup()
+		{
+			_matgroup = null;
+			_hasMatgroup = false;
+		}
+
+		private string _matgroup;
+		private bool _hasMatgroup;
 
 		/// <summary>
 		///     MPN is the manufacturer part number.
 		/// </summary>
-		[JsonProperty("mpn")]
-		public string Mpn { get; set; }
+		public string Mpn
+		{
+			get => _mpn;
+			set
+			{
+				_mpn = value;
+				_hasMpn = true;
+			}
+		}
+		
+		public void ResetMpn()
+		{
+			_mpn = null;
+			_hasMpn = false;
+		}
+
+		private string _mpn;
+		private bool _hasMpn;
 
 		/// <summary>
 		///     MultiSupplierID represents an optional field for the unique
 		///     identifier of a supplier in a multi-supplier catalog.
 		/// </summary>
-		[JsonProperty("multiSupplierId")]
-		public string MultiSupplierId { get; set; }
+		public string MultiSupplierId
+		{
+			get => _multiSupplierId;
+			set
+			{
+				_multiSupplierId = value;
+				_hasMultiSupplierId = true;
+			}
+		}
+		
+		public void ResetMultiSupplierId()
+		{
+			_multiSupplierId = null;
+			_hasMultiSupplierId = false;
+		}
+
+		private string _multiSupplierId;
+		private bool _hasMultiSupplierId;
 
 		/// <summary>
 		///     MultiSupplierName represents an optional field for the name of
 		///     the supplier in a multi-supplier catalog.
 		/// </summary>
-		[JsonProperty("multiSupplierName")]
-		public string MultiSupplierName { get; set; }
+		public string MultiSupplierName
+		{
+			get => _multiSupplierName;
+			set
+			{
+				_multiSupplierName = value;
+				_hasMultiSupplierName = true;
+			}
+		}
+		
+		public void ResetMultiSupplierName()
+		{
+			_multiSupplierName = null;
+			_hasMultiSupplierName = false;
+		}
+
+		private string _multiSupplierName;
+		private bool _hasMultiSupplierName;
 
 		/// <summary>
 		///     Name of the product.
 		/// </summary>
-		[JsonProperty("name")]
-		public string Name { get; set; }
+		public string Name
+		{
+			get => _name;
+			set
+			{
+				_name = value;
+				_hasName = true;
+			}
+		}
+		
+		public void ResetName()
+		{
+			_name = null;
+			_hasName = false;
+		}
+
+		private string _name;
+		private bool _hasName;
 
 		/// <summary>
 		///     NeedsGoodsReceipt is a flag that indicates whether this product
 		///     requires a goods receipt process. Please consult your Store
 		///     Manager before setting a value for this field.
 		/// </summary>
-		[JsonProperty("needsGoodsReceipt")]
-		public bool? NeedsGoodsReceipt { get; set; }
+		public bool? NeedsGoodsReceipt
+		{
+			get => _needsGoodsReceipt;
+			set
+			{
+				_needsGoodsReceipt = value;
+				_hasNeedsGoodsReceipt = true;
+			}
+		}
+		
+		public void ResetNeedsGoodsReceipt()
+		{
+			_needsGoodsReceipt = null;
+			_hasNeedsGoodsReceipt = false;
+		}
+
+		private bool? _needsGoodsReceipt;
+		private bool _hasNeedsGoodsReceipt;
 
 		/// <summary>
 		///     NFBasePrice represents a part for calculating metal surcharges.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("nfBasePrice")]
-		public double? NfBasePrice { get; set; }
+		public double? NfBasePrice
+		{
+			get => _nfBasePrice;
+			set
+			{
+				_nfBasePrice = value;
+				_hasNfBasePrice = true;
+			}
+		}
+		
+		public void ResetNfBasePrice()
+		{
+			_nfBasePrice = null;
+			_hasNfBasePrice = false;
+		}
+
+		private double? _nfBasePrice;
+		private bool _hasNfBasePrice;
 
 		/// <summary>
 		///     NFBasePriceQuantity represents a part for calculating metal
 		///     surcharges. Please consult your Store Manager before setting a
 		///     value for this field.
 		/// </summary>
-		[JsonProperty("nfBasePriceQuantity")]
-		public double? NfBasePriceQuantity { get; set; }
+		public double? NfBasePriceQuantity
+		{
+			get => _nfBasePriceQuantity;
+			set
+			{
+				_nfBasePriceQuantity = value;
+				_hasNfBasePriceQuantity = true;
+			}
+		}
+		
+		public void ResetNfBasePriceQuantity()
+		{
+			_nfBasePriceQuantity = null;
+			_hasNfBasePriceQuantity = false;
+		}
+
+		private double? _nfBasePriceQuantity;
+		private bool _hasNfBasePriceQuantity;
 
 		/// <summary>
 		///     NFCndID represents the key to calculate metal surcharges.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("nfCndId")]
-		public string NfCndId { get; set; }
+		public string NfCndId
+		{
+			get => _nfCndId;
+			set
+			{
+				_nfCndId = value;
+				_hasNfCndId = true;
+			}
+		}
+		
+		public void ResetNfCndId()
+		{
+			_nfCndId = null;
+			_hasNfCndId = false;
+		}
+
+		private string _nfCndId;
+		private bool _hasNfCndId;
 
 		/// <summary>
 		///     NFScale represents a part for calculating metal surcharges.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		[JsonProperty("nfScale")]
-		public double? NfScale { get; set; }
+		public double? NfScale
+		{
+			get => _nfScale;
+			set
+			{
+				_nfScale = value;
+				_hasNfScale = true;
+			}
+		}
+		
+		public void ResetNfScale()
+		{
+			_nfScale = null;
+			_hasNfScale = false;
+		}
+
+		private double? _nfScale;
+		private bool _hasNfScale;
 
 		/// <summary>
 		///     NFScaleQuantity represents a part for calculating metal
 		///     surcharges. Please consult your Store Manager before setting a
 		///     value for this field.
 		/// </summary>
-		[JsonProperty("nfScaleQuantity")]
-		public double? NfScaleQuantity { get; set; }
+		public double? NfScaleQuantity
+		{
+			get => _nfScaleQuantity;
+			set
+			{
+				_nfScaleQuantity = value;
+				_hasNfScaleQuantity = true;
+			}
+		}
+		
+		public void ResetNfScaleQuantity()
+		{
+			_nfScaleQuantity = null;
+			_hasNfScaleQuantity = false;
+		}
+
+		private double? _nfScaleQuantity;
+		private bool _hasNfScaleQuantity;
 
 		/// <summary>
 		///     Orderable is a flag that indicates whether this product will be
 		///     orderable to the end-user when shopping. Please consult your
 		///     Store Manager before setting a value for this field.
 		/// </summary>
-		[JsonProperty("orderable")]
-		public bool? Orderable { get; set; }
+		public bool? Orderable
+		{
+			get => _orderable;
+			set
+			{
+				_orderable = value;
+				_hasOrderable = true;
+			}
+		}
+		
+		public void ResetOrderable()
+		{
+			_orderable = null;
+			_hasOrderable = false;
+		}
+
+		private bool? _orderable;
+		private bool _hasOrderable;
 
 		/// <summary>
 		///     OrderUnit is the order unit of the product, a 3-character ISO
 		///     code (usually project-specific).
 		/// </summary>
-		[JsonProperty("ou")]
-		public string OrderUnit { get; set; }
+		public string OrderUnit
+		{
+			get => _ou;
+			set
+			{
+				_ou = value;
+				_hasOu = true;
+			}
+		}
+		
+		public void ResetOrderUnit()
+		{
+			_ou = null;
+			_hasOu = false;
+		}
+
+		private string _ou;
+		private bool _hasOu;
 
 		/// <summary>
 		///     Price is the net price (per order unit) of the product for the
 		///     end-user.
 		/// </summary>
-		[JsonProperty("price")]
-		public double? Price { get; set; }
+		public double? Price
+		{
+			get => _price;
+			set
+			{
+				_price = value;
+				_hasPrice = true;
+			}
+		}
+		
+		public void ResetPrice()
+		{
+			_price = null;
+			_hasPrice = false;
+		}
+
+		private double? _price;
+		private bool _hasPrice;
 
 		/// <summary>
 		///     PriceFormula represents the formula to calculate the price of
 		///     the product. Please consult your Store Manager before setting a
 		///     value for this field.
 		/// </summary>
-		[JsonProperty("priceFormula")]
-		public string PriceFormula { get; set; }
+		public string PriceFormula
+		{
+			get => _priceFormula;
+			set
+			{
+				_priceFormula = value;
+				_hasPriceFormula = true;
+			}
+		}
+		
+		public void ResetPriceFormula()
+		{
+			_priceFormula = null;
+			_hasPriceFormula = false;
+		}
+
+		private string _priceFormula;
+		private bool _hasPriceFormula;
 
 		/// <summary>
 		///     PriceQty is the quantity for which the price is specified
 		///     (default: 1.0).
 		/// </summary>
-		[JsonProperty("priceQty")]
-		public double? PriceQty { get; set; }
+		public double? PriceQty
+		{
+			get => _priceQty;
+			set
+			{
+				_priceQty = value;
+				_hasPriceQty = true;
+			}
+		}
+		
+		public void ResetPriceQty()
+		{
+			_priceQty = null;
+			_hasPriceQty = false;
+		}
+
+		private double? _priceQty;
+		private bool _hasPriceQty;
 
 		/// <summary>
 		///     QuantityInterval is the interval in which this product can be
 		///     ordered. E.g. if the quantity interval is 5, the end-user can
 		///     only order in quantities of 5,10,15 etc. 
 		/// </summary>
-		[JsonProperty("quantityInterval")]
-		public double? QuantityInterval { get; set; }
+		public double? QuantityInterval
+		{
+			get => _quantityInterval;
+			set
+			{
+				_quantityInterval = value;
+				_hasQuantityInterval = true;
+			}
+		}
+		
+		public void ResetQuantityInterval()
+		{
+			_quantityInterval = null;
+			_hasQuantityInterval = false;
+		}
 
+		private double? _quantityInterval;
+		private bool _hasQuantityInterval;
+ 
 		/// <summary>
 		///     QuantityMax is the maximum order quantity for this product.
 		/// </summary>
-		[JsonProperty("quantityMax")]
-		public double? QuantityMax { get; set; }
+		public double? QuantityMax
+		{
+			get => _quantityMax;
+			set
+			{
+				_quantityMax = value;
+				_hasQuantityMax = true;
+			}
+		}
+		
+		public void ResetQuantityMax()
+		{
+			_quantityMax = null;
+			_hasQuantityMax = false;
+		}
+
+		private double? _quantityMax;
+		private bool _hasQuantityMax;
 
 		/// <summary>
 		///     QuantityMin is the minimum order quantity for this product.
 		/// </summary>
-		[JsonProperty("quantityMin")]
-		public double? QuantityMin { get; set; }
+		public double? QuantityMin
+		{
+			get => _quantityMin;
+			set
+			{
+				_quantityMin = value;
+				_hasQuantityMin = true;
+			}
+		}
+		
+		public void ResetQuantityMin()
+		{
+			_quantityMin = null;
+			_hasQuantityMin = false;
+		}
+
+		private double? _quantityMin;
+		private bool _hasQuantityMin;
 
 		/// <summary>
 		///     Rateable is a flag that indicates whether the product can be
 		///     rated by end-users. Please consult your Store Manager before
 		///     setting a value for this field.
 		/// </summary>
-		[JsonProperty("rateable")]
-		public bool? Rateable { get; set; }
+		public bool? Rateable
+		{
+			get => _rateable;
+			set
+			{
+				_rateable = value;
+				_hasRateable = true;
+			}
+		}
+		
+		public void ResetRateable()
+		{
+			_rateable = null;
+			_hasRateable = false;
+		}
+
+		private bool? _rateable;
+		private bool _hasRateable;
 
 		/// <summary>
 		///     RateableOnlyIfOrdered is a flag that indicates whether the
 		///     product can be rated only after being ordered. Please consult
 		///     your Store Manager before setting a value for this field.
 		/// </summary>
-		[JsonProperty("rateableOnlyIfOrdered")]
-		public bool? RateableOnlyIfOrdered { get; set; }
+		public bool? RateableOnlyIfOrdered
+		{
+			get => _rateableOnlyIfOrdered;
+			set
+			{
+				_rateableOnlyIfOrdered = value;
+				_hasRateableOnlyIfOrdered = true;
+			}
+		}
+		
+		public void ResetRateableOnlyIfOrdered()
+		{
+			_rateableOnlyIfOrdered = null;
+			_hasRateableOnlyIfOrdered = false;
+		}
+		
+		private bool? _rateableOnlyIfOrdered;
+		private bool _hasRateableOnlyIfOrdered;
 
 		/// <summary>
 		///     References defines cross-product references, e.g. alternatives
 		///     or follow-up products.
 		/// </summary>
-		[JsonProperty("references")]
-		public Reference[] References { get; set; }
+		public Reference[] References
+		{
+			get => _references;
+			set
+			{
+				_references = value;
+				_hasReferences = true;
+			}
+		}
+		
+		public void ResetReferences()
+		{
+			_references = null;
+			_hasReferences = false;
+		}
+		
+		private Reference[] _references;
+		private bool _hasReferences;
 
 		/// <summary>
 		///     Safetysheet is the name of an safetysheet file (in the media
 		///     files) or a URL to the safetysheet on the internet.
 		/// </summary>
-		[JsonProperty("safetysheet")]
-		public string Safetysheet { get; set; }
+		public string Safetysheet
+		{
+			get => _safetysheet;
+			set
+			{
+				_safetysheet = value;
+				_hasSafetysheet = true;
+			}
+		}
+		
+		public void ResetSafetysheet()
+		{
+			_safetysheet = null;
+			_hasSafetysheet = false;
+		}
+		
+		private string _safetysheet;
+		private bool _hasSafetysheet;
 
 		/// <summary>
 		///     ScalePrices can be used when the price of the product is
 		///     dependent on the ordered quantity.
 		/// </summary>
-		[JsonProperty("scalePrices")]
-		public ScalePrice[] ScalePrices { get; set; }
+		public ScalePrice[] ScalePrices
+		{
+			get => _scalePrices;
+			set
+			{
+				_scalePrices = value;
+				_hasScalePrices = true;
+			}
+		}
+		
+		public void ResetScalePrices()
+		{
+			_scalePrices = null;
+			_hasScalePrices = false;
+		}
+		
+		private ScalePrice[] _scalePrices;
+		private bool _hasScalePrices;
 
 		/// <summary>
 		///     Service indicates if the is a good (false) or a service (true).
 		///     The default value is false.
 		/// </summary>
-		[JsonProperty("service")]
-		public bool? Service { get; set; }
+		public bool? Service
+		{
+			get => _service;
+			set
+			{
+				_service = value;
+				_hasService = true;
+			}
+		}
+		
+		public void ResetService()
+		{
+			_service = null;
+			_hasService = false;
+		}
+		
+		private bool? _service;
+		private bool _hasService;
 
 		/// <summary>
 		///     TaxCode to use for this product. This is typically
 		///     project-specific.
 		/// </summary>
-		[JsonProperty("taxCode")]
-		public string TaxCode { get; set; }
+		public string TaxCode
+		{
+			get => _taxCode;
+			set
+			{
+				_taxCode = value;
+				_hasTaxCode = true;
+			}
+		}
+		
+		public void ResetTaxCode()
+		{
+			_taxCode = null;
+			_hasTaxCode = false;
+		}
+		
+		private string _taxCode;
+		private bool _hasTaxCode;
 
 		/// <summary>
 		///     TaxRate for this product, a numeric value between 0.0 and 1.0.
 		/// </summary>
-		[JsonProperty("taxRate")]
-		public double? TaxRate { get; set; }
+		public double? TaxRate
+		{
+			get => _taxRate;
+			set
+			{
+				_taxRate = value;
+				_hasTaxRate = true;
+			}
+		}
+		
+		public void ResetTaxRate()
+		{
+			_taxRate = null;
+			_hasTaxRate = false;
+		}
+		
+		private double? _taxRate;
+		private bool _hasTaxRate;
 
 		/// <summary>
 		///     Thumbnail is the name of an thumbnail image file (in the media
 		///     files) or a URL to the image on the internet.
 		/// </summary>
-		[JsonProperty("thumbnail")]
-		public string Thumbnail { get; set; }
+		public string Thumbnail
+		{
+			get => _thumbnail;
+			set
+			{
+				_thumbnail = value;
+				_hasThumbnail = true;
+			}
+		}
+		
+		public void ResetThumbnail()
+		{
+			_thumbnail = null;
+			_hasThumbnail = false;
+		}
+		
+		private string _thumbnail;
+		private bool _hasThumbnail;
 
 		/// <summary>
 		///     Unspscs is a list of UNSPSC categories the product belongs to.
 		/// </summary>
-		[JsonProperty("unspscs")]
-		public Unspsc[] Unspscs { get; set; }
+		public Unspsc[] Unspscs
+		{
+			get => _unspscs;
+			set
+			{
+				_unspscs = value;
+				_hasUnspscs = true;
+			}
+		}
+		
+		public void ResetUnspscs()
+		{
+			_unspscs = null;
+			_hasUnspscs = false;
+		}
+		
+		private Unspsc[] _unspscs;
+		private bool _hasUnspscs;
 
 		/// <summary>
 		///     Visible is a flag that indicates whether this product will be
 		///     visible to the end-user when shopping. Please consult your
 		///     Store Manager before setting a value for this field.
 		/// </summary>
-		[JsonProperty("visible")]
-		public bool? Visible { get; set; }
+		public bool? Visible
+		{
+			get => _visible;
+			set
+			{
+				_visible = value;
+				_hasVisible = true;
+			}
+		}
+		
+		public void ResetVisible()
+		{
+			_visible = null;
+			_hasVisible = false;
+		}
+		
+		private bool? _visible;
+		private bool _hasVisible;
 
+		
+		public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+		{
+			if (_hasAsin)
+			{
+				info.AddValue("asin", _asin);
+			}
+			if (_hasAutoConfigure)
+			{
+				info.AddValue("autoConfigure", _autoConfigure);
+			}
+			if (_hasAvailability)
+			{
+				info.AddValue("availability", _availability);
+			}
+			if (_hasBlobs)
+			{
+				info.AddValue("blobs", _blobs);
+			}
+			if (_hasBoostFactor)
+			{
+				info.AddValue("boostFactor", _boostFactor);
+			}
+			if (_hasBpn)
+			{
+				info.AddValue("bpn", _bpn);
+			}
+			if (_hasCatalogManaged)
+			{
+				info.AddValue("catalogManaged", _catalogManaged);
+			}
+			if (_hasCategories)
+			{
+				info.AddValue("categories", _categories);
+			}
+			if (_hasConditions)
+			{
+				info.AddValue("conditions", _conditions);
+			}
+			if (_hasContract)
+			{
+				info.AddValue("contract", _contract);
+			}
+			if (_hasContractItem)
+			{
+				info.AddValue("contractItem", _contractItem);
+			}
+			if (_hasConversionDenumerator)
+			{
+				info.AddValue("conversionDenumerator", _conversionDenumerator);
+			}
+			if (_hasConversionNumerator)
+			{
+				info.AddValue("conversionNumerator", _conversionNumerator);
+			}
+			if (_hasCountry)
+			{
+				info.AddValue("country", _country);
+			}
+			if (_hasCu)
+			{
+				info.AddValue("cu", _cu);
+			}
+			if (_hasCuPerOu)
+			{
+				info.AddValue("cuPerOu", _cuPerOu);
+			}
+			if (_hasCustFields)
+			{
+				info.AddValue("custFields", _custFields);
+			}
+			if (_hasCustField1)
+			{
+				info.AddValue("custField1", _custField1);
+			}
+			if (_hasCustField2)
+			{
+				info.AddValue("custField2", _custField2);
+			}
+			if (_hasCustField3)
+			{
+				info.AddValue("custField3", _custField3);
+			}
+			if (_hasCustField4)
+			{
+				info.AddValue("custField4", _custField4);
+			}
+			if (_hasCustField5)
+			{
+				info.AddValue("custField5", _custField5);
+			}
+			if (_hasCustomField6)
+			{
+				info.AddValue("customField6", _customField6);
+			}
+			if (_hasCustomField7)
+			{
+				info.AddValue("customField7", _customField7);
+			}
+			if (_hasCustomField8)
+			{
+				info.AddValue("customField8", _customField8);
+			}
+			if (_hasCustomField9)
+			{
+				info.AddValue("customField9", _customField9);
+			}
+			if (_hasCustomField10)
+			{
+				info.AddValue("customField10", _customField10);
+			}
+			if (_hasCustomField11)
+			{
+				info.AddValue("customField11", _customField11);
+			}
+			if (_hasCustomField12)
+			{
+				info.AddValue("customField12", _customField12);
+			}
+			if (_hasCustomField13)
+			{
+				info.AddValue("customField13", _customField13);
+			}
+			if (_hasCustomField14)
+			{
+				info.AddValue("customField14", _customField14);
+			}
+			if (_hasCustomField15)
+			{
+				info.AddValue("customField15", _customField15);
+			}
+			if (_hasCustomField16)
+			{
+				info.AddValue("customField16", _customField16);
+			}
+			if (_hasCustomField17)
+			{
+				info.AddValue("customField17", _customField17);
+			}
+			if (_hasCustomField18)
+			{
+				info.AddValue("customField18", _customField18);
+			}
+			if (_hasCustomField19)
+			{
+				info.AddValue("customField19", _customField19);
+			}
+			if (_hasCustomField20)
+			{
+				info.AddValue("customField20", _customField20);
+			}
+			if (_hasCustomField21)
+			{
+				info.AddValue("customField21", _customField21);
+			}
+			if (_hasCustomField22)
+			{
+				info.AddValue("customField22", _customField22);
+			}
+			if (_hasCustomField23)
+			{
+				info.AddValue("customField23", _customField23);
+			}
+			if (_hasCustomField24)
+			{
+				info.AddValue("customField24", _customField24);
+			}
+			if (_hasCustomField25)
+			{
+				info.AddValue("customField25", _customField25);
+			}
+			if (_hasCustomField26)
+			{
+				info.AddValue("customField26", _customField26);
+			}
+			if (_hasCustomField27)
+			{
+				info.AddValue("customField27", _customField27);
+			}
+			if (_hasCustomField28)
+			{
+				info.AddValue("customField28", _customField28);
+			}
+			if (_hasCustomField29)
+			{
+				info.AddValue("customField29", _customField29);
+			}
+			if (_hasCustomField30)
+			{
+				info.AddValue("customField30", _customField30);
+			}
+			if (_hasDatasheet)
+			{
+				info.AddValue("datasheet", _datasheet);
+			}
+			if (_hasDescription)
+			{
+				info.AddValue("description", _description);
+			}
+			if (_hasEclasses)
+			{
+				info.AddValue("eclasses", _eclasses);
+			}
+			if (_hasErpGroupSupplier)
+			{
+				info.AddValue("erpGroupSupplier", _erpGroupSupplier);
+			}
+			if (_hasExcluded)
+			{
+				info.AddValue("excluded", _excluded);
+			}
+			if (_hasExtCategory)
+			{
+				info.AddValue("extCategory", _extCategory);
+			}
+			if (_hasExtCategoryId)
+			{
+				info.AddValue("extCategoryId", _extCategoryId);
+			}
+			if (_hasExtConfigForm)
+			{
+				info.AddValue("extConfigForm", _extConfigForm);
+			}
+			if (_hasExtConfigService)
+			{
+				info.AddValue("extConfigService", _extConfigService);
+			}
+			if (_hasExtProductId)
+			{
+				info.AddValue("extProductId", _extProductId);
+			}
+			if (_hasExtSchemaType)
+			{
+				info.AddValue("extSchemaType", _extSchemaType);
+			}
+			if (_hasFeatures)
+			{
+				info.AddValue("features", _features);
+			}			
+			if (_hasNfScaleQuantity)
+			{
+				info.AddValue("nfScaleQuantity", _nfScaleQuantity);
+			}
+			if (_hasOrderable)
+			{
+				info.AddValue("orderable", _orderable);
+			}
+			if (_hasOu)
+			{
+				info.AddValue("ou", _ou);
+			}
+			if (_hasGlAccount)
+			{
+				info.AddValue("glAccount", _glAccount);
+			}
+			if (_hasGtin)
+			{
+				info.AddValue("gtin", _gtin);
+			}
+			if (_hasHazmats)
+			{
+				info.AddValue("hazmats", _hazmats);
+			}
+			if (_hasImage)
+			{
+				info.AddValue("image", _image);
+			}
+			if (_hasIncomplete)
+			{
+				info.AddValue("incomplete", _incomplete);
+			}
+			if (_hasIntrastat)
+			{
+				info.AddValue("intrastat", _intrastat);
+			}
+			if (_hasIsPassword)
+			{
+				info.AddValue("isPassword", _isPassword);
+			}
+			if (_hasKeepPrice)
+			{
+				info.AddValue("keepPrice", _keepPrice);
+			}
+			if (_hasKeywords)
+			{
+				info.AddValue("keywords", _keywords);
+			}
+			if (_hasLeadtime)
+			{
+				info.AddValue("leadtime", _leadtime);
+			}
+			if (_hasListPrice)
+			{
+				info.AddValue("listPrice", _listPrice);
+			}
+			if (_hasManufactcode)
+			{
+				info.AddValue("manufactcode", _manufactcode);
+			}
+			if (_hasManufacturer)
+			{
+				info.AddValue("manufacturer", _manufacturer);
+			}
+			if (_hasMatgroup)
+			{
+				info.AddValue("matgroup", _matgroup);
+			}
+			if (_hasMpn)
+			{
+				info.AddValue("mpn", _mpn);
+			}
+			if (_hasMultiSupplierId)
+			{
+				info.AddValue("multiSupplierId", _multiSupplierId);
+			}
+			if (_hasMultiSupplierName)
+			{
+				info.AddValue("multiSupplierName", _multiSupplierName);
+			}
+			if (_hasName)
+			{
+				info.AddValue("name", _name);
+			}
+			if (_hasNeedsGoodsReceipt)
+			{
+				info.AddValue("needsGoodsReceipt", _needsGoodsReceipt);
+			}
+			if (_hasNfBasePrice)
+			{
+				info.AddValue("nfBasePrice", _nfBasePrice);
+			}
+			if (_hasNfBasePriceQuantity)
+			{
+				info.AddValue("nfBasePriceQuantity", _nfBasePriceQuantity);
+			}
+			if (_hasNfCndId)
+			{
+				info.AddValue("nfCndId", _nfCndId);
+			}
+			if (_hasNfScale)
+			{
+				info.AddValue("nfScale", _nfScale);
+			}
+			if (_hasPrice)
+			{
+				info.AddValue("price", _price);
+			}
+			if (_hasPriceFormula)
+			{
+				info.AddValue("priceFormula", _priceFormula);
+			}
+			if (_hasPriceQty)
+			{
+				info.AddValue("priceQty", _priceQty);
+			}
+			if (_hasQuantityInterval)
+			{
+				info.AddValue("quantityInterval", _quantityInterval);
+			}
+			if (_hasQuantityMax)
+			{
+				info.AddValue("quantityMax", _quantityMax);
+			}
+			if (_hasQuantityMin)
+			{
+				info.AddValue("quantityMin", _quantityMin);
+			}
+			if (_hasRateable)
+			{
+				info.AddValue("rateable", _rateable);
+			}
+			if (_hasRateableOnlyIfOrdered)
+			{
+				info.AddValue("rateableOnlyIfOrdered", _rateableOnlyIfOrdered);
+			}
+			if (_hasReferences)
+			{
+				info.AddValue("references", _references);
+			}
+			if (_hasSafetysheet)
+			{
+				info.AddValue("safetysheet", _safetysheet);
+			}
+			if (_hasScalePrices)
+			{
+				info.AddValue("scalePrices", _scalePrices);
+			}
+			if (_hasService)
+			{
+				info.AddValue("service", _service);
+			}
+			if (_hasTaxCode)
+			{
+				info.AddValue("taxCode", _taxCode);
+			}
+			if (_hasTaxRate)
+			{
+				info.AddValue("taxRate", _taxRate);
+			}
+			if (_hasThumbnail)
+			{
+				info.AddValue("thumbnail", _thumbnail);
+			}
+			if (_hasUnspscs)
+			{
+				info.AddValue("unspscs", _unspscs);
+			}
+			if (_hasVisible)
+			{
+				info.AddValue("visible", _visible);
+			}
+		}
 		#endregion // UpdateProduct
 	}
-
+	
 	/// <summary>
 	///     UpdateProductResponse is the outcome of a successful request to
 	///     update a product.

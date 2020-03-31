@@ -16,6 +16,7 @@
 
 using System.Threading.Tasks;
 using Meplato.Store2.Products;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace Meplato.Store2.Tests.Products
@@ -44,5 +45,36 @@ namespace Meplato.Store2.Tests.Products
             Assert.IsNotEmpty(response.Link);
             Assert.AreEqual("store#productsUpdateResponse", response.Kind);
         }
+        
+        [Test]
+        public async Task TestJsonSerialization()
+        {
+            // attributes which are not set are not serialized
+            {
+                var update = new UpdateProduct
+                {
+                    Name = "Produkt 1000 (NEU!)",
+                    Price = 2.99,
+                    OrderUnit = "PCE",
+                    CustomField12 = "37751543"
+                };
+                var expected = "{\"customField12\":\"37751543\",\"ou\":\"PCE\",\"name\":\"Produkt 1000 (NEU!)\",\"price\":2.99}";
+                Assert.AreEqual(expected, JsonConvert.SerializeObject(update));
+            }
+            // attributes explicitly set to null are serialized unlike omitted ones
+            {
+                var update = new UpdateProduct
+                {
+                    Price = 45.29,
+                    OrderUnit = "C62",
+                    // reset current value
+                    QuantityMin = null,
+                    QuantityMax = null,
+                };
+                var expected = "{\"ou\":\"C62\",\"price\":45.29,\"quantityMax\":null,\"quantityMin\":null}";
+                Assert.AreEqual(expected, JsonConvert.SerializeObject(update));
+            }
+        }
+
     }
 }
