@@ -69,6 +69,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Catalogs\CreateTests.cs" />
     <Compile Include="Catalogs\GetTests.cs" />
     <Compile Include="Catalogs\PublishTests.cs" />
     <Compile Include="Catalogs\PurgeTests.cs" />
@@ -103,6 +104,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestData\catalogs.create.success" />
     <Content Include="TestData\catalogs.get.not_found">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,5 +1,5 @@
 #region Copyright and terms of services
-// Copyright (c) 2015-2016 Meplato GmbH.
+// Copyright (c) 2013-present Meplato GmbH.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
 // in compliance with the License. You may obtain a copy of the License at
@@ -17,8 +17,8 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.6
-// License: Copyright (c) 2015-2018 Meplato GmbH. All rights reserved.
+// Version: 2.1.7
+// License: Copyright (c) 2015-2020 Meplato GmbH. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
 
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.6";
+		public const string Version = "2.1.7";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -98,6 +98,13 @@ namespace Meplato.Store2.Catalogs
 				return "Basic " + credentials;
 			}
 			return null;
+		}
+
+		/// <summary>
+		///     Create a new catalog (admin only).
+		/// </summary>
+		public CreateService Create() {
+			return new CreateService(this);
 		}
 
 		/// <summary>
@@ -453,6 +460,13 @@ namespace Meplato.Store2.Catalogs
 		public bool SupportsOciValidate { get; set; }
 
 		/// <summary>
+		///     Target represents the target system which can be either an
+		///     empty string, "catscout" or "mall".
+		/// </summary>
+		[JsonProperty("target")]
+		public string Target { get; set; }
+
+		/// <summary>
 		///     Type of catalog, e.g. corporate or basic.
 		/// </summary>
 		[JsonProperty("type")]
@@ -478,6 +492,101 @@ namespace Meplato.Store2.Catalogs
 		public string ValidUntil { get; set; }
 
 		#endregion // Catalog
+	}
+
+	/// <summary>
+	///     CreateCatalog holds the properties of a new catalog.
+	/// </summary>
+	public class CreateCatalog
+	{
+		#region CreateCatalog
+
+		/// <summary>
+		///     Country is the ISO-3166 alpha-2 code for the country that the
+		///     catalog is destined for (e.g. DE or US).
+		/// </summary>
+		[JsonProperty("country")]
+		public string Country { get; set; }
+
+		/// <summary>
+		///     Currency is the ISO-4217 currency code that is used for all
+		///     products in the catalog (e.g. EUR or USD).
+		/// </summary>
+		[JsonProperty("currency")]
+		public string Currency { get; set; }
+
+		/// <summary>
+		///     Description of the catalog.
+		/// </summary>
+		[JsonProperty("description")]
+		public string Description { get; set; }
+
+		/// <summary>
+		///     Language is the IETF language tag of the language of all
+		///     products in the catalog (e.g. de or pt-BR).
+		/// </summary>
+		[JsonProperty("language")]
+		public string Language { get; set; }
+
+		/// <summary>
+		///     ID of the merchant.
+		/// </summary>
+		[JsonProperty("merchantId")]
+		public long MerchantId { get; set; }
+
+		/// <summary>
+		///     Name of the catalog.
+		/// </summary>
+		[JsonProperty("name")]
+		public string Name { get; set; }
+
+		/// <summary>
+		///     ID of the project.
+		/// </summary>
+		[JsonProperty("projectId")]
+		public long ProjectId { get; set; }
+
+		/// <summary>
+		///     MPCC of the project.
+		/// </summary>
+		[JsonProperty("projectMpcc")]
+		public string ProjectMpcc { get; set; }
+
+		/// <summary>
+		///     SageContract represents the internal identifier at Meplato for
+		///     the contract of this catalog.
+		/// </summary>
+		[JsonProperty("sageContract")]
+		public string SageContract { get; set; }
+
+		/// <summary>
+		///     SageNumber represents the internal identifier at Meplato for
+		///     the merchant of this catalog.
+		/// </summary>
+		[JsonProperty("sageNumber")]
+		public string SageNumber { get; set; }
+
+		/// <summary>
+		///     Target represents the target system which can be either an
+		///     empty string, "catscout" or "mall".
+		/// </summary>
+		[JsonProperty("target")]
+		public string Target { get; set; }
+
+		/// <summary>
+		///     ValidFrom is the date the catalog becomes effective
+		///     (YYYY-MM-DD).
+		/// </summary>
+		[JsonProperty("validFrom")]
+		public string ValidFrom { get; set; }
+
+		/// <summary>
+		///     ValidUntil is the date the catalog expires (YYYY-MM-DD).
+		/// </summary>
+		[JsonProperty("validUntil")]
+		public string ValidUntil { get; set; }
+
+		#endregion // CreateCatalog
 	}
 
 	/// <summary>
@@ -817,6 +926,65 @@ namespace Meplato.Store2.Catalogs
 		public long TotalItems { get; set; }
 
 		#endregion // SearchResponse
+	}
+
+	/// <summary>
+	///     CreateService: Create a new catalog (admin only).
+	/// </summary>
+	public class CreateService
+	{
+		#region CreateService
+
+		private readonly Service _service;
+		private readonly IDictionary<string, object> _opt = new Dictionary<string, object>();
+		private readonly IDictionary<string, string> _hdr = new Dictionary<string, string>();
+
+		private CreateCatalog _catalog;
+
+		/// <summary>
+		///     Creates a new instance of CreateService.
+		/// </summary>
+		public CreateService(Service service)
+		{
+			_service = service;
+		}
+
+		/// <summary>
+		///     Catalog properties of the new catalog.
+		/// </summary>
+		public CreateService Catalog(CreateCatalog catalog)
+		{
+			_catalog = catalog;
+			return this;
+		}
+
+		/// <summary>
+		///     Execute the operation.
+		/// </summary>
+		public async Task<Catalog> Do()
+			{
+			// Make a copy of the parameters and add the path parameters to it
+			var parameters = new Dictionary<string, object>();
+
+			// Make a copy of the header parameters and set UA
+			var headers = new Dictionary<string, string>();
+			string authorization = _service.GetAuthorizationHeader();
+			if (!string.IsNullOrEmpty(authorization))
+			{
+				headers["Authorization"] = authorization;
+			}
+
+			var uriTemplate = _service.BaseURL + "/catalogs";
+			var response = await _service.Client.Execute(
+				HttpMethod.Post,
+				uriTemplate,
+				parameters,
+				headers,
+				_catalog);
+			return response.GetBodyJSON<Catalog>();
+		}
+
+		#endregion // CreateService
 	}
 
 	/// <summary>
