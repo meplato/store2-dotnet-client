@@ -17,15 +17,14 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.7
-// License: Copyright (c) 2015-2018 Meplato GmbH. All rights reserved.
+// Version: 2.1.8
+// License: Copyright (c) 2015-2020 Meplato GmbH. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
 
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -41,7 +40,7 @@ namespace Meplato.Store2.Products
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.7";
+		public const string Version = "2.1.8";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -390,6 +389,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("cuPerOu")]
 		public double? CuPerOu { get; set; }
+
+		/// <summary>
+		///     Currency is the ISO currency code for the prices, e.g. EUR or
+		///     GBP. If you pass an empty currency code, it will be initialized
+		///     with the catalog's currency. 
+		/// </summary>
+		[JsonProperty("currency")]
+		public string Currency { get; set; }
 
 		/// <summary>
 		///     CustField1 is the CUST_FIELD1 of the SAP OCI specification. It
@@ -1374,7 +1381,8 @@ namespace Meplato.Store2.Products
 
 		/// <summary>
 		///     Currency is the ISO currency code for the prices, e.g. EUR or
-		///     GBP.
+		///     GBP. If you pass an empty currency code, it will be initialized
+		///     with the catalog's currency. 
 		/// </summary>
 		[JsonProperty("currency")]
 		public string Currency { get; set; }
@@ -1783,6 +1791,13 @@ namespace Meplato.Store2.Products
 		public long MerchantId { get; set; }
 
 		/// <summary>
+		///     Mode is only used for differential downloads and is the type of
+		///     change of a product (CREATED, UPDATED, DELETED).
+		/// </summary>
+		[JsonProperty("mode")]
+		public string Mode { get; set; }
+
+		/// <summary>
 		///     MPN is the manufacturer part number.
 		/// </summary>
 		[JsonProperty("mpn")]
@@ -2172,6 +2187,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("cuPerOu")]
 		public double? CuPerOu { get; set; }
+
+		/// <summary>
+		///     Currency is the ISO currency code for the prices, e.g. EUR or
+		///     GBP. If you pass an empty currency code, it will be initialized
+		///     with the catalog's currency. 
+		/// </summary>
+		[JsonProperty("currency")]
+		public string Currency { get; set; }
 
 		/// <summary>
 		///     CustField1 is the CUST_FIELD1 of the SAP OCI specification. It
@@ -2998,6 +3021,7 @@ namespace Meplato.Store2.Products
 
 		#endregion // Unspsc
 	}
+
 
 	/// <summary>
 	///     UpdateProduct holds the properties of a product that need to be
@@ -5844,7 +5868,7 @@ namespace Meplato.Store2.Products
 		}
 		#endregion // UpdateProduct
 	}
-	
+
 	/// <summary>
 	///     UpdateProductResponse is the outcome of a successful request to
 	///     update a product.
@@ -5994,6 +6018,14 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("cuPerOu")]
 		public double? CuPerOu { get; set; }
+
+		/// <summary>
+		///     Currency is the ISO currency code for the prices, e.g. EUR or
+		///     GBP. If you pass an empty currency code, it will be initialized
+		///     with the catalog's currency. 
+		/// </summary>
+		[JsonProperty("currency")]
+		public string Currency { get; set; }
 
 		/// <summary>
 		///     CustField1 is the CUST_FIELD1 of the SAP OCI specification. It
@@ -7048,6 +7080,20 @@ namespace Meplato.Store2.Products
 		}
 
 		/// <summary>
+		///     Mode can be used in combination with version to specify if the
+		///     result should include all products for the specific version of
+		///     the catalog (full), or just the products that changed from the
+		///     previous version (diff). If the mode is "diff", the type of
+		///     change to the product can be found in the attribute "mode" and
+		///     has the following values: "Created", "Updated", "Deleted". 
+		/// </summary>
+		public ScrollService Mode(string mode)
+		{
+			_opt["mode"] = mode;
+			return this;
+		}
+
+		/// <summary>
 		///     PageToken must be passed in the 2nd and all consective requests
 		///     to get the next page of results. You do not need to pass the
 		///     page token manually. You should just follow the nextUrl link in
@@ -7074,6 +7120,15 @@ namespace Meplato.Store2.Products
 		}
 
 		/// <summary>
+		///     Version of the catalog to be retrieved
+		/// </summary>
+		public ScrollService Version(long version)
+		{
+			_opt["version"] = version;
+			return this;
+		}
+
+		/// <summary>
 		///     Execute the operation.
 		/// </summary>
 		public async Task<ScrollResponse> Do()
@@ -7082,6 +7137,11 @@ namespace Meplato.Store2.Products
 			var parameters = new Dictionary<string, object>();
 			// UriTemplates package wants path parameters as strings
 			parameters["area"] = string.Format("{0}", _area);
+			if (_opt.ContainsKey("mode"))
+			{
+				// UriTemplates package wants query parameters as strings
+				parameters["mode"] = string.Format("{0}", _opt["mode"]);
+			}
 			if (_opt.ContainsKey("pageToken"))
 			{
 				// UriTemplates package wants query parameters as strings
@@ -7089,6 +7149,11 @@ namespace Meplato.Store2.Products
 			}
 			// UriTemplates package wants path parameters as strings
 			parameters["pin"] = string.Format("{0}", _pin);
+			if (_opt.ContainsKey("version"))
+			{
+				// UriTemplates package wants query parameters as strings
+				parameters["version"] = string.Format("{0}", _opt["version"]);
+			}
 
 			// Make a copy of the header parameters and set UA
 			var headers = new Dictionary<string, string>();
@@ -7098,7 +7163,7 @@ namespace Meplato.Store2.Products
 				headers["Authorization"] = authorization;
 			}
 
-			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/scroll{?pageToken}";
+			var uriTemplate = _service.BaseURL + "/catalogs/{pin}/{area}/products/scroll{?pageToken,mode,version}";
 			var response = await _service.Client.Execute(
 				HttpMethod.Get,
 				uriTemplate,
