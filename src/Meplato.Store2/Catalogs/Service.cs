@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.7
+// Version: 2.1.8
 // License: Copyright (c) 2015-2020 Meplato GmbH. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.7";
+		public const string Version = "2.1.8";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 

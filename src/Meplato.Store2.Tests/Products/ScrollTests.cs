@@ -86,5 +86,37 @@ namespace Meplato.Store2.Tests.Products
                     Assert.NotNull(product.Updated);
                 }
         }
+        
+        [Test]
+        public async Task ScrollDifferentialUpdate()
+        {
+            var service = GetProductsService();
+            Assert.NotNull(service);
+
+            MockFromFile("products.scroll.differential.success");
+            var response = await service.Scroll().Pin("AD8CCDD5F9").Area("work").Version(3).Mode("diff").Do();
+            Assert.NotNull(response);
+            Assert.AreEqual("store#products", response.Kind);
+            Assert.IsNotNull(response.PageToken);
+            Assert.IsNotEmpty(response.PageToken);
+            Assert.IsTrue(response.TotalItems > 0);
+            if (response.Items != null)
+                foreach (var product in response.Items)
+                {
+                    Assert.NotNull(product);
+                    Assert.IsNotNull(product.Id);
+                    Assert.IsNotEmpty(product.Id);
+                    Assert.IsNotNull(product.Kind);
+                    Assert.IsNotEmpty(product.Kind);
+                    Assert.IsNotNull(product.SelfLink);
+                    Assert.IsNotEmpty(product.SelfLink);
+                    Assert.IsNotNull(product.Spn);
+                    Assert.IsNotEmpty(product.Spn);
+                    Assert.IsNotNull(product.Mode);
+                    Assert.IsNotEmpty(product.Mode);
+                    Assert.NotNull(product.Created);
+                    Assert.NotNull(product.Updated);
+                }
+        }
     }
 }
