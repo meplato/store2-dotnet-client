@@ -461,7 +461,8 @@ namespace Meplato.Store2.Catalogs
 		public string Target { get; set; }
 
 		/// <summary>
-		///     Type of catalog, e.g. corporate or basic.
+		///     Type represents a catalog type which can be either "CC" 1:1
+		///     Corporate or "MB" Meplato Business 1 Creditor.
 		/// </summary>
 		[JsonProperty("type")]
 		public string Type { get; set; }
@@ -566,6 +567,13 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("target")]
 		public string Target { get; set; }
+
+		/// <summary>
+		///     Type represents a catalog type which can be either "CC" 1:1
+		///     Corporate or "MB" Meplato Business 1 Creditor.
+		/// </summary>
+		[JsonProperty("type")]
+		public string Type { get; set; }
 
 		/// <summary>
 		///     ValidFrom is the date the catalog becomes effective
