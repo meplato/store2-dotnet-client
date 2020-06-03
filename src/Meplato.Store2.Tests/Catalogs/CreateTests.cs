@@ -44,6 +44,7 @@ namespace Meplato.Store2.Tests.Catalogs
                 Currency = "EUR",
                 Language = "de",
                 Target = "mall",
+                Type = "CC"
                 SageNumber = "",
                 SageContract = ""
             };
@@ -53,6 +54,7 @@ namespace Meplato.Store2.Tests.Catalogs
             Assert.AreEqual("store#catalog", response.Kind);
             Assert.AreEqual(81, response.Id);
             Assert.AreEqual("48F31F33AD", response.Pin);
+            Assert.AreEqual("CC", response.Type);
         }
     }
 }

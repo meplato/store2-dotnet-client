@@ -17,7 +17,7 @@
 // The file implements the Meplato Store API.
 //
 // Author:  Meplato API Team <support@meplato.com>
-// Version: 2.1.8
+// Version: 2.1.9
 // License: Copyright (c) 2015-2020 Meplato GmbH. All rights reserved.
 // See <a href="https://developer.meplato.com/store2/#terms">Terms of Service</a>
 // See <a href="https://developer.meplato.com/store2/">External documentation</a>
@@ -40,7 +40,7 @@ namespace Meplato.Store2.Catalogs
 	{
 		#region Service
 		public const string Title = "Meplato Store API";
-		public const string Version = "2.1.8";
+		public const string Version = "2.1.9";
 		public const string UserAgent = "meplato-csharp-client/2.0";
 		public const string DefaultBaseURL = "https://store.meplato.com/api/v2";
 
@@ -399,12 +399,6 @@ namespace Meplato.Store2.Catalogs
 		public string SelfLink { get; set; }
 
 		/// <summary>
-		///     Slug of the catalog.
-		/// </summary>
-		[JsonProperty("slug")]
-		public string Slug { get; set; }
-
-		/// <summary>
 		///     State describes the current state of the catalog, e.g. idle.
 		/// </summary>
 		[JsonProperty("state")]
@@ -467,7 +461,8 @@ namespace Meplato.Store2.Catalogs
 		public string Target { get; set; }
 
 		/// <summary>
-		///     Type of catalog, e.g. corporate or basic.
+		///     Type represents a catalog type which can be either "CC" 1:1
+		///     Corporate or "MB" Meplato Business 1 Creditor.
 		/// </summary>
 		[JsonProperty("type")]
 		public string Type { get; set; }
@@ -572,6 +567,13 @@ namespace Meplato.Store2.Catalogs
 		/// </summary>
 		[JsonProperty("target")]
 		public string Target { get; set; }
+
+		/// <summary>
+		///     Type represents a catalog type which can be either "CC" 1:1
+		///     Corporate or "MB" Meplato Business 1 Creditor.
+		/// </summary>
+		[JsonProperty("type")]
+		public string Type { get; set; }
 
 		/// <summary>
 		///     ValidFrom is the date the catalog becomes effective
