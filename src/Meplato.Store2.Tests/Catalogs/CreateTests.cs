@@ -44,7 +44,7 @@ namespace Meplato.Store2.Tests.Catalogs
                 Currency = "EUR",
                 Language = "de",
                 Target = "mall",
-                Type = "CC"
+                Type = "CC",
                 SageNumber = "",
                 SageContract = ""
             };
