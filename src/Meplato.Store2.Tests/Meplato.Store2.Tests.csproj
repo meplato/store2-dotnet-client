@@ -104,7 +104,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestData\catalogs.create.success" />
+    <Content Include="TestData\catalogs.create.success">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestData\catalogs.get.not_found">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -194,10 +196,13 @@
     <Content Include="TestData\jobs.search.unauthorized">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="TestData\ping.internal_error">
+    <Content Include="TestData\ping.internal_error">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="TestData\products.upsert.success">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\products.scroll.differential.success">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
