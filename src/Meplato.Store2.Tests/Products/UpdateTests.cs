@@ -45,9 +45,9 @@ namespace Meplato.Store2.Tests.Products
             Assert.IsNotEmpty(response.Link);
             Assert.AreEqual("store#productsUpdateResponse", response.Kind);
         }
-        
+
         [Test]
-        public async Task TestJsonSerialization()
+        public void TestJsonSerialization()
         {
             // attributes which are not set are not serialized
             {
