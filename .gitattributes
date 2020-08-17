@@ -56,4 +56,5 @@
 
 *.java text eol=lf
 
-src/Meplato.Store2.Tests/TestData/*	linguist-vendored
+src/Meplato.Store2.Tests/TestData/*   text eol=crlf linguist-vendored
+
