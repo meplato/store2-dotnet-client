@@ -1,8 +1,8 @@
-name: Test
+name: Release
 on:
   push:
     paths:
-      - .github/workflows/test.yml
+      - .github/workflows/release.yml
 jobs:
   build:
     defaults:
@@ -19,4 +19,11 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore -SolutionDir ..
     - name: Build
-      run: msbuild -t:Build -p:Configuration=Debug
+      run: msbuild -t:Build -p:Configuration=Release
+    - name: Install hub
+      uses: geertvdc/setup-hub@master
+    - name: run hub commands
+      env:
+        GITHUB_USER: ${{ secrets.GITHUB_USER }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: hub release create --attach bin\Release\Meplato.Store2.dll -m "Release ${GITHUB_REF}" ${GITHUB_REF}
