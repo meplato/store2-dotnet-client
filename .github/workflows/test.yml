@@ -20,4 +20,4 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore -SolutionDir ..
     - name: Build
-      run: msbuild -t:Build
+      run: msbuild -t:Build -p:Configuration=Release
