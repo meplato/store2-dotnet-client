@@ -26,4 +26,4 @@ jobs:
       env:
         GITHUB_USER: ${{ secrets.GITHUB_USER }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: hub release create --attach bin\Release\Meplato.Store2.dll -m "Release ${{GITHUB_REF}}" ${{GITHUB_REF}}
+      run: hub release create --attach bin\Release\Meplato.Store2.dll -m "Release ${{ env.GITHUB_REF }}" ${{ env.GITHUB_REF }}
