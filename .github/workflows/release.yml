@@ -22,11 +22,8 @@ jobs:
       run: msbuild -t:Build -p:Configuration=Release
     - name: Install hub
       uses: geertvdc/setup-hub@master
-    - name: Get tag and version
-      run: |
-        echo ::set-env name=RELEASE_HASH::${GITHUB_SHA:10}
     - name: run hub commands
       env:
         GITHUB_USER: ${{ secrets.GITHUB_USER }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: hub release create --attach bin\Release\Meplato.Store2.dll -m "Release ${{ env.RELEASE_HASH }}" ${{ env.RELEASE_HASH }}
+      run: hub release create --attach bin\Release\Meplato.Store2.dll -m "Release ${GITHUB_SHA}" ${GITHUB_SHA}
