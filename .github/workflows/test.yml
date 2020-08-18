@@ -18,6 +18,6 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
     # Do not use `dotnet restore`, it ignores packages.config
     - name: Restore NuGet packages
-      run: nuget restore -SolutionDir .
+      run: nuget restore -SolutionDir ..
     - name: Build
       run: msbuild -t:Build
