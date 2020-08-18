@@ -1,0 +1,18 @@
+name: Test
+on:
+  push:
+    paths:
+      - .github/workflows/test.yml
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: src/Meplato.Store2
+    name: Build and deploy
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup MSBuild path
+      uses: microsoft/setup-msbuild@v1.0.0
+    - name: Build
+      run: msbuild -t:Build
