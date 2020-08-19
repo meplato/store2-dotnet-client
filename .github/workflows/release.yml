@@ -1,8 +1,8 @@
 name: Release
 on:
   push:
-    paths:
-      - .github/workflows/release.yml
+    tags:
+      - 'v*'
 jobs:
   build:
     defaults:
