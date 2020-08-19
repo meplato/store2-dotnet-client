@@ -11,19 +11,29 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
+    # ----- SETUP
     - name: Setup MSBuild path
       uses: microsoft/setup-msbuild@v1.0.0
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
+    # ----- BUILD
     # Do not use `dotnet restore`, it ignores packages.config
     - name: Restore NuGet packages
       run: nuget restore -SolutionDir ..
     - name: Build
       run: msbuild -t:Build -p:Configuration=Release
+    # ----- NUGET RELEASE
+    - name: Build Nupgks
+      run: nuget pack Meplato.Store2.csproj -Properties Configuration=Release
+    - name: Push to Nuget.org
+      run: nuget push -ApiKey ${{ secrets.NUGET_KEY }} -Source https://api.nuget.org/v3/index.json Meplato.Store2*.nupkg
+    # ----- GITHUB RELEASE
     - name: Install hub
       uses: geertvdc/setup-hub@master
     - name: run hub commands
       env:
         GITHUB_USER: ${{ secrets.GITHUB_USER }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: hub release create --attach bin\Release\Meplato.Store2.dll -m "Release ${env:GITHUB_REF}" ${env:GITHUB_REF}
+      run: |
+        $tag = ${env:GITHUB_REF}.Substring(11)
+        hub release create --attach bin\Release\Meplato.Store2.dll -m "Release ${tag}" ${tag}
