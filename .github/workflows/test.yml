@@ -1,0 +1,22 @@
+name: Test
+on:
+  push:
+    paths:
+      - .github/workflows/test.yml
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: src/Meplato.Store2
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup MSBuild path
+      uses: microsoft/setup-msbuild@v1.0.0
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+    # Do not use `dotnet restore`, it ignores packages.config
+    - name: Restore NuGet packages
+      run: nuget restore -SolutionDir ..
+    - name: Build
+      run: msbuild -t:Build -p:Configuration=Debug
