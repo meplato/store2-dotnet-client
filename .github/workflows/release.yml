@@ -37,5 +37,5 @@ jobs:
         GITHUB_USER: ${{ secrets.GITHUB_USER }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        $tag = ${env:GITHUB_REF}.Substring(11)
+        $tag = ${env:GITHUB_REF}.Substring(10)
         hub release create --attach bin\Release\Meplato.Store2.dll -m "Release ${tag}" ${tag}
