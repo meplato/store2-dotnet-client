@@ -1,20 +1,21 @@
-# Meplato Store 2 API for .NET
+# Meplato Store API for .NET
 
 [![Build Status](https://travis-ci.org/meplato/store2-dotnet-client.svg?branch=master)](https://travis-ci.org/meplato/store2-dotnet-client)
+[![NuGet](https://img.shields.io/nuget/vpre/Meplato.Store2.svg)](https://www.nuget.org/packages/Meplato.Store2/)
 
-This is the .NET client for the Meplato Store 2 API. It consists of a library
+This is the .NET client for the Meplato Store API. It consists of a library
 to integrate your infrastructure with Meplato suite for suppliers.
 
 ## Prerequisites
 
-You need three things to use the Meplato Store 2 API.
+You need three things to use the Meplato Store API.
 
-1. A login to Meplato Store 2.
+1. A login to Meplato Store.
 2. An API token.
 3. Microsoft Visual Studio (at least VS 2019) and .NET 4.7.2.
 
 Get your login by contacting Meplato Supplier Network Services. The API token
-is required to securely communicate with the Meplato Store 2 API. You can
+is required to securely communicate with the Meplato Store API. You can
 find it in the personalization section when logged into Meplato Store.
 
 ## Installation
@@ -54,7 +55,7 @@ namespace MeplatoStoreConsole
 }
 ```
 
-All functionality of the Meplato Store 2 API is separated into services.
+All functionality of the Meplato Store API is separated into services.
 So you e.g. have a service to work with catalogs, another
 service to work with products in a catalog etc. All services need to be
 initialized with your API token. Here's an example:
@@ -149,7 +150,7 @@ library.
 
 ## Documentation
 
-Complete documentation for the Meplato Store 2 API can be found at
+Complete documentation for the Meplato Store API can be found at
 [https://developer.meplato.com/store2](https://developer.meplato.com/store2).
 
 ## Testing
