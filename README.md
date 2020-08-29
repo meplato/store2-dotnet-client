@@ -11,7 +11,7 @@ You need three things to use the Meplato Store 2 API.
 
 1. A login to Meplato Store 2.
 2. An API token.
-3. Microsoft Visual Studio (at least VS 2013) and .NET 4.5.1.
+3. Microsoft Visual Studio (at least VS 2019) and .NET 4.7.2.
 
 Get your login by contacting Meplato Supplier Network Services. The API token
 is required to securely communicate with the Meplato Store 2 API. You can
@@ -19,15 +19,45 @@ find it in the personalization section when logged into Meplato Store.
 
 ## Installation
 
-1. Open the solution in `.\src\Meplato.Store2.vs2013.sln` (or `.\src\Meplato.Store2.vs2015.sln`).
+1. Open the solution in `.\src\Meplato.Store2.sln`.
 2. Build the solution.
 
 ## Using the library
 
+We have recently added `Meplato.Store2` to the NuGet package management
+system. So you can very easily add support for Meplato Store API by opening
+NuGet packages for your project, search for `Meplato` and add the
+`Meplato.Store2` dependency to your project. Once you have that, this simple
+program will list the number of catalogs in your account
+(replace `<your-api-token>` with the API token you can access in Store):
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Meplato.Store2;
+using Service = Meplato.Store2.Catalogs.Service;
+
+namespace MeplatoStoreConsole
+{
+    internal class Program
+    {
+        private static async Task Main(string[] args)
+        {
+            var client = new Client();
+            var catalogs = new Service(client) {
+                User = "<your-api-token>"
+            };
+            var resp = await catalogs.Search().Do();
+            Console.WriteLine($"Found {resp.TotalItems} catalogs");
+        }
+    }
+}
+```
+
 All functionality of the Meplato Store 2 API is separated into services.
 So you e.g. have a service to work with catalogs, another
 service to work with products in a catalog etc. All services need to be
-initialized with your API token.
+initialized with your API token. Here's an example:
 
 ```csharp
 using Meplato.Store2.Catalogs;
@@ -53,9 +83,10 @@ foreach (var catalog in response.Items)
 
 You should use e.g. [Polly](https://github.com/App-vNext/Polly)
 to make your API consumer resilient against network errors or
-API limits. Notice that Polly is much more versatile than this
-simple snippet; read up the
-[documentation](http://www.thepollyproject.org/)
+API rate limits.
+
+Notice that Polly is much more versatile than this simple snippet;
+read up the [documentation](http://www.thepollyproject.org/)
 and [examples](https://github.com/App-vNext/Polly-Samples).
 
 The following snippet can also be found in
