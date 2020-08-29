@@ -71,17 +71,10 @@ namespace Meplato.Store2
         ///     Deserializes the HTTP response body as type <typeparamref name="T" />.
         /// </summary>
         /// <typeparam name="T">Type to deserialize</typeparam>
-        /// <returns>Instance of type <typeparamref name="T" /> or <code>default(T)</code> if deserialization fails.</returns>
+        /// <returns>Instance of type <typeparamref name="T" /></returns>
         public T GetBodyJSON<T>()
         {
-            try
-            {
-                return JsonConvert.DeserializeObject<T>(GetBodyString());
-            }
-            catch (Exception)
-            {
-                return default(T);
-            }
+            return JsonConvert.DeserializeObject<T>(GetBodyString());
         }
 
         /// <summary>
