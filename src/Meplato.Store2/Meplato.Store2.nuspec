@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Meplato Store API</title>
+    <authors>Meplato GmbH</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.md</license>
+    <projectUrl>https://developer.meplato.com/store2</projectUrl>
+    <description>Meplato Store API for .NET allows you to manage and modify electronic product catalogs in the Meplato Catalog Cloud.</description>
+    <releaseNotes>Updated all dependencies.</releaseNotes>
+    <copyright>$copyright$</copyright>
+  </metadata>
+  <files>
+    <file src="LICENSE.md" target="" />
+  </files>
+</package>
