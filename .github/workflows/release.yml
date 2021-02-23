@@ -13,9 +13,9 @@ jobs:
     - uses: actions/checkout@v2
     # ----- SETUP
     - name: Setup MSBuild path
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
     - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.2
+      uses: NuGet/setup-nuget@v1.0.5
     # ----- BUILD
     # Do not use `dotnet restore`, it ignores packages.config
     - name: Restore NuGet packages
