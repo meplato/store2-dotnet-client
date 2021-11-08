@@ -58,7 +58,7 @@ namespace Meplato.Store2.Tests.Products
                     OrderUnit = "PCE",
                     CustomField12 = "37751543"
                 };
-                var expected = "{\"customField12\":\"37751543\",\"ou\":\"PCE\",\"name\":\"Produkt 1000 (NEU!)\",\"price\":2.99}";
+                var expected = "{\"customField12\":\"37751543\",\"name\":\"Produkt 1000 (NEU!)\",\"ou\":\"PCE\",\"price\":2.99}";
                 Assert.AreEqual(expected, JsonConvert.SerializeObject(update));
             }
             // attributes explicitly set to null are serialized unlike omitted ones
