@@ -167,8 +167,8 @@ namespace Meplato.Store2
 		#region Merchant
 
 		/// <summary>
-		///     Country is the ISO code for the country of the merchant, e.g.
-		///     DE or CH.
+		///     Country/Region is the ISO code for the country/region of the
+		///     merchant, e.g. DE or CH.
 		/// </summary>
 		[JsonProperty("country")]
 		public string Country { get; set; }
@@ -279,7 +279,8 @@ namespace Meplato.Store2
 		#region User
 
 		/// <summary>
-		///     Country is the ISO code for the country, e.g. DE or CH.
+		///     Country/Region is the ISO code for the country/region, e.g. DE
+		///     or CH.
 		/// </summary>
 		[JsonProperty("country")]
 		public string Country { get; set; }
