@@ -369,10 +369,10 @@ namespace Meplato.Store2.Products
 		public double? ConversionNumerator { get; set; }
 
 		/// <summary>
-		///     Country represents the ISO code of the country of origin, i.e.
-		///     the country where the product has been created/produced, e.g.
-		///     DE. If unspecified, the field is initialized with the catalog's
-		///     country field. 
+		///     Country/Region represents the ISO code of the country/region of
+		///     origin, i.e. the country/region where the product has been
+		///     created/produced, e.g. DE. If unspecified, the field is
+		///     initialized with the catalog's country/region field. 
 		/// </summary>
 		[JsonProperty("country")]
 		public string Country { get; set; }
@@ -608,6 +608,166 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("customField30")]
 		public string CustomField30 { get; set; }
+
+		/// <summary>
+		///     CustomField31 represents the 31st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField31")]
+		public string CustomField31 { get; set; }
+
+		/// <summary>
+		///     CustomField32 represents the 32nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField32")]
+		public string CustomField32 { get; set; }
+
+		/// <summary>
+		///     CustomField33 represents the 33rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField33")]
+		public string CustomField33 { get; set; }
+
+		/// <summary>
+		///     CustomField34 represents the 34th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField34")]
+		public string CustomField34 { get; set; }
+
+		/// <summary>
+		///     CustomField35 represents the 35th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField35")]
+		public string CustomField35 { get; set; }
+
+		/// <summary>
+		///     CustomField36 represents the 36th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField36")]
+		public string CustomField36 { get; set; }
+
+		/// <summary>
+		///     CustomField37 represents the 37th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField37")]
+		public string CustomField37 { get; set; }
+
+		/// <summary>
+		///     CustomField38 represents the 38th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField38")]
+		public string CustomField38 { get; set; }
+
+		/// <summary>
+		///     CustomField39 represents the 39th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField39")]
+		public string CustomField39 { get; set; }
+
+		/// <summary>
+		///     CustomField40 represents the 40th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField40")]
+		public string CustomField40 { get; set; }
+
+		/// <summary>
+		///     CustomField41 represents the 41st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField41")]
+		public string CustomField41 { get; set; }
+
+		/// <summary>
+		///     CustomField42 represents the 42nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField42")]
+		public string CustomField42 { get; set; }
+
+		/// <summary>
+		///     CustomField43 represents the 43rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField43")]
+		public string CustomField43 { get; set; }
+
+		/// <summary>
+		///     CustomField44 represents the 44th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField44")]
+		public string CustomField44 { get; set; }
+
+		/// <summary>
+		///     CustomField45 represents the 45th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField45")]
+		public string CustomField45 { get; set; }
+
+		/// <summary>
+		///     CustomField46 represents the 46th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField46")]
+		public string CustomField46 { get; set; }
+
+		/// <summary>
+		///     CustomField47 represents the 47th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField47")]
+		public string CustomField47 { get; set; }
+
+		/// <summary>
+		///     CustomField48 represents the 48th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField48")]
+		public string CustomField48 { get; set; }
+
+		/// <summary>
+		///     CustomField49 represents the 49th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField49")]
+		public string CustomField49 { get; set; }
+
+		/// <summary>
+		///     CustomField50 represents the 50th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField50")]
+		public string CustomField50 { get; set; }
 
 		/// <summary>
 		///     CustomField6 represents the 6th customer-specific field. Please
@@ -1221,9 +1381,9 @@ namespace Meplato.Store2.Products
 		public double NetWeight { get; set; }
 
 		/// <summary>
-		///     OriginCountry represents the ISO code of the country where the
-		///     product has been created/produced, e.g. DE. This is a required
-		///     field. 
+		///     OriginCountry represents the ISO code of the country/region
+		///     where the product has been created/produced, e.g. DE. This is a
+		///     required field. 
 		/// </summary>
 		[JsonProperty("originCountry")]
 		public string OriginCountry { get; set; }
@@ -1352,10 +1512,10 @@ namespace Meplato.Store2.Products
 		public double? ConversionNumerator { get; set; }
 
 		/// <summary>
-		///     Country represents the ISO code of the country of origin, i.e.
-		///     the country where the product has been created/produced, e.g.
-		///     DE. If unspecified, the field is initialized with the catalog's
-		///     country field. 
+		///     Country/Region represents the ISO code of the country/region of
+		///     origin, i.e. the country/region where the product has been
+		///     created/produced, e.g. DE. If unspecified, the field is
+		///     initialized with the catalog's country/region field. 
 		/// </summary>
 		[JsonProperty("country")]
 		public string Country { get; set; }
@@ -1555,6 +1715,126 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("customField30")]
 		public string CustomField30 { get; set; }
+
+		/// <summary>
+		///     CustomField31 represents the 31st customer-specific field.
+		/// </summary>
+		[JsonProperty("customField31")]
+		public string CustomField31 { get; set; }
+
+		/// <summary>
+		///     CustomField32 represents the 32nd customer-specific field.
+		/// </summary>
+		[JsonProperty("customField32")]
+		public string CustomField32 { get; set; }
+
+		/// <summary>
+		///     CustomField33 represents the 33rd customer-specific field.
+		/// </summary>
+		[JsonProperty("customField33")]
+		public string CustomField33 { get; set; }
+
+		/// <summary>
+		///     CustomField34 represents the 34th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField34")]
+		public string CustomField34 { get; set; }
+
+		/// <summary>
+		///     CustomField35 represents the 35th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField35")]
+		public string CustomField35 { get; set; }
+
+		/// <summary>
+		///     CustomField36 represents the 36th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField36")]
+		public string CustomField36 { get; set; }
+
+		/// <summary>
+		///     CustomField37 represents the 37th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField37")]
+		public string CustomField37 { get; set; }
+
+		/// <summary>
+		///     CustomField38 represents the 38th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField38")]
+		public string CustomField38 { get; set; }
+
+		/// <summary>
+		///     CustomField39 represents the 39th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField39")]
+		public string CustomField39 { get; set; }
+
+		/// <summary>
+		///     CustomField40 represents the 40th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField40")]
+		public string CustomField40 { get; set; }
+
+		/// <summary>
+		///     CustomField41 represents the 41st customer-specific field.
+		/// </summary>
+		[JsonProperty("customField41")]
+		public string CustomField41 { get; set; }
+
+		/// <summary>
+		///     CustomField42 represents the 42nd customer-specific field.
+		/// </summary>
+		[JsonProperty("customField42")]
+		public string CustomField42 { get; set; }
+
+		/// <summary>
+		///     CustomField43 represents the 43rd customer-specific field.
+		/// </summary>
+		[JsonProperty("customField43")]
+		public string CustomField43 { get; set; }
+
+		/// <summary>
+		///     CustomField44 represents the 44th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField44")]
+		public string CustomField44 { get; set; }
+
+		/// <summary>
+		///     CustomField45 represents the 45th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField45")]
+		public string CustomField45 { get; set; }
+
+		/// <summary>
+		///     CustomField46 represents the 46th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField46")]
+		public string CustomField46 { get; set; }
+
+		/// <summary>
+		///     CustomField47 represents the 47th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField47")]
+		public string CustomField47 { get; set; }
+
+		/// <summary>
+		///     CustomField48 represents the 48th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField48")]
+		public string CustomField48 { get; set; }
+
+		/// <summary>
+		///     CustomField49 represents the 49th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField49")]
+		public string CustomField49 { get; set; }
+
+		/// <summary>
+		///     CustomField50 represents the 50th customer-specific field.
+		/// </summary>
+		[JsonProperty("customField50")]
+		public string CustomField50 { get; set; }
 
 		/// <summary>
 		///     CustomField6 represents the 6th customer-specific field.
@@ -2167,10 +2447,10 @@ namespace Meplato.Store2.Products
 		public double? ConversionNumerator { get; set; }
 
 		/// <summary>
-		///     Country represents the ISO code of the country of origin, i.e.
-		///     the country where the product has been created/produced, e.g.
-		///     DE. If unspecified, the field is initialized with the catalog's
-		///     country field. 
+		///     Country/Region represents the ISO code of the country/region of
+		///     origin, i.e. the country/region where the product has been
+		///     created/produced, e.g. DE. If unspecified, the field is
+		///     initialized with the catalog's country/region field. 
 		/// </summary>
 		[JsonProperty("country")]
 		public string Country { get; set; }
@@ -2406,6 +2686,166 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("customField30")]
 		public string CustomField30 { get; set; }
+
+		/// <summary>
+		///     CustomField31 represents the 31st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField31")]
+		public string CustomField31 { get; set; }
+
+		/// <summary>
+		///     CustomField32 represents the 32nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField32")]
+		public string CustomField32 { get; set; }
+
+		/// <summary>
+		///     CustomField33 represents the 33rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField33")]
+		public string CustomField33 { get; set; }
+
+		/// <summary>
+		///     CustomField34 represents the 34th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField34")]
+		public string CustomField34 { get; set; }
+
+		/// <summary>
+		///     CustomField35 represents the 35th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField35")]
+		public string CustomField35 { get; set; }
+
+		/// <summary>
+		///     CustomField36 represents the 36th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField36")]
+		public string CustomField36 { get; set; }
+
+		/// <summary>
+		///     CustomField37 represents the 37th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField37")]
+		public string CustomField37 { get; set; }
+
+		/// <summary>
+		///     CustomField38 represents the 38th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField38")]
+		public string CustomField38 { get; set; }
+
+		/// <summary>
+		///     CustomField39 represents the 39th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField39")]
+		public string CustomField39 { get; set; }
+
+		/// <summary>
+		///     CustomField40 represents the 40th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField40")]
+		public string CustomField40 { get; set; }
+
+		/// <summary>
+		///     CustomField41 represents the 41st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField41")]
+		public string CustomField41 { get; set; }
+
+		/// <summary>
+		///     CustomField42 represents the 42nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField42")]
+		public string CustomField42 { get; set; }
+
+		/// <summary>
+		///     CustomField43 represents the 43rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField43")]
+		public string CustomField43 { get; set; }
+
+		/// <summary>
+		///     CustomField44 represents the 44th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField44")]
+		public string CustomField44 { get; set; }
+
+		/// <summary>
+		///     CustomField45 represents the 45th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField45")]
+		public string CustomField45 { get; set; }
+
+		/// <summary>
+		///     CustomField46 represents the 46th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField46")]
+		public string CustomField46 { get; set; }
+
+		/// <summary>
+		///     CustomField47 represents the 47th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField47")]
+		public string CustomField47 { get; set; }
+
+		/// <summary>
+		///     CustomField48 represents the 48th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField48")]
+		public string CustomField48 { get; set; }
+
+		/// <summary>
+		///     CustomField49 represents the 49th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField49")]
+		public string CustomField49 { get; set; }
+
+		/// <summary>
+		///     CustomField50 represents the 50th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField50")]
+		public string CustomField50 { get; set; }
 
 		/// <summary>
 		///     CustomField6 represents the 6th customer-specific field. Please
@@ -3023,7 +3463,6 @@ namespace Meplato.Store2.Products
 		#endregion // Unspsc
 	}
 
-
 	/// <summary>
 	///     UpdateProduct holds the properties of a product that need to be
 	///     updated.
@@ -3032,6 +3471,11 @@ namespace Meplato.Store2.Products
 	public class UpdateProduct : ISerializable
 	{
 		#region UpdateProduct
+
+		#region Asin
+		private string _asin;
+		private bool _hasAsin;
+
 		/// <summary>
 		///     ASIN is the unique Amazon article number of the product.
 		/// </summary>
@@ -3044,15 +3488,21 @@ namespace Meplato.Store2.Products
 				_hasAsin = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetAsin()
 		{
 			_asin = null;
 			_hasAsin = false;
 		}
-		
-		private string _asin;
-		private bool _hasAsin;
+
+		#endregion // Asin
+
+		#region AutoConfigure
+		private bool? _autoConfigure;
+		private bool _hasAutoConfigure;
 
 		/// <summary>
 		///     AutoConfigure is a flag that indicates whether this product can
@@ -3068,15 +3518,21 @@ namespace Meplato.Store2.Products
 				_hasAutoConfigure = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetAutoConfigure()
 		{
 			_autoConfigure = null;
 			_hasAutoConfigure = false;
 		}
-		
-		private bool? _autoConfigure;
-		private bool _hasAutoConfigure;
+
+		#endregion // AutoConfigure
+
+		#region Availability
+		private Availability _availability;
+		private bool _hasAvailability;
 
 		/// <summary>
 		///     Availability allows the update of product availability data,
@@ -3092,20 +3548,26 @@ namespace Meplato.Store2.Products
 				_hasAvailability = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetAvailability()
 		{
 			_availability = null;
 			_hasAvailability = false;
 		}
 
-		private Availability _availability;
-		private bool _hasAvailability;
+		#endregion // Availability
+
+		#region Blobs
+		private Blob[] _blobs;
+		private bool _hasBlobs;
 
 		/// <summary>
 		///     Blobs specifies external data, e.g. images or datasheets.
 		/// </summary>
-		public Blob[] Blobs 
+		public Blob[] Blobs
 		{
 			get => _blobs;
 			set
@@ -3114,22 +3576,28 @@ namespace Meplato.Store2.Products
 				_hasBlobs = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetBlobs()
 		{
 			_blobs = null;
 			_hasBlobs = false;
 		}
 
-		private Blob[] _blobs;
-		private bool _hasBlobs;
+		#endregion // Blobs
+
+		#region BoostFactor
+		private double? _boostFactor;
+		private bool _hasBoostFactor;
 
 		/// <summary>
 		///     BoostFactor represents a positive or negative boost for the
 		///     product. Please consult your Store Manager before setting a
 		///     value for this field.
 		/// </summary>
-		public double? BoostFactor 
+		public double? BoostFactor
 		{
 			get => _boostFactor;
 			set
@@ -3138,20 +3606,26 @@ namespace Meplato.Store2.Products
 				_hasBoostFactor = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetBoostFactor()
 		{
 			_boostFactor = null;
 			_hasBoostFactor = false;
 		}
 
-		private double? _boostFactor;
-		private bool _hasBoostFactor;
+		#endregion // BoostFactor
+
+		#region Bpn
+		private string _bpn;
+		private bool _hasBpn;
 
 		/// <summary>
 		///     BPN is the buyer part number of the product.
 		/// </summary>
-		public string Bpn 
+		public string Bpn
 		{
 			get => _bpn;
 			set
@@ -3160,17 +3634,22 @@ namespace Meplato.Store2.Products
 				_hasBpn = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetBpn()
 		{
 			_bpn = null;
 			_hasBpn = false;
 		}
 
-		private string _bpn;
-		private bool _hasBpn;
+		#endregion // Bpn
 
-		
+		#region CatalogManaged
+		private bool? _catalogManaged;
+		private bool _hasCatalogManaged;
+
 		/// <summary>
 		///     CatalogManaged is a flag that indicates whether this product is
 		///     configurable (or catalog managed in OCI parlance).
@@ -3184,15 +3663,21 @@ namespace Meplato.Store2.Products
 				_hasCatalogManaged = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCatalogManaged()
 		{
 			_catalogManaged = null;
 			_hasCatalogManaged = false;
 		}
 
-		private bool? _catalogManaged;
-		private bool _hasCatalogManaged;
+		#endregion // CatalogManaged
+
+		#region Categories
+		private string[] _categories;
+		private bool _hasCategories;
 
 		/// <summary>
 		///     Categories is a list of (supplier-specific) category names the
@@ -3207,15 +3692,21 @@ namespace Meplato.Store2.Products
 				_hasCategories = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCategories()
 		{
 			_categories = null;
 			_hasCategories = false;
 		}
 
-		private string[] _categories;
-		private bool _hasCategories;
+		#endregion // Categories
+
+		#region Conditions
+		private Condition[] _conditions;
+		private bool _hasConditions;
 
 		/// <summary>
 		///     Conditions describes the product conditions, e.g. refurbished
@@ -3230,15 +3721,21 @@ namespace Meplato.Store2.Products
 				_hasConditions = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetConditions()
 		{
 			_conditions = null;
 			_hasConditions = false;
 		}
 
-		private Condition[] _conditions;
-		private bool _hasConditions;
+		#endregion // Conditions
+
+		#region Contract
+		private string _contract;
+		private bool _hasContract;
 
 		/// <summary>
 		///     Contract represents the contract number to be used when
@@ -3254,15 +3751,21 @@ namespace Meplato.Store2.Products
 				_hasContract = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetContract()
 		{
 			_contract = null;
 			_hasContract = false;
 		}
 
-		private string _contract;
-		private bool _hasContract;
+		#endregion // Contract
+
+		#region ContractItem
+		private string _contractItem;
+		private bool _hasContractItem;
 
 		/// <summary>
 		///     ContractItem represents line number in the contract to be used
@@ -3278,15 +3781,21 @@ namespace Meplato.Store2.Products
 				_hasContractItem = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetContractItem()
 		{
 			_contractItem = null;
 			_hasContractItem = false;
 		}
 
-		private string _contractItem;
-		private bool _hasContractItem;
+		#endregion // ContractItem
+
+		#region ConversionDenumerator
+		private double? _conversionDenumerator;
+		private bool _hasConversionDenumerator;
 
 		/// <summary>
 		///     ConversionDenumerator is the denumerator for calculating price
@@ -3302,15 +3811,21 @@ namespace Meplato.Store2.Products
 				_hasConversionDenumerator = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetConversionDenumerator()
 		{
 			_conversionDenumerator = null;
 			_hasConversionDenumerator = false;
 		}
 
-		private double? _conversionDenumerator;
-		private bool _hasConversionDenumerator;
+		#endregion // ConversionDenumerator
+
+		#region ConversionNumerator
+		private double? _conversionNumerator;
+		private bool _hasConversionNumerator;
 
 		/// <summary>
 		///     ConversionNumerator is the numerator for calculating price
@@ -3326,21 +3841,27 @@ namespace Meplato.Store2.Products
 				_hasConversionNumerator = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetConversionNumerator()
 		{
 			_conversionNumerator = null;
 			_hasConversionNumerator = false;
 		}
 
-		private double? _conversionNumerator;
-		private bool _hasConversionNumerator;
+		#endregion // ConversionNumerator
+
+		#region Country
+		private string _country;
+		private bool _hasCountry;
 
 		/// <summary>
-		///     Country represents the ISO code of the country of origin, i.e.
-		///     the country where the product has been created/produced, e.g.
-		///     DE. If unspecified, the field is initialized with the catalog's
-		///     country field. 
+		///     Country/Region represents the ISO code of the country/region of
+		///     origin, i.e. the country/region where the product has been
+		///     created/produced, e.g. DE. If unspecified, the field is
+		///     initialized with the catalog's country/region field. 
 		/// </summary>
 		public string Country
 		{
@@ -3351,15 +3872,21 @@ namespace Meplato.Store2.Products
 				_hasCountry = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCountry()
 		{
 			_country = null;
 			_hasCountry = false;
 		}
 
-		private string _country;
-		private bool _hasCountry;
+		#endregion // Country
+
+		#region ContentUnit
+		private string _cu;
+		private bool _hasContentUnit;
 
 		/// <summary>
 		///     ContentUnit is the content unit of the product, a 3-character
@@ -3371,18 +3898,24 @@ namespace Meplato.Store2.Products
 			set
 			{
 				_cu = value;
-				_hasCu = true;
+				_hasContentUnit = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetContentUnit()
 		{
 			_cu = null;
-			_hasCu = false;
+			_hasContentUnit = false;
 		}
 
-		private string _cu;
-		private bool _hasCu;
+		#endregion // ContentUnit
+
+		#region CuPerOu
+		private double? _cuPerOu;
+		private bool _hasCuPerOu;
 
 		/// <summary>
 		///     CuPerOu describes the number of content units per order unit,
@@ -3397,15 +3930,21 @@ namespace Meplato.Store2.Products
 				_hasCuPerOu = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCuPerOu()
 		{
 			_cuPerOu = null;
 			_hasCuPerOu = false;
 		}
 
-		private double? _cuPerOu;
-		private bool _hasCuPerOu;
+		#endregion // CuPerOu
+
+		#region Currency
+		private string _currency;
+		private bool _hasCurrency;
 
 		/// <summary>
 		///     Currency is the ISO currency code for the prices, e.g. EUR or
@@ -3421,16 +3960,22 @@ namespace Meplato.Store2.Products
 				_hasCurrency = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCurrency()
 		{
 			_currency = null;
 			_hasCurrency = false;
 		}
 
-		private string _currency;
-		private bool _hasCurrency;
-		
+		#endregion // Currency
+
+		#region CustField1
+		private string _custField1;
+		private bool _hasCustField1;
+
 		/// <summary>
 		///     CustField1 is the CUST_FIELD1 of the SAP OCI specification. It
 		///     has a maximum length of 10 characters. 
@@ -3444,15 +3989,21 @@ namespace Meplato.Store2.Products
 				_hasCustField1 = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCustField1()
 		{
 			_custField1 = null;
 			_hasCustField1 = false;
 		}
 
-		private string _custField1;
-		private bool _hasCustField1;
+		#endregion // CustField1
+
+		#region CustField2
+		private string _custField2;
+		private bool _hasCustField2;
 
 		/// <summary>
 		///     CustField2 is the CUST_FIELD2 of the SAP OCI specification. It
@@ -3467,15 +4018,21 @@ namespace Meplato.Store2.Products
 				_hasCustField2 = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCustField2()
 		{
 			_custField2 = null;
 			_hasCustField2 = false;
 		}
 
-		private string _custField2;
-		private bool _hasCustField2;
+		#endregion // CustField2
+
+		#region CustField3
+		private string _custField3;
+		private bool _hasCustField3;
 
 		/// <summary>
 		///     CustField3 is the CUST_FIELD3 of the SAP OCI specification. It
@@ -3490,15 +4047,21 @@ namespace Meplato.Store2.Products
 				_hasCustField3 = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCustField3()
 		{
 			_custField3 = null;
 			_hasCustField3 = false;
 		}
 
-		private string _custField3;
-		private bool _hasCustField3;
+		#endregion // CustField3
+
+		#region CustField4
+		private string _custField4;
+		private bool _hasCustField4;
 
 		/// <summary>
 		///     CustField4 is the CUST_FIELD4 of the SAP OCI specification. It
@@ -3513,15 +4076,21 @@ namespace Meplato.Store2.Products
 				_hasCustField4 = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCustField4()
 		{
 			_custField4 = null;
 			_hasCustField4 = false;
 		}
 
-		private string _custField4;
-		private bool _hasCustField4;
+		#endregion // CustField4
+
+		#region CustField5
+		private string _custField5;
+		private bool _hasCustField5;
 
 		/// <summary>
 		///     CustField5 is the CUST_FIELD5 of the SAP OCI specification. It
@@ -3536,17 +4105,22 @@ namespace Meplato.Store2.Products
 				_hasCustField5 = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCustField5()
 		{
 			_custField5 = null;
 			_hasCustField5 = false;
 		}
 
-		private string _custField5;
-		private bool _hasCustField5;
+		#endregion // CustField5
 
-		
+		#region CustFields
+		private CustField[] _custFields;
+		private bool _hasCustFields;
+
 		/// <summary>
 		///     CustFields is an array of generic name/value pairs for
 		///     customer-specific attributes.
@@ -3560,15 +4134,21 @@ namespace Meplato.Store2.Products
 				_hasCustFields = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetCustFields()
 		{
 			_custFields = null;
 			_hasCustFields = false;
 		}
 
-		private CustField[] _custFields;
-		private bool _hasCustFields;
+		#endregion // CustFields
+
+		#region CustomField10
+		private string _customField10;
+		private bool _hasCustomField10;
 
 		/// <summary>
 		///     CustomField10 represents the 10th customer-specific field.
@@ -3584,15 +4164,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField10 = true;
 			}
 		}
-		
-		public void ResetCustField10()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField10()
 		{
 			_customField10 = null;
 			_hasCustomField10 = false;
 		}
 
-		private string _customField10;
-		private bool _hasCustomField10;
+		#endregion // CustomField10
+
+		#region CustomField11
+		private string _customField11;
+		private bool _hasCustomField11;
 
 		/// <summary>
 		///     CustomField11 represents the 11th customer-specific field.
@@ -3608,15 +4194,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField11 = true;
 			}
 		}
-		
-		public void ResetCustField11()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField11()
 		{
 			_customField11 = null;
 			_hasCustomField11 = false;
 		}
 
-		private string _customField11;
-		private bool _hasCustomField11;
+		#endregion // CustomField11
+
+		#region CustomField12
+		private string _customField12;
+		private bool _hasCustomField12;
 
 		/// <summary>
 		///     CustomField12 represents the 12th customer-specific field.
@@ -3632,15 +4224,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField12 = true;
 			}
 		}
-		
-		public void ResetCustField12()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField12()
 		{
 			_customField12 = null;
 			_hasCustomField12 = false;
 		}
 
-		private string _customField12;
-		private bool _hasCustomField12;
+		#endregion // CustomField12
+
+		#region CustomField13
+		private string _customField13;
+		private bool _hasCustomField13;
 
 		/// <summary>
 		///     CustomField13 represents the 13th customer-specific field.
@@ -3656,15 +4254,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField13 = true;
 			}
 		}
-		
-		public void ResetCustField13()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField13()
 		{
 			_customField13 = null;
 			_hasCustomField13 = false;
 		}
 
-		private string _customField13;
-		private bool _hasCustomField13;
+		#endregion // CustomField13
+
+		#region CustomField14
+		private string _customField14;
+		private bool _hasCustomField14;
 
 		/// <summary>
 		///     CustomField14 represents the 14th customer-specific field.
@@ -3680,15 +4284,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField14 = true;
 			}
 		}
-		
-		public void ResetCustField14()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField14()
 		{
 			_customField14 = null;
 			_hasCustomField14 = false;
 		}
 
-		private string _customField14;
-		private bool _hasCustomField14;
+		#endregion // CustomField14
+
+		#region CustomField15
+		private string _customField15;
+		private bool _hasCustomField15;
 
 		/// <summary>
 		///     CustomField15 represents the 15th customer-specific field.
@@ -3704,16 +4314,22 @@ namespace Meplato.Store2.Products
 				_hasCustomField15 = true;
 			}
 		}
-		
-		public void ResetCustField15()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField15()
 		{
 			_customField15 = null;
 			_hasCustomField15 = false;
 		}
 
-		private string _customField15;
-		private bool _hasCustomField15;
-		
+		#endregion // CustomField15
+
+		#region CustomField16
+		private string _customField16;
+		private bool _hasCustomField16;
+
 		/// <summary>
 		///     CustomField16 represents the 16th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
@@ -3728,22 +4344,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField16 = true;
 			}
 		}
-		
-		public void ResetCustField16()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField16()
 		{
 			_customField16 = null;
 			_hasCustomField16 = false;
 		}
 
-		private string _customField16;
-		private bool _hasCustomField16;
+		#endregion // CustomField16
+
+		#region CustomField17
+		private string _customField17;
+		private bool _hasCustomField17;
 
 		/// <summary>
 		///     CustomField17 represents the 17th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		public string CustomField17		
+		public string CustomField17
 		{
 			get => _customField17;
 			set
@@ -3752,23 +4374,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField17 = true;
 			}
 		}
-		
-		public void ResetCustField17()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField17()
 		{
 			_customField17 = null;
 			_hasCustomField17 = false;
 		}
 
-		private string _customField17;
-		private bool _hasCustomField17;
+		#endregion // CustomField17
 
+		#region CustomField18
+		private string _customField18;
+		private bool _hasCustomField18;
 
 		/// <summary>
 		///     CustomField18 represents the 18th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		public string CustomField18		
+		public string CustomField18
 		{
 			get => _customField18;
 			set
@@ -3777,22 +4404,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField18 = true;
 			}
 		}
-		
-		public void ResetCustField18()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField18()
 		{
 			_customField18 = null;
 			_hasCustomField18 = false;
 		}
 
-		private string _customField18;
-		private bool _hasCustomField18;
+		#endregion // CustomField18
+
+		#region CustomField19
+		private string _customField19;
+		private bool _hasCustomField19;
 
 		/// <summary>
 		///     CustomField19 represents the 19th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		public string CustomField19		
+		public string CustomField19
 		{
 			get => _customField19;
 			set
@@ -3801,15 +4434,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField19 = true;
 			}
 		}
-		
-		public void ResetCustField19()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField19()
 		{
 			_customField19 = null;
 			_hasCustomField19 = false;
 		}
 
-		private string _customField19;
-		private bool _hasCustomField19;
+		#endregion // CustomField19
+
+		#region CustomField20
+		private string _customField20;
+		private bool _hasCustomField20;
 
 		/// <summary>
 		///     CustomField20 represents the 20th customer-specific field.
@@ -3825,15 +4464,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField20 = true;
 			}
 		}
-		
-		public void ResetCustField20()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField20()
 		{
 			_customField20 = null;
 			_hasCustomField20 = false;
 		}
 
-		private string _customField20;
-		private bool _hasCustomField20;
+		#endregion // CustomField20
+
+		#region CustomField21
+		private string _customField21;
+		private bool _hasCustomField21;
 
 		/// <summary>
 		///     CustomField21 represents the 21st customer-specific field.
@@ -3849,15 +4494,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField21 = true;
 			}
 		}
-		
-		public void ResetCustField21()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField21()
 		{
 			_customField21 = null;
 			_hasCustomField21 = false;
 		}
 
-		private string _customField21;
-		private bool _hasCustomField21;
+		#endregion // CustomField21
+
+		#region CustomField22
+		private string _customField22;
+		private bool _hasCustomField22;
 
 		/// <summary>
 		///     CustomField22 represents the 22nd customer-specific field.
@@ -3873,15 +4524,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField22 = true;
 			}
 		}
-		
-		public void ResetCustField22()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField22()
 		{
 			_customField22 = null;
 			_hasCustomField22 = false;
 		}
 
-		private string _customField22;
-		private bool _hasCustomField22;
+		#endregion // CustomField22
+
+		#region CustomField23
+		private string _customField23;
+		private bool _hasCustomField23;
 
 		/// <summary>
 		///     CustomField23 represents the 23rd customer-specific field.
@@ -3897,15 +4554,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField23 = true;
 			}
 		}
-		
-		public void ResetCustField23()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField23()
 		{
 			_customField23 = null;
 			_hasCustomField23 = false;
 		}
 
-		private string _customField23;
-		private bool _hasCustomField23;
+		#endregion // CustomField23
+
+		#region CustomField24
+		private string _customField24;
+		private bool _hasCustomField24;
 
 		/// <summary>
 		///     CustomField24 represents the 24th customer-specific field.
@@ -3921,16 +4584,22 @@ namespace Meplato.Store2.Products
 				_hasCustomField24 = true;
 			}
 		}
-		
-		public void ResetCustField24()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField24()
 		{
 			_customField24 = null;
 			_hasCustomField24 = false;
 		}
 
-		private string _customField24;
-		private bool _hasCustomField24;
-		
+		#endregion // CustomField24
+
+		#region CustomField25
+		private string _customField25;
+		private bool _hasCustomField25;
+
 		/// <summary>
 		///     CustomField25 represents the 25th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
@@ -3945,22 +4614,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField25 = true;
 			}
 		}
-		
-		public void ResetCustField25()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField25()
 		{
 			_customField25 = null;
 			_hasCustomField25 = false;
 		}
 
-		private string _customField25;
-		private bool _hasCustomField25;
-		
+		#endregion // CustomField25
+
+		#region CustomField26
+		private string _customField26;
+		private bool _hasCustomField26;
+
 		/// <summary>
 		///     CustomField26 represents the 26th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		public string CustomField26 
+		public string CustomField26
 		{
 			get => _customField26;
 			set
@@ -3969,22 +4644,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField26 = true;
 			}
 		}
-		
-		public void ResetCustField26()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField26()
 		{
 			_customField26 = null;
 			_hasCustomField26 = false;
 		}
 
-		private string _customField26;
-		private bool _hasCustomField26;
+		#endregion // CustomField26
+
+		#region CustomField27
+		private string _customField27;
+		private bool _hasCustomField27;
 
 		/// <summary>
 		///     CustomField27 represents the 27th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		public string CustomField27 
+		public string CustomField27
 		{
 			get => _customField27;
 			set
@@ -3993,16 +4674,21 @@ namespace Meplato.Store2.Products
 				_hasCustomField27 = true;
 			}
 		}
-		
-		public void ResetCustField27()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField27()
 		{
 			_customField27 = null;
 			_hasCustomField27 = false;
 		}
 
-		private string _customField27;
-		private bool _hasCustomField27;
+		#endregion // CustomField27
 
+		#region CustomField28
+		private string _customField28;
+		private bool _hasCustomField28;
 
 		/// <summary>
 		///     CustomField28 represents the 28th customer-specific field.
@@ -4018,22 +4704,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField28 = true;
 			}
 		}
-		
-		public void ResetCustField28()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField28()
 		{
 			_customField28 = null;
 			_hasCustomField28 = false;
 		}
 
-		private string _customField28;
-		private bool _hasCustomField28;
+		#endregion // CustomField28
+
+		#region CustomField29
+		private string _customField29;
+		private bool _hasCustomField29;
 
 		/// <summary>
 		///     CustomField29 represents the 29th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		public string CustomField29 
+		public string CustomField29
 		{
 			get => _customField29;
 			set
@@ -4042,23 +4734,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField29 = true;
 			}
 		}
-		
-		public void ResetCustField29()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField29()
 		{
 			_customField29 = null;
 			_hasCustomField29 = false;
 		}
 
-		private string _customField29;
-		private bool _hasCustomField29;
+		#endregion // CustomField29
 
+		#region CustomField30
+		private string _customField30;
+		private bool _hasCustomField30;
 
 		/// <summary>
 		///     CustomField30 represents the 30th customer-specific field.
 		///     Please consult your Store Manager before setting a value for
 		///     this field.
 		/// </summary>
-		public string CustomField30 
+		public string CustomField30
 		{
 			get => _customField30;
 			set
@@ -4067,23 +4764,628 @@ namespace Meplato.Store2.Products
 				_hasCustomField30 = true;
 			}
 		}
-		
-		public void ResetCustField30()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField30()
 		{
 			_customField30 = null;
 			_hasCustomField30 = false;
 		}
 
-		private string _customField30;
-		private bool _hasCustomField30;
+		#endregion // CustomField30
 
+		#region CustomField31
+		private string _customField31;
+		private bool _hasCustomField31;
+
+		/// <summary>
+		///     CustomField31 represents the 31st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField31
+		{
+			get => _customField31;
+			set
+			{
+				_customField31 = value;
+				_hasCustomField31 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField31()
+		{
+			_customField31 = null;
+			_hasCustomField31 = false;
+		}
+
+		#endregion // CustomField31
+
+		#region CustomField32
+		private string _customField32;
+		private bool _hasCustomField32;
+
+		/// <summary>
+		///     CustomField32 represents the 32nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField32
+		{
+			get => _customField32;
+			set
+			{
+				_customField32 = value;
+				_hasCustomField32 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField32()
+		{
+			_customField32 = null;
+			_hasCustomField32 = false;
+		}
+
+		#endregion // CustomField32
+
+		#region CustomField33
+		private string _customField33;
+		private bool _hasCustomField33;
+
+		/// <summary>
+		///     CustomField33 represents the 33rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField33
+		{
+			get => _customField33;
+			set
+			{
+				_customField33 = value;
+				_hasCustomField33 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField33()
+		{
+			_customField33 = null;
+			_hasCustomField33 = false;
+		}
+
+		#endregion // CustomField33
+
+		#region CustomField34
+		private string _customField34;
+		private bool _hasCustomField34;
+
+		/// <summary>
+		///     CustomField34 represents the 34th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField34
+		{
+			get => _customField34;
+			set
+			{
+				_customField34 = value;
+				_hasCustomField34 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField34()
+		{
+			_customField34 = null;
+			_hasCustomField34 = false;
+		}
+
+		#endregion // CustomField34
+
+		#region CustomField35
+		private string _customField35;
+		private bool _hasCustomField35;
+
+		/// <summary>
+		///     CustomField35 represents the 35th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField35
+		{
+			get => _customField35;
+			set
+			{
+				_customField35 = value;
+				_hasCustomField35 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField35()
+		{
+			_customField35 = null;
+			_hasCustomField35 = false;
+		}
+
+		#endregion // CustomField35
+
+		#region CustomField36
+		private string _customField36;
+		private bool _hasCustomField36;
+
+		/// <summary>
+		///     CustomField36 represents the 36th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField36
+		{
+			get => _customField36;
+			set
+			{
+				_customField36 = value;
+				_hasCustomField36 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField36()
+		{
+			_customField36 = null;
+			_hasCustomField36 = false;
+		}
+
+		#endregion // CustomField36
+
+		#region CustomField37
+		private string _customField37;
+		private bool _hasCustomField37;
+
+		/// <summary>
+		///     CustomField37 represents the 37th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField37
+		{
+			get => _customField37;
+			set
+			{
+				_customField37 = value;
+				_hasCustomField37 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField37()
+		{
+			_customField37 = null;
+			_hasCustomField37 = false;
+		}
+
+		#endregion // CustomField37
+
+		#region CustomField38
+		private string _customField38;
+		private bool _hasCustomField38;
+
+		/// <summary>
+		///     CustomField38 represents the 38th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField38
+		{
+			get => _customField38;
+			set
+			{
+				_customField38 = value;
+				_hasCustomField38 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField38()
+		{
+			_customField38 = null;
+			_hasCustomField38 = false;
+		}
+
+		#endregion // CustomField38
+
+		#region CustomField39
+		private string _customField39;
+		private bool _hasCustomField39;
+
+		/// <summary>
+		///     CustomField39 represents the 39th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField39
+		{
+			get => _customField39;
+			set
+			{
+				_customField39 = value;
+				_hasCustomField39 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField39()
+		{
+			_customField39 = null;
+			_hasCustomField39 = false;
+		}
+
+		#endregion // CustomField39
+
+		#region CustomField40
+		private string _customField40;
+		private bool _hasCustomField40;
+
+		/// <summary>
+		///     CustomField40 represents the 40th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField40
+		{
+			get => _customField40;
+			set
+			{
+				_customField40 = value;
+				_hasCustomField40 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField40()
+		{
+			_customField40 = null;
+			_hasCustomField40 = false;
+		}
+
+		#endregion // CustomField40
+
+		#region CustomField41
+		private string _customField41;
+		private bool _hasCustomField41;
+
+		/// <summary>
+		///     CustomField41 represents the 41st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField41
+		{
+			get => _customField41;
+			set
+			{
+				_customField41 = value;
+				_hasCustomField41 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField41()
+		{
+			_customField41 = null;
+			_hasCustomField41 = false;
+		}
+
+		#endregion // CustomField41
+
+		#region CustomField42
+		private string _customField42;
+		private bool _hasCustomField42;
+
+		/// <summary>
+		///     CustomField42 represents the 42nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField42
+		{
+			get => _customField42;
+			set
+			{
+				_customField42 = value;
+				_hasCustomField42 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField42()
+		{
+			_customField42 = null;
+			_hasCustomField42 = false;
+		}
+
+		#endregion // CustomField42
+
+		#region CustomField43
+		private string _customField43;
+		private bool _hasCustomField43;
+
+		/// <summary>
+		///     CustomField43 represents the 43rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField43
+		{
+			get => _customField43;
+			set
+			{
+				_customField43 = value;
+				_hasCustomField43 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField43()
+		{
+			_customField43 = null;
+			_hasCustomField43 = false;
+		}
+
+		#endregion // CustomField43
+
+		#region CustomField44
+		private string _customField44;
+		private bool _hasCustomField44;
+
+		/// <summary>
+		///     CustomField44 represents the 44th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField44
+		{
+			get => _customField44;
+			set
+			{
+				_customField44 = value;
+				_hasCustomField44 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField44()
+		{
+			_customField44 = null;
+			_hasCustomField44 = false;
+		}
+
+		#endregion // CustomField44
+
+		#region CustomField45
+		private string _customField45;
+		private bool _hasCustomField45;
+
+		/// <summary>
+		///     CustomField45 represents the 45th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField45
+		{
+			get => _customField45;
+			set
+			{
+				_customField45 = value;
+				_hasCustomField45 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField45()
+		{
+			_customField45 = null;
+			_hasCustomField45 = false;
+		}
+
+		#endregion // CustomField45
+
+		#region CustomField46
+		private string _customField46;
+		private bool _hasCustomField46;
+
+		/// <summary>
+		///     CustomField46 represents the 46th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField46
+		{
+			get => _customField46;
+			set
+			{
+				_customField46 = value;
+				_hasCustomField46 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField46()
+		{
+			_customField46 = null;
+			_hasCustomField46 = false;
+		}
+
+		#endregion // CustomField46
+
+		#region CustomField47
+		private string _customField47;
+		private bool _hasCustomField47;
+
+		/// <summary>
+		///     CustomField47 represents the 47th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField47
+		{
+			get => _customField47;
+			set
+			{
+				_customField47 = value;
+				_hasCustomField47 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField47()
+		{
+			_customField47 = null;
+			_hasCustomField47 = false;
+		}
+
+		#endregion // CustomField47
+
+		#region CustomField48
+		private string _customField48;
+		private bool _hasCustomField48;
+
+		/// <summary>
+		///     CustomField48 represents the 48th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField48
+		{
+			get => _customField48;
+			set
+			{
+				_customField48 = value;
+				_hasCustomField48 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField48()
+		{
+			_customField48 = null;
+			_hasCustomField48 = false;
+		}
+
+		#endregion // CustomField48
+
+		#region CustomField49
+		private string _customField49;
+		private bool _hasCustomField49;
+
+		/// <summary>
+		///     CustomField49 represents the 49th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField49
+		{
+			get => _customField49;
+			set
+			{
+				_customField49 = value;
+				_hasCustomField49 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField49()
+		{
+			_customField49 = null;
+			_hasCustomField49 = false;
+		}
+
+		#endregion // CustomField49
+
+		#region CustomField50
+		private string _customField50;
+		private bool _hasCustomField50;
+
+		/// <summary>
+		///     CustomField50 represents the 50th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		public string CustomField50
+		{
+			get => _customField50;
+			set
+			{
+				_customField50 = value;
+				_hasCustomField50 = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField50()
+		{
+			_customField50 = null;
+			_hasCustomField50 = false;
+		}
+
+		#endregion // CustomField50
+
+		#region CustomField6
+		private string _customField6;
+		private bool _hasCustomField6;
 
 		/// <summary>
 		///     CustomField6 represents the 6th customer-specific field. Please
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		public string CustomField6 
+		public string CustomField6
 		{
 			get => _customField6;
 			set
@@ -4092,23 +5394,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField6 = true;
 			}
 		}
-		
-		public void ResetCustField6()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField6()
 		{
 			_customField6 = null;
 			_hasCustomField6 = false;
 		}
 
-		private string _customField6;
-		private bool _hasCustomField6;
+		#endregion // CustomField6
 
+		#region CustomField7
+		private string _customField7;
+		private bool _hasCustomField7;
 
 		/// <summary>
 		///     CustomField7 represents the 7th customer-specific field. Please
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		public string CustomField7 
+		public string CustomField7
 		{
 			get => _customField7;
 			set
@@ -4117,23 +5424,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField7 = true;
 			}
 		}
-		
-		public void ResetCustField7()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField7()
 		{
 			_customField7 = null;
 			_hasCustomField7 = false;
 		}
 
-		private string _customField7;
-		private bool _hasCustomField7;
+		#endregion // CustomField7
 
+		#region CustomField8
+		private string _customField8;
+		private bool _hasCustomField8;
 
 		/// <summary>
 		///     CustomField8 represents the 8th customer-specific field. Please
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		public string CustomField8 
+		public string CustomField8
 		{
 			get => _customField8;
 			set
@@ -4142,22 +5454,28 @@ namespace Meplato.Store2.Products
 				_hasCustomField8 = true;
 			}
 		}
-		
-		public void ResetCustField8()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField8()
 		{
 			_customField8 = null;
 			_hasCustomField8 = false;
 		}
 
-		private string _customField8;
-		private bool _hasCustomField8;
+		#endregion // CustomField8
+
+		#region CustomField9
+		private string _customField9;
+		private bool _hasCustomField9;
 
 		/// <summary>
 		///     CustomField9 represents the 9th customer-specific field. Please
 		///     consult your Store Manager before setting a value for this
 		///     field.
 		/// </summary>
-		public string CustomField9 
+		public string CustomField9
 		{
 			get => _customField9;
 			set
@@ -4166,16 +5484,22 @@ namespace Meplato.Store2.Products
 				_hasCustomField9 = true;
 			}
 		}
-		
-		public void ResetCustField9()
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetCustomField9()
 		{
 			_customField9 = null;
 			_hasCustomField9 = false;
 		}
 
-		private string _customField9;
-		private bool _hasCustomField9;
-		
+		#endregion // CustomField9
+
+		#region Datasheet
+		private string _datasheet;
+		private bool _hasDatasheet;
+
 		/// <summary>
 		///     Datasheet is the name of an datasheet file (in the media files)
 		///     or a URL to the datasheet on the internet.
@@ -4189,16 +5513,21 @@ namespace Meplato.Store2.Products
 				_hasDatasheet = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetDatasheet()
 		{
 			_datasheet = null;
 			_hasDatasheet = false;
 		}
 
-		private string _datasheet;
-		private bool _hasDatasheet;
+		#endregion // Datasheet
 
+		#region Description
+		private string _description;
+		private bool _hasDescription;
 
 		/// <summary>
 		///     Description of the product.
@@ -4212,16 +5541,21 @@ namespace Meplato.Store2.Products
 				_hasDescription = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetDescription()
 		{
 			_description = null;
 			_hasDescription = false;
 		}
 
-		private string _description;
-		private bool _hasDescription;
+		#endregion // Description
 
+		#region Eclasses
+		private Eclass[] _eclasses;
+		private bool _hasEclasses;
 
 		/// <summary>
 		///     Eclasses is a list of eCl@ss categories the product belongs to.
@@ -4235,15 +5569,21 @@ namespace Meplato.Store2.Products
 				_hasEclasses = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetEclasses()
 		{
 			_eclasses = null;
 			_hasEclasses = false;
 		}
 
-		private Eclass[] _eclasses;
-		private bool _hasEclasses;
+		#endregion // Eclasses
+
+		#region ErpGroupSupplier
+		private string _erpGroupSupplier;
+		private bool _hasErpGroupSupplier;
 
 		/// <summary>
 		///     erpGroupSupplier is the material group of the product on the
@@ -4258,15 +5598,21 @@ namespace Meplato.Store2.Products
 				_hasErpGroupSupplier = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetErpGroupSupplier()
 		{
 			_erpGroupSupplier = null;
 			_hasErpGroupSupplier = false;
 		}
 
-		private string _erpGroupSupplier;
-		private bool _hasErpGroupSupplier;
+		#endregion // ErpGroupSupplier
+
+		#region Excluded
+		private bool? _excluded;
+		private bool _hasExcluded;
 
 		/// <summary>
 		///     Excluded is a flag that indicates whether to exclude this
@@ -4282,15 +5628,21 @@ namespace Meplato.Store2.Products
 				_hasExcluded = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetExcluded()
 		{
 			_excluded = null;
 			_hasExcluded = false;
 		}
 
-		private bool? _excluded;
-		private bool _hasExcluded;
+		#endregion // Excluded
+
+		#region ExtCategory
+		private string _extCategory;
+		private bool _hasExtCategory;
 
 		/// <summary>
 		///     ExtCategory is the EXT_CATEGORY field of the SAP OCI
@@ -4305,15 +5657,21 @@ namespace Meplato.Store2.Products
 				_hasExtCategory = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetExtCategory()
 		{
 			_extCategory = null;
 			_hasExtCategory = false;
 		}
 
-		private string _extCategory;
-		private bool _hasExtCategory;
+		#endregion // ExtCategory
+
+		#region ExtCategoryId
+		private string _extCategoryId;
+		private bool _hasExtCategoryId;
 
 		/// <summary>
 		///     ExtCategoryID is the EXT_CATEGORY_ID field of the SAP OCI
@@ -4328,15 +5686,21 @@ namespace Meplato.Store2.Products
 				_hasExtCategoryId = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetExtCategoryId()
 		{
 			_extCategoryId = null;
 			_hasExtCategoryId = false;
 		}
 
-		private string _extCategoryId;
-		private bool _hasExtCategoryId;
+		#endregion // ExtCategoryId
+
+		#region ExtConfigForm
+		private string _extConfigForm;
+		private bool _hasExtConfigForm;
 
 		/// <summary>
 		///     ExtConfigForm represents information required to make the
@@ -4352,15 +5716,21 @@ namespace Meplato.Store2.Products
 				_hasExtConfigForm = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetExtConfigForm()
 		{
 			_extConfigForm = null;
 			_hasExtConfigForm = false;
 		}
 
-		private string _extConfigForm;
-		private bool _hasExtConfigForm;
+		#endregion // ExtConfigForm
+
+		#region ExtConfigService
+		private string _extConfigService;
+		private bool _hasExtConfigService;
 
 		/// <summary>
 		///     ExtConfigService represents additional information required to
@@ -4377,15 +5747,21 @@ namespace Meplato.Store2.Products
 				_hasExtConfigService = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetExtConfigService()
 		{
 			_extConfigService = null;
 			_hasExtConfigService = false;
 		}
 
-		private string _extConfigService;
-		private bool _hasExtConfigService;
+		#endregion // ExtConfigService
+
+		#region ExtProductId
+		private string _extProductId;
+		private bool _hasExtProductId;
 
 		/// <summary>
 		///     ExtProductID is the EXT_PRODUCT_ID field of the SAP OCI
@@ -4401,15 +5777,21 @@ namespace Meplato.Store2.Products
 				_hasExtProductId = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetExtProductId()
 		{
 			_extProductId = null;
 			_hasExtProductId = false;
 		}
 
-		private string _extProductId;
-		private bool _hasExtProductId;
+		#endregion // ExtProductId
+
+		#region ExtSchemaType
+		private string _extSchemaType;
+		private bool _hasExtSchemaType;
 
 		/// <summary>
 		///     ExtSchemaType is the EXT_SCHEMA_TYPE field of the SAP OCI
@@ -4424,16 +5806,22 @@ namespace Meplato.Store2.Products
 				_hasExtSchemaType = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetExtSchemaType()
 		{
 			_extSchemaType = null;
 			_hasExtSchemaType = false;
 		}
 
-		private string _extSchemaType;
-		private bool _hasExtSchemaType;
-		
+		#endregion // ExtSchemaType
+
+		#region Features
+		private Feature[] _features;
+		private bool _hasFeatures;
+
 		/// <summary>
 		///     Features defines product features, i.e. additional properties
 		///     of the product.
@@ -4447,15 +5835,21 @@ namespace Meplato.Store2.Products
 				_hasFeatures = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetFeatures()
 		{
 			_features = null;
 			_hasFeatures = false;
 		}
 
-		private Feature[] _features;
-		private bool _hasFeatures;
+		#endregion // Features
+
+		#region GlAccount
+		private string _glAccount;
+		private bool _hasGlAccount;
 
 		/// <summary>
 		///     GLAccount represents the GL account number to use for this
@@ -4471,15 +5865,21 @@ namespace Meplato.Store2.Products
 				_hasGlAccount = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetGlAccount()
 		{
 			_glAccount = null;
 			_hasGlAccount = false;
 		}
 
-		private string _glAccount;
-		private bool _hasGlAccount;
+		#endregion // GlAccount
+
+		#region Gtin
+		private string _gtin;
+		private bool _hasGtin;
 
 		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
@@ -4494,15 +5894,21 @@ namespace Meplato.Store2.Products
 				_hasGtin = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetGtin()
 		{
 			_gtin = null;
 			_hasGtin = false;
 		}
 
-		private string _gtin;
-		private bool _hasGtin;
+		#endregion // Gtin
+
+		#region Hazmats
+		private Hazmat[] _hazmats;
+		private bool _hasHazmats;
 
 		/// <summary>
 		///     Hazmats classifies hazardous/dangerous goods.
@@ -4516,15 +5922,21 @@ namespace Meplato.Store2.Products
 				_hasHazmats = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetHazmats()
 		{
 			_hazmats = null;
 			_hasHazmats = false;
 		}
 
-		private Hazmat[] _hazmats;
-		private bool _hasHazmats;
+		#endregion // Hazmats
+
+		#region Image
+		private string _image;
+		private bool _hasImage;
 
 		/// <summary>
 		///     Image is the name of an image file (in the media files) or a
@@ -4539,15 +5951,21 @@ namespace Meplato.Store2.Products
 				_hasImage = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetImage()
 		{
 			_image = null;
 			_hasImage = false;
 		}
 
-		private string _image;
-		private bool _hasImage;
+		#endregion // Image
+
+		#region Incomplete
+		private bool? _incomplete;
+		private bool _hasIncomplete;
 
 		/// <summary>
 		///     Incomplete is a flag that indicates whether this product is
@@ -4563,16 +5981,22 @@ namespace Meplato.Store2.Products
 				_hasIncomplete = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetIncomplete()
 		{
 			_incomplete = null;
 			_hasIncomplete = false;
 		}
 
-		private bool? _incomplete;
-		private bool _hasIncomplete;
-		
+		#endregion // Incomplete
+
+		#region Intrastat
+		private Intrastat _intrastat;
+		private bool _hasIntrastat;
+
 		/// <summary>
 		///     Intrastat specifies required data for Intrastat messages. 
 		/// </summary>
@@ -4585,15 +6009,21 @@ namespace Meplato.Store2.Products
 				_hasIntrastat = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetIntrastat()
 		{
 			_intrastat = null;
 			_hasIntrastat = false;
 		}
 
-		private Intrastat _intrastat;
-		private bool _hasIntrastat;
+		#endregion // Intrastat
+
+		#region IsPassword
+		private bool? _isPassword;
+		private bool _hasIsPassword;
 
 		/// <summary>
 		///     IsPassword is a flag that indicates whether this product will
@@ -4610,15 +6040,21 @@ namespace Meplato.Store2.Products
 				_hasIsPassword = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetIsPassword()
 		{
 			_isPassword = null;
 			_hasIsPassword = false;
 		}
 
-		private bool? _isPassword;
-		private bool _hasIsPassword;
+		#endregion // IsPassword
+
+		#region KeepPrice
+		private bool? _keepPrice;
+		private bool _hasKeepPrice;
 
 		/// <summary>
 		///     KeepPrice is a flag that indicates whether the price of the
@@ -4635,15 +6071,21 @@ namespace Meplato.Store2.Products
 				_hasKeepPrice = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetKeepPrice()
 		{
 			_keepPrice = null;
 			_hasKeepPrice = false;
 		}
 
-		private bool? _keepPrice;
-		private bool _hasKeepPrice;
+		#endregion // KeepPrice
+
+		#region Keywords
+		private string[] _keywords;
+		private bool _hasKeywords;
 
 		/// <summary>
 		///     Keywords is a list of aliases for the product.
@@ -4657,15 +6099,21 @@ namespace Meplato.Store2.Products
 				_hasKeywords = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetKeywords()
 		{
 			_keywords = null;
 			_hasKeywords = false;
 		}
 
-		private string[] _keywords;
-		private bool _hasKeywords;
+		#endregion // Keywords
+
+		#region Leadtime
+		private double? _leadtime;
+		private bool _hasLeadtime;
 
 		/// <summary>
 		///     Leadtime is the number of days for delivery.
@@ -4679,15 +6127,21 @@ namespace Meplato.Store2.Products
 				_hasLeadtime = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetLeadtime()
 		{
 			_leadtime = null;
 			_hasLeadtime = false;
 		}
 
-		private double? _leadtime;
-		private bool _hasLeadtime;
+		#endregion // Leadtime
+
+		#region ListPrice
+		private double? _listPrice;
+		private bool _hasListPrice;
 
 		/// <summary>
 		///     ListPrice is the net list price of the product.
@@ -4701,15 +6155,21 @@ namespace Meplato.Store2.Products
 				_hasListPrice = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetListPrice()
 		{
 			_listPrice = null;
 			_hasListPrice = false;
 		}
 
-		private double? _listPrice;
-		private bool _hasListPrice;
+		#endregion // ListPrice
+
+		#region Manufactcode
+		private string _manufactcode;
+		private bool _hasManufactcode;
 
 		/// <summary>
 		///     Manufactcode is the manufacturer code as used in the SAP OCI
@@ -4724,15 +6184,21 @@ namespace Meplato.Store2.Products
 				_hasManufactcode = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetManufactcode()
 		{
 			_manufactcode = null;
 			_hasManufactcode = false;
 		}
 
-		private string _manufactcode;
-		private bool _hasManufactcode;
+		#endregion // Manufactcode
+
+		#region Manufacturer
+		private string _manufacturer;
+		private bool _hasManufacturer;
 
 		/// <summary>
 		///     Manufacturer is the name of the manufacturer.
@@ -4746,15 +6212,21 @@ namespace Meplato.Store2.Products
 				_hasManufacturer = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetManufacturer()
 		{
 			_manufacturer = null;
 			_hasManufacturer = false;
 		}
 
-		private string _manufacturer;
-		private bool _hasManufacturer;
+		#endregion // Manufacturer
+
+		#region Matgroup
+		private string _matgroup;
+		private bool _hasMatgroup;
 
 		/// <summary>
 		///     Matgroup is the material group of the product on the buy-side.
@@ -4768,15 +6240,21 @@ namespace Meplato.Store2.Products
 				_hasMatgroup = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetMatgroup()
 		{
 			_matgroup = null;
 			_hasMatgroup = false;
 		}
 
-		private string _matgroup;
-		private bool _hasMatgroup;
+		#endregion // Matgroup
+
+		#region Mpn
+		private string _mpn;
+		private bool _hasMpn;
 
 		/// <summary>
 		///     MPN is the manufacturer part number.
@@ -4790,15 +6268,21 @@ namespace Meplato.Store2.Products
 				_hasMpn = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetMpn()
 		{
 			_mpn = null;
 			_hasMpn = false;
 		}
 
-		private string _mpn;
-		private bool _hasMpn;
+		#endregion // Mpn
+
+		#region MultiSupplierId
+		private string _multiSupplierId;
+		private bool _hasMultiSupplierId;
 
 		/// <summary>
 		///     MultiSupplierID represents an optional field for the unique
@@ -4813,15 +6297,21 @@ namespace Meplato.Store2.Products
 				_hasMultiSupplierId = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetMultiSupplierId()
 		{
 			_multiSupplierId = null;
 			_hasMultiSupplierId = false;
 		}
 
-		private string _multiSupplierId;
-		private bool _hasMultiSupplierId;
+		#endregion // MultiSupplierId
+
+		#region MultiSupplierName
+		private string _multiSupplierName;
+		private bool _hasMultiSupplierName;
 
 		/// <summary>
 		///     MultiSupplierName represents an optional field for the name of
@@ -4836,15 +6326,21 @@ namespace Meplato.Store2.Products
 				_hasMultiSupplierName = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetMultiSupplierName()
 		{
 			_multiSupplierName = null;
 			_hasMultiSupplierName = false;
 		}
 
-		private string _multiSupplierName;
-		private bool _hasMultiSupplierName;
+		#endregion // MultiSupplierName
+
+		#region Name
+		private string _name;
+		private bool _hasName;
 
 		/// <summary>
 		///     Name of the product.
@@ -4858,15 +6354,21 @@ namespace Meplato.Store2.Products
 				_hasName = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetName()
 		{
 			_name = null;
 			_hasName = false;
 		}
 
-		private string _name;
-		private bool _hasName;
+		#endregion // Name
+
+		#region NeedsGoodsReceipt
+		private bool? _needsGoodsReceipt;
+		private bool _hasNeedsGoodsReceipt;
 
 		/// <summary>
 		///     NeedsGoodsReceipt is a flag that indicates whether this product
@@ -4882,15 +6384,21 @@ namespace Meplato.Store2.Products
 				_hasNeedsGoodsReceipt = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetNeedsGoodsReceipt()
 		{
 			_needsGoodsReceipt = null;
 			_hasNeedsGoodsReceipt = false;
 		}
 
-		private bool? _needsGoodsReceipt;
-		private bool _hasNeedsGoodsReceipt;
+		#endregion // NeedsGoodsReceipt
+
+		#region NfBasePrice
+		private double? _nfBasePrice;
+		private bool _hasNfBasePrice;
 
 		/// <summary>
 		///     NFBasePrice represents a part for calculating metal surcharges.
@@ -4906,15 +6414,21 @@ namespace Meplato.Store2.Products
 				_hasNfBasePrice = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetNfBasePrice()
 		{
 			_nfBasePrice = null;
 			_hasNfBasePrice = false;
 		}
 
-		private double? _nfBasePrice;
-		private bool _hasNfBasePrice;
+		#endregion // NfBasePrice
+
+		#region NfBasePriceQuantity
+		private double? _nfBasePriceQuantity;
+		private bool _hasNfBasePriceQuantity;
 
 		/// <summary>
 		///     NFBasePriceQuantity represents a part for calculating metal
@@ -4930,15 +6444,21 @@ namespace Meplato.Store2.Products
 				_hasNfBasePriceQuantity = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetNfBasePriceQuantity()
 		{
 			_nfBasePriceQuantity = null;
 			_hasNfBasePriceQuantity = false;
 		}
 
-		private double? _nfBasePriceQuantity;
-		private bool _hasNfBasePriceQuantity;
+		#endregion // NfBasePriceQuantity
+
+		#region NfCndId
+		private string _nfCndId;
+		private bool _hasNfCndId;
 
 		/// <summary>
 		///     NFCndID represents the key to calculate metal surcharges.
@@ -4954,15 +6474,21 @@ namespace Meplato.Store2.Products
 				_hasNfCndId = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetNfCndId()
 		{
 			_nfCndId = null;
 			_hasNfCndId = false;
 		}
 
-		private string _nfCndId;
-		private bool _hasNfCndId;
+		#endregion // NfCndId
+
+		#region NfScale
+		private double? _nfScale;
+		private bool _hasNfScale;
 
 		/// <summary>
 		///     NFScale represents a part for calculating metal surcharges.
@@ -4978,15 +6504,21 @@ namespace Meplato.Store2.Products
 				_hasNfScale = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetNfScale()
 		{
 			_nfScale = null;
 			_hasNfScale = false;
 		}
 
-		private double? _nfScale;
-		private bool _hasNfScale;
+		#endregion // NfScale
+
+		#region NfScaleQuantity
+		private double? _nfScaleQuantity;
+		private bool _hasNfScaleQuantity;
 
 		/// <summary>
 		///     NFScaleQuantity represents a part for calculating metal
@@ -5002,15 +6534,21 @@ namespace Meplato.Store2.Products
 				_hasNfScaleQuantity = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetNfScaleQuantity()
 		{
 			_nfScaleQuantity = null;
 			_hasNfScaleQuantity = false;
 		}
 
-		private double? _nfScaleQuantity;
-		private bool _hasNfScaleQuantity;
+		#endregion // NfScaleQuantity
+
+		#region Orderable
+		private bool? _orderable;
+		private bool _hasOrderable;
 
 		/// <summary>
 		///     Orderable is a flag that indicates whether this product will be
@@ -5026,15 +6564,21 @@ namespace Meplato.Store2.Products
 				_hasOrderable = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetOrderable()
 		{
 			_orderable = null;
 			_hasOrderable = false;
 		}
 
-		private bool? _orderable;
-		private bool _hasOrderable;
+		#endregion // Orderable
+
+		#region OrderUnit
+		private string _ou;
+		private bool _hasOrderUnit;
 
 		/// <summary>
 		///     OrderUnit is the order unit of the product, a 3-character ISO
@@ -5046,18 +6590,24 @@ namespace Meplato.Store2.Products
 			set
 			{
 				_ou = value;
-				_hasOu = true;
+				_hasOrderUnit = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetOrderUnit()
 		{
 			_ou = null;
-			_hasOu = false;
+			_hasOrderUnit = false;
 		}
 
-		private string _ou;
-		private bool _hasOu;
+		#endregion // OrderUnit
+
+		#region Price
+		private double? _price;
+		private bool _hasPrice;
 
 		/// <summary>
 		///     Price is the net price (per order unit) of the product for the
@@ -5072,15 +6622,21 @@ namespace Meplato.Store2.Products
 				_hasPrice = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetPrice()
 		{
 			_price = null;
 			_hasPrice = false;
 		}
 
-		private double? _price;
-		private bool _hasPrice;
+		#endregion // Price
+
+		#region PriceFormula
+		private string _priceFormula;
+		private bool _hasPriceFormula;
 
 		/// <summary>
 		///     PriceFormula represents the formula to calculate the price of
@@ -5096,15 +6652,21 @@ namespace Meplato.Store2.Products
 				_hasPriceFormula = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetPriceFormula()
 		{
 			_priceFormula = null;
 			_hasPriceFormula = false;
 		}
 
-		private string _priceFormula;
-		private bool _hasPriceFormula;
+		#endregion // PriceFormula
+
+		#region PriceQty
+		private double? _priceQty;
+		private bool _hasPriceQty;
 
 		/// <summary>
 		///     PriceQty is the quantity for which the price is specified
@@ -5119,15 +6681,21 @@ namespace Meplato.Store2.Products
 				_hasPriceQty = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetPriceQty()
 		{
 			_priceQty = null;
 			_hasPriceQty = false;
 		}
 
-		private double? _priceQty;
-		private bool _hasPriceQty;
+		#endregion // PriceQty
+
+		#region QuantityInterval
+		private double? _quantityInterval;
+		private bool _hasQuantityInterval;
 
 		/// <summary>
 		///     QuantityInterval is the interval in which this product can be
@@ -5143,16 +6711,22 @@ namespace Meplato.Store2.Products
 				_hasQuantityInterval = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetQuantityInterval()
 		{
 			_quantityInterval = null;
 			_hasQuantityInterval = false;
 		}
 
-		private double? _quantityInterval;
-		private bool _hasQuantityInterval;
- 
+		#endregion // QuantityInterval
+
+		#region QuantityMax
+		private double? _quantityMax;
+		private bool _hasQuantityMax;
+
 		/// <summary>
 		///     QuantityMax is the maximum order quantity for this product.
 		/// </summary>
@@ -5165,15 +6739,21 @@ namespace Meplato.Store2.Products
 				_hasQuantityMax = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetQuantityMax()
 		{
 			_quantityMax = null;
 			_hasQuantityMax = false;
 		}
 
-		private double? _quantityMax;
-		private bool _hasQuantityMax;
+		#endregion // QuantityMax
+
+		#region QuantityMin
+		private double? _quantityMin;
+		private bool _hasQuantityMin;
 
 		/// <summary>
 		///     QuantityMin is the minimum order quantity for this product.
@@ -5187,15 +6767,21 @@ namespace Meplato.Store2.Products
 				_hasQuantityMin = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetQuantityMin()
 		{
 			_quantityMin = null;
 			_hasQuantityMin = false;
 		}
 
-		private double? _quantityMin;
-		private bool _hasQuantityMin;
+		#endregion // QuantityMin
+
+		#region Rateable
+		private bool? _rateable;
+		private bool _hasRateable;
 
 		/// <summary>
 		///     Rateable is a flag that indicates whether the product can be
@@ -5211,15 +6797,21 @@ namespace Meplato.Store2.Products
 				_hasRateable = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetRateable()
 		{
 			_rateable = null;
 			_hasRateable = false;
 		}
 
-		private bool? _rateable;
-		private bool _hasRateable;
+		#endregion // Rateable
+
+		#region RateableOnlyIfOrdered
+		private bool? _rateableOnlyIfOrdered;
+		private bool _hasRateableOnlyIfOrdered;
 
 		/// <summary>
 		///     RateableOnlyIfOrdered is a flag that indicates whether the
@@ -5235,15 +6827,21 @@ namespace Meplato.Store2.Products
 				_hasRateableOnlyIfOrdered = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetRateableOnlyIfOrdered()
 		{
 			_rateableOnlyIfOrdered = null;
 			_hasRateableOnlyIfOrdered = false;
 		}
-		
-		private bool? _rateableOnlyIfOrdered;
-		private bool _hasRateableOnlyIfOrdered;
+
+		#endregion // RateableOnlyIfOrdered
+
+		#region References
+		private Reference[] _references;
+		private bool _hasReferences;
 
 		/// <summary>
 		///     References defines cross-product references, e.g. alternatives
@@ -5258,15 +6856,21 @@ namespace Meplato.Store2.Products
 				_hasReferences = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetReferences()
 		{
 			_references = null;
 			_hasReferences = false;
 		}
-		
-		private Reference[] _references;
-		private bool _hasReferences;
+
+		#endregion // References
+
+		#region Safetysheet
+		private string _safetysheet;
+		private bool _hasSafetysheet;
 
 		/// <summary>
 		///     Safetysheet is the name of an safetysheet file (in the media
@@ -5281,15 +6885,21 @@ namespace Meplato.Store2.Products
 				_hasSafetysheet = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetSafetysheet()
 		{
 			_safetysheet = null;
 			_hasSafetysheet = false;
 		}
-		
-		private string _safetysheet;
-		private bool _hasSafetysheet;
+
+		#endregion // Safetysheet
+
+		#region ScalePrices
+		private ScalePrice[] _scalePrices;
+		private bool _hasScalePrices;
 
 		/// <summary>
 		///     ScalePrices can be used when the price of the product is
@@ -5304,15 +6914,21 @@ namespace Meplato.Store2.Products
 				_hasScalePrices = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetScalePrices()
 		{
 			_scalePrices = null;
 			_hasScalePrices = false;
 		}
-		
-		private ScalePrice[] _scalePrices;
-		private bool _hasScalePrices;
+
+		#endregion // ScalePrices
+
+		#region Service
+		private bool? _service;
+		private bool _hasService;
 
 		/// <summary>
 		///     Service indicates if the is a good (false) or a service (true).
@@ -5327,15 +6943,21 @@ namespace Meplato.Store2.Products
 				_hasService = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetService()
 		{
 			_service = null;
 			_hasService = false;
 		}
-		
-		private bool? _service;
-		private bool _hasService;
+
+		#endregion // Service
+
+		#region TaxCode
+		private string _taxCode;
+		private bool _hasTaxCode;
 
 		/// <summary>
 		///     TaxCode to use for this product. This is typically
@@ -5350,15 +6972,21 @@ namespace Meplato.Store2.Products
 				_hasTaxCode = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetTaxCode()
 		{
 			_taxCode = null;
 			_hasTaxCode = false;
 		}
-		
-		private string _taxCode;
-		private bool _hasTaxCode;
+
+		#endregion // TaxCode
+
+		#region TaxRate
+		private double? _taxRate;
+		private bool _hasTaxRate;
 
 		/// <summary>
 		///     TaxRate for this product, a numeric value between 0.0 and 1.0.
@@ -5372,15 +7000,21 @@ namespace Meplato.Store2.Products
 				_hasTaxRate = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetTaxRate()
 		{
 			_taxRate = null;
 			_hasTaxRate = false;
 		}
-		
-		private double? _taxRate;
-		private bool _hasTaxRate;
+
+		#endregion // TaxRate
+
+		#region Thumbnail
+		private string _thumbnail;
+		private bool _hasThumbnail;
 
 		/// <summary>
 		///     Thumbnail is the name of an thumbnail image file (in the media
@@ -5395,15 +7029,21 @@ namespace Meplato.Store2.Products
 				_hasThumbnail = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetThumbnail()
 		{
 			_thumbnail = null;
 			_hasThumbnail = false;
 		}
-		
-		private string _thumbnail;
-		private bool _hasThumbnail;
+
+		#endregion // Thumbnail
+
+		#region Unspscs
+		private Unspsc[] _unspscs;
+		private bool _hasUnspscs;
 
 		/// <summary>
 		///     Unspscs is a list of UNSPSC categories the product belongs to.
@@ -5417,15 +7057,21 @@ namespace Meplato.Store2.Products
 				_hasUnspscs = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetUnspscs()
 		{
 			_unspscs = null;
 			_hasUnspscs = false;
 		}
-		
-		private Unspsc[] _unspscs;
-		private bool _hasUnspscs;
+
+		#endregion // Unspscs
+
+		#region Visible
+		private bool? _visible;
+		private bool _hasVisible;
 
 		/// <summary>
 		///     Visible is a flag that indicates whether this product will be
@@ -5441,17 +7087,21 @@ namespace Meplato.Store2.Products
 				_hasVisible = true;
 			}
 		}
-		
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
 		public void ResetVisible()
 		{
 			_visible = null;
 			_hasVisible = false;
 		}
-		
-		private bool? _visible;
-		private bool _hasVisible;
 
-		
+		#endregion // Visible
+
+		/// <summary>
+		///     Serialize the data.
+		/// </summary>
 		public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			if (_hasAsin)
@@ -5510,7 +7160,7 @@ namespace Meplato.Store2.Products
 			{
 				info.AddValue("country", _country);
 			}
-			if (_hasCu)
+			if (_hasContentUnit)
 			{
 				info.AddValue("cu", _cu);
 			}
@@ -5521,10 +7171,6 @@ namespace Meplato.Store2.Products
 			if (_hasCurrency)
 			{
 				info.AddValue("currency", _currency);
-			}
-			if (_hasCustFields)
-			{
-				info.AddValue("custFields", _custFields);
 			}
 			if (_hasCustField1)
 			{
@@ -5546,21 +7192,9 @@ namespace Meplato.Store2.Products
 			{
 				info.AddValue("custField5", _custField5);
 			}
-			if (_hasCustomField6)
+			if (_hasCustFields)
 			{
-				info.AddValue("customField6", _customField6);
-			}
-			if (_hasCustomField7)
-			{
-				info.AddValue("customField7", _customField7);
-			}
-			if (_hasCustomField8)
-			{
-				info.AddValue("customField8", _customField8);
-			}
-			if (_hasCustomField9)
-			{
-				info.AddValue("customField9", _customField9);
+				info.AddValue("custFields", _custFields);
 			}
 			if (_hasCustomField10)
 			{
@@ -5646,6 +7280,102 @@ namespace Meplato.Store2.Products
 			{
 				info.AddValue("customField30", _customField30);
 			}
+			if (_hasCustomField31)
+			{
+				info.AddValue("customField31", _customField31);
+			}
+			if (_hasCustomField32)
+			{
+				info.AddValue("customField32", _customField32);
+			}
+			if (_hasCustomField33)
+			{
+				info.AddValue("customField33", _customField33);
+			}
+			if (_hasCustomField34)
+			{
+				info.AddValue("customField34", _customField34);
+			}
+			if (_hasCustomField35)
+			{
+				info.AddValue("customField35", _customField35);
+			}
+			if (_hasCustomField36)
+			{
+				info.AddValue("customField36", _customField36);
+			}
+			if (_hasCustomField37)
+			{
+				info.AddValue("customField37", _customField37);
+			}
+			if (_hasCustomField38)
+			{
+				info.AddValue("customField38", _customField38);
+			}
+			if (_hasCustomField39)
+			{
+				info.AddValue("customField39", _customField39);
+			}
+			if (_hasCustomField40)
+			{
+				info.AddValue("customField40", _customField40);
+			}
+			if (_hasCustomField41)
+			{
+				info.AddValue("customField41", _customField41);
+			}
+			if (_hasCustomField42)
+			{
+				info.AddValue("customField42", _customField42);
+			}
+			if (_hasCustomField43)
+			{
+				info.AddValue("customField43", _customField43);
+			}
+			if (_hasCustomField44)
+			{
+				info.AddValue("customField44", _customField44);
+			}
+			if (_hasCustomField45)
+			{
+				info.AddValue("customField45", _customField45);
+			}
+			if (_hasCustomField46)
+			{
+				info.AddValue("customField46", _customField46);
+			}
+			if (_hasCustomField47)
+			{
+				info.AddValue("customField47", _customField47);
+			}
+			if (_hasCustomField48)
+			{
+				info.AddValue("customField48", _customField48);
+			}
+			if (_hasCustomField49)
+			{
+				info.AddValue("customField49", _customField49);
+			}
+			if (_hasCustomField50)
+			{
+				info.AddValue("customField50", _customField50);
+			}
+			if (_hasCustomField6)
+			{
+				info.AddValue("customField6", _customField6);
+			}
+			if (_hasCustomField7)
+			{
+				info.AddValue("customField7", _customField7);
+			}
+			if (_hasCustomField8)
+			{
+				info.AddValue("customField8", _customField8);
+			}
+			if (_hasCustomField9)
+			{
+				info.AddValue("customField9", _customField9);
+			}
 			if (_hasDatasheet)
 			{
 				info.AddValue("datasheet", _datasheet);
@@ -5693,18 +7423,6 @@ namespace Meplato.Store2.Products
 			if (_hasFeatures)
 			{
 				info.AddValue("features", _features);
-			}			
-			if (_hasNfScaleQuantity)
-			{
-				info.AddValue("nfScaleQuantity", _nfScaleQuantity);
-			}
-			if (_hasOrderable)
-			{
-				info.AddValue("orderable", _orderable);
-			}
-			if (_hasOu)
-			{
-				info.AddValue("ou", _ou);
 			}
 			if (_hasGlAccount)
 			{
@@ -5798,6 +7516,18 @@ namespace Meplato.Store2.Products
 			{
 				info.AddValue("nfScale", _nfScale);
 			}
+			if (_hasNfScaleQuantity)
+			{
+				info.AddValue("nfScaleQuantity", _nfScaleQuantity);
+			}
+			if (_hasOrderable)
+			{
+				info.AddValue("orderable", _orderable);
+			}
+			if (_hasOrderUnit)
+			{
+				info.AddValue("ou", _ou);
+			}
 			if (_hasPrice)
 			{
 				info.AddValue("price", _price);
@@ -5867,6 +7597,7 @@ namespace Meplato.Store2.Products
 				info.AddValue("visible", _visible);
 			}
 		}
+
 		#endregion // UpdateProduct
 	}
 
@@ -5998,10 +7729,10 @@ namespace Meplato.Store2.Products
 		public double? ConversionNumerator { get; set; }
 
 		/// <summary>
-		///     Country represents the ISO code of the country of origin, i.e.
-		///     the country where the product has been created/produced, e.g.
-		///     DE. If unspecified, the field is initialized with the catalog's
-		///     country field. 
+		///     Country/Region represents the ISO code of the country/region of
+		///     origin, i.e. the country/region where the product has been
+		///     created/produced, e.g. DE. If unspecified, the field is
+		///     initialized with the catalog's country/region field. 
 		/// </summary>
 		[JsonProperty("country")]
 		public string Country { get; set; }
@@ -6237,6 +7968,166 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("customField30")]
 		public string CustomField30 { get; set; }
+
+		/// <summary>
+		///     CustomField31 represents the 31st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField31")]
+		public string CustomField31 { get; set; }
+
+		/// <summary>
+		///     CustomField32 represents the 32nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField32")]
+		public string CustomField32 { get; set; }
+
+		/// <summary>
+		///     CustomField33 represents the 33rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField33")]
+		public string CustomField33 { get; set; }
+
+		/// <summary>
+		///     CustomField34 represents the 34th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField34")]
+		public string CustomField34 { get; set; }
+
+		/// <summary>
+		///     CustomField35 represents the 35th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField35")]
+		public string CustomField35 { get; set; }
+
+		/// <summary>
+		///     CustomField36 represents the 36th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField36")]
+		public string CustomField36 { get; set; }
+
+		/// <summary>
+		///     CustomField37 represents the 37th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField37")]
+		public string CustomField37 { get; set; }
+
+		/// <summary>
+		///     CustomField38 represents the 38th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField38")]
+		public string CustomField38 { get; set; }
+
+		/// <summary>
+		///     CustomField39 represents the 39th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField39")]
+		public string CustomField39 { get; set; }
+
+		/// <summary>
+		///     CustomField40 represents the 40th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField40")]
+		public string CustomField40 { get; set; }
+
+		/// <summary>
+		///     CustomField41 represents the 41st customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField41")]
+		public string CustomField41 { get; set; }
+
+		/// <summary>
+		///     CustomField42 represents the 42nd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField42")]
+		public string CustomField42 { get; set; }
+
+		/// <summary>
+		///     CustomField43 represents the 43rd customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField43")]
+		public string CustomField43 { get; set; }
+
+		/// <summary>
+		///     CustomField44 represents the 44th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField44")]
+		public string CustomField44 { get; set; }
+
+		/// <summary>
+		///     CustomField45 represents the 45th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField45")]
+		public string CustomField45 { get; set; }
+
+		/// <summary>
+		///     CustomField46 represents the 46th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField46")]
+		public string CustomField46 { get; set; }
+
+		/// <summary>
+		///     CustomField47 represents the 47th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField47")]
+		public string CustomField47 { get; set; }
+
+		/// <summary>
+		///     CustomField48 represents the 48th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField48")]
+		public string CustomField48 { get; set; }
+
+		/// <summary>
+		///     CustomField49 represents the 49th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField49")]
+		public string CustomField49 { get; set; }
+
+		/// <summary>
+		///     CustomField50 represents the 50th customer-specific field.
+		///     Please consult your Store Manager before setting a value for
+		///     this field.
+		/// </summary>
+		[JsonProperty("customField50")]
+		public string CustomField50 { get; set; }
 
 		/// <summary>
 		///     CustomField6 represents the 6th customer-specific field. Please
