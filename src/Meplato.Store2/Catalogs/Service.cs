@@ -155,8 +155,9 @@ namespace Meplato.Store2.Catalogs
 		#region Catalog
 
 		/// <summary>
-		///     Country is the ISO-3166 alpha-2 code for the country that the
-		///     catalog is destined for (e.g. DE or US).
+		///     Country/Region is the ISO-3166 alpha-2 code for the
+		///     country/region that the catalog is destined for (e.g. DE or
+		///     US).
 		/// </summary>
 		[JsonProperty("country")]
 		public string Country { get; set; }
@@ -497,8 +498,9 @@ namespace Meplato.Store2.Catalogs
 		#region CreateCatalog
 
 		/// <summary>
-		///     Country is the ISO-3166 alpha-2 code for the country that the
-		///     catalog is destined for (e.g. DE or US).
+		///     Country/Region is the ISO-3166 alpha-2 code for the
+		///     country/region that the catalog is destined for (e.g. DE or
+		///     US).
 		/// </summary>
 		[JsonProperty("country")]
 		public string Country { get; set; }
@@ -686,8 +688,8 @@ namespace Meplato.Store2.Catalogs
 		#region Project
 
 		/// <summary>
-		///     Country specifies the country code where catalogs for this
-		///     project are located.
+		///     Country/Region specifies the country/region code where catalogs
+		///     for this project are located.
 		/// </summary>
 		[JsonProperty("country")]
 		public string Country { get; set; }
