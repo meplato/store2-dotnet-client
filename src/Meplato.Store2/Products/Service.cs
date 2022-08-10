@@ -1465,7 +1465,7 @@ namespace Meplato.Store2.Products
 
 		/// <summary>
 		///     Brand is the commercial brand name of the product (i.e.
-		///     end-consumer recognizable brand name)
+		///     end-consumer recognizable brand name).
 		/// </summary>
 		[JsonProperty("brand")]
 		public string Brand { get; set; }
