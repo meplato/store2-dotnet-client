@@ -316,6 +316,13 @@ namespace Meplato.Store2.Products
 		public string Bpn { get; set; }
 
 		/// <summary>
+		///     Brand is the commercial brand name of the product (i.e.
+		///     end-consumer recognizable brand name)
+		/// </summary>
+		[JsonProperty("brand")]
+		public string Brand { get; set; }
+
+		/// <summary>
 		///     CatalogManaged is a flag that indicates whether this product is
 		///     configurable (or catalog managed in OCI parlance).
 		/// </summary>
@@ -1457,6 +1464,13 @@ namespace Meplato.Store2.Products
 		public string Bpn { get; set; }
 
 		/// <summary>
+		///     Brand is the commercial brand name of the product (i.e.
+		///     end-consumer recognizable brand name)
+		/// </summary>
+		[JsonProperty("brand")]
+		public string Brand { get; set; }
+
+		/// <summary>
 		///     ID of the catalog this products belongs to.
 		/// </summary>
 		[JsonProperty("catalogId")]
@@ -2392,6 +2406,13 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("bpn")]
 		public string Bpn { get; set; }
+
+		/// <summary>
+		///     Brand is the commercial brand name of the product (i.e.
+		///     end-consumer recognizable brand name)
+		/// </summary>
+		[JsonProperty("brand")]
+		public string Brand { get; set; }
 
 		/// <summary>
 		///     CatalogManaged is a flag that indicates whether this product is
@@ -3645,6 +3666,35 @@ namespace Meplato.Store2.Products
 		}
 
 		#endregion // Bpn
+
+		#region Brand
+		private string _brand;
+		private bool _hasBrand;
+
+		/// <summary>
+		///     Brand is the commercial brand name of the product (i.e.
+		///     end-consumer recognizable brand name)
+		/// </summary>
+		public string Brand
+		{
+			get => _brand;
+			set
+			{
+				_brand = value;
+				_hasBrand = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetBrand()
+		{
+			_brand = null;
+			_hasBrand = false;
+		}
+
+		#endregion // Brand
 
 		#region CatalogManaged
 		private bool? _catalogManaged;
@@ -7128,6 +7178,10 @@ namespace Meplato.Store2.Products
 			{
 				info.AddValue("bpn", _bpn);
 			}
+			if (_hasBrand)
+			{
+				info.AddValue("brand", _brand);
+			}
 			if (_hasCatalogManaged)
 			{
 				info.AddValue("catalogManaged", _catalogManaged);
@@ -7674,6 +7728,13 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("bpn")]
 		public string Bpn { get; set; }
+
+		/// <summary>
+		///     Brand is the commercial brand name of the product (i.e.
+		///     end-consumer recognizable brand name)
+		/// </summary>
+		[JsonProperty("brand")]
+		public string Brand { get; set; }
 
 		/// <summary>
 		///     CatalogManaged is a flag that indicates whether this product is
