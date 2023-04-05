@@ -904,6 +904,13 @@ namespace Meplato.Store2.Products
 		public string GlAccount { get; set; }
 
 		/// <summary>
+		///     GreenLogos is an array of green logo names, which are hosted in
+		///     the store, and used to mark products as green.
+		/// </summary>
+		[JsonProperty("greenLogos")]
+		public string[] GreenLogos { get; set; }
+
+		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
 		///     EAN).
 		/// </summary>
@@ -1972,6 +1979,13 @@ namespace Meplato.Store2.Products
 		public string GlAccount { get; set; }
 
 		/// <summary>
+		///     GreenLogos is an array of green logo names, which are hosted in
+		///     the store, and used to mark products as green.
+		/// </summary>
+		[JsonProperty("greenLogos")]
+		public string[] GreenLogos { get; set; }
+
+		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
 		///     EAN).
 		/// </summary>
@@ -2994,6 +3008,13 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("glAccount")]
 		public string GlAccount { get; set; }
+
+		/// <summary>
+		///     GreenLogos is an array of green logo names, which are hosted in
+		///     the store, and used to mark products as green.
+		/// </summary>
+		[JsonProperty("greenLogos")]
+		public string[] GreenLogos { get; set; }
 
 		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
@@ -5927,6 +5948,35 @@ namespace Meplato.Store2.Products
 
 		#endregion // GlAccount
 
+		#region GreenLogos
+		private string[] _greenLogos;
+		private bool _hasGreenLogos;
+
+		/// <summary>
+		///     GreenLogos is an array of green logo names, which are hosted in
+		///     the store, and used to mark products as green.
+		/// </summary>
+		public string[] GreenLogos
+		{
+			get => _greenLogos;
+			set
+			{
+				_greenLogos = value;
+				_hasGreenLogos = true;
+			}
+		}
+
+		/// <summary>
+		///     Reset the property.
+		/// </summary>
+		public void ResetGreenLogos()
+		{
+			_greenLogos = null;
+			_hasGreenLogos = false;
+		}
+
+		#endregion // GreenLogos
+
 		#region Gtin
 		private string _gtin;
 		private bool _hasGtin;
@@ -7482,6 +7532,10 @@ namespace Meplato.Store2.Products
 			{
 				info.AddValue("glAccount", _glAccount);
 			}
+			if (_hasGreenLogos)
+			{
+				info.AddValue("greenLogos", _greenLogos);
+			}
 			if (_hasGtin)
 			{
 				info.AddValue("gtin", _gtin);
@@ -8316,6 +8370,13 @@ namespace Meplato.Store2.Products
 		/// </summary>
 		[JsonProperty("glAccount")]
 		public string GlAccount { get; set; }
+
+		/// <summary>
+		///     GreenLogos is an array of green logo names, which are hosted in
+		///     the store, and used to mark products as green.
+		/// </summary>
+		[JsonProperty("greenLogos")]
+		public string[] GreenLogos { get; set; }
 
 		/// <summary>
 		///     GTIN is the global trade item number of the product (used to be
