@@ -54,7 +54,7 @@ namespace Meplato.Store2
         }
 
         /// <summary>
-        ///     Returns the HTTP status code.
+        ///     Returns the HTTP status code. 
         /// </summary>
         public int StatusCode { get; set; }
 
