@@ -374,7 +374,7 @@ namespace Meplato.Store2.Availabilities
 				headers["Authorization"] = authorization;
 			}
 
-			var uriTemplate = _service.BaseURL + "/api/v2/products/{spn}/availabilities{?region,zipCode}";
+			var uriTemplate = _service.BaseURL + "/products/{spn}/availabilities{?region,zipCode}";
 			var response = await _service.Client.Execute(
 				HttpMethod.Delete,
 				uriTemplate,
@@ -464,7 +464,7 @@ namespace Meplato.Store2.Availabilities
 				headers["Authorization"] = authorization;
 			}
 
-			var uriTemplate = _service.BaseURL + "/api/v2/products/{spn}/availabilities{?region,zipCode}";
+			var uriTemplate = _service.BaseURL + "/products/{spn}/availabilities{?region,zipCode}";
 			var response = await _service.Client.Execute(
 				HttpMethod.Get,
 				uriTemplate,
@@ -536,7 +536,7 @@ namespace Meplato.Store2.Availabilities
 				headers["Authorization"] = authorization;
 			}
 
-			var uriTemplate = _service.BaseURL + "/api/v2/products/{spn}/availabilities";
+			var uriTemplate = _service.BaseURL + "/products/{spn}/availabilities";
 			var response = await _service.Client.Execute(
 				HttpMethod.Post,
 				uriTemplate,
