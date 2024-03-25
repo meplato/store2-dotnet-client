@@ -538,7 +538,7 @@ namespace Meplato.Store2.Availabilities
 
 			var uriTemplate = _service.BaseURL + "/products/{spn}/availabilities";
 			var response = await _service.Client.Execute(
-				HttpMethod.Post,
+				HttpMethod.Put,
 				uriTemplate,
 				parameters,
 				headers,
