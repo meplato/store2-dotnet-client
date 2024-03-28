@@ -42,7 +42,7 @@ namespace Meplato.Store2.Tests.Availabilities
         }
 
         [Test]
-        public void TestGetNotFound()
+        public async Task TestGetNotFound()
         {
             MockFromFile("availabilities.get.not_found");
 
