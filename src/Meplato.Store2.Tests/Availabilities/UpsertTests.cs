@@ -40,7 +40,7 @@ namespace Meplato.Store2.Tests.Availabilities
 				ZipCode = "1234"
             };
 
-            var response = await service.Upsert().Spn("1234").Do();
+            var response = await service.Upsert().Spn("1234").Availability(data).Do();
             Assert.NotNull(response);
             Assert.IsNotNull(response.Kind);
             Assert.AreEqual("store#availabilities/upsertResponse", response.Kind);
