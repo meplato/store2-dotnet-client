@@ -37,7 +37,7 @@ namespace Meplato.Store2.Tests.Availabilities
                 Quantity = 0,
                 Updated = "Q1/2024",
                 Region = "AQ",
-			    ZipCode=> "1234"
+				ZipCode = "1234"
             };
 
             var response = await service.Upsert().Spn("1234").Do();
