@@ -17,7 +17,7 @@
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace Meplato.Store2.Tests.Products
+namespace Meplato.Store2.Tests.Availabilities
 {
     [TestFixture]
     public class DeleteTests : TestCase
