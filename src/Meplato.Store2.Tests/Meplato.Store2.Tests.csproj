@@ -94,6 +94,10 @@
     <Compile Include="Products\UpsertTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceExceptionTests.cs" />
+    <Compile Include="Availabilities\TestCase.cs" />
+    <Compile Include="Availabilities\DeleteTests.cs" />
+    <Compile Include="Availabilities\GetTests.cs" />
+    <Compile Include="Availabilities\UpsertTests.cs" />
     <Compile Include="TestCase.cs" />
     <Compile Include="UriTemplatesTest.cs" />
   </ItemGroup>
@@ -203,6 +207,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\products.scroll.differential.success">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\availabilities.delete.success">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\availabilities.get.not_found">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\availabilities.get.success">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\availabilities.upsert.success">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

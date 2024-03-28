@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Availabilities\Service.cs" />
     <Compile Include="Catalogs\Service.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Error.cs" />
