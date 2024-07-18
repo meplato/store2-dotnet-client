@@ -14,7 +14,7 @@ jobs:
         working-directory: src/Meplato.Store2
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup MSBuild path
       uses: microsoft/setup-msbuild@v1.3.1
     - name: Setup NuGet
