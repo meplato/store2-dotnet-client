@@ -15,7 +15,7 @@ jobs:
     - name: Setup MSBuild path
       uses: microsoft/setup-msbuild@v2.0.0
     - name: Setup NuGet
-      uses: NuGet/setup-nuget@v2.0.0
+      uses: NuGet/setup-nuget@v2.0.1
     # ----- BUILD
     # Do not use `dotnet restore`, it ignores packages.config
     - name: Restore NuGet packages
