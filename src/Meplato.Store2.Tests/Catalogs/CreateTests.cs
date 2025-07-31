@@ -29,8 +29,8 @@ namespace Meplato.Store2.Tests.Catalogs
             MockFromFile("catalogs.create.success");
 
             var service = GetCatalogsService();
-            Assert.NotNull(service);
-            
+            Assert.That(service, Is.Not.Null);
+
             var create = new CreateCatalog()
             {
                 MerchantId = 1,
@@ -50,11 +50,11 @@ namespace Meplato.Store2.Tests.Catalogs
             };
 
             var response = await service.Create().Catalog(create).Do();
-            Assert.NotNull(response);
-            Assert.AreEqual("store#catalog", response.Kind);
-            Assert.AreEqual(81, response.Id);
-            Assert.AreEqual("48F31F33AD", response.Pin);
-            Assert.AreEqual("CC", response.Type);
+            Assert.That(response,Is.Not.Null);
+            Assert.That("store#catalog", Is.EqualTo(response.Kind));
+            Assert.That(81, Is.EqualTo(response.Id));
+            Assert.That("48F31F33AD", Is.EqualTo(response.Pin));
+            Assert.That("CC", Is.EqualTo(response.Type));
         }
     }
 }

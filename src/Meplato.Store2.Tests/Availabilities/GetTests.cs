@@ -28,16 +28,16 @@ namespace Meplato.Store2.Tests.Availabilities
             MockFromFile("availabilities.get.success");
 
             var service = GetAvailabilitiesService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var response = await service.Get().Spn("1234").Do();
-            Assert.NotNull(response);
-            Assert.NotNull(response.Kind);
-            Assert.AreEqual("store#availabilities/getResponse", response.Kind);
-            Assert.NotNull(response.Items);
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Kind, Is.Not.Null);
+            Assert.That("store#availabilities/getResponse", Is.EqualTo(response.Kind));
+            Assert.That(response.Items, Is.Not.Null);
             foreach (var availability in response.Items)
             {
-                Assert.AreEqual("1234", availability.Spn);
+                Assert.That("1234", Is.EqualTo(availability.Spn));
             }
         }
 
@@ -47,13 +47,13 @@ namespace Meplato.Store2.Tests.Availabilities
             MockFromFile("availabilities.get.not_found");
 
             var service = GetAvailabilitiesService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var response = await service.Get().Spn("no-such-product").Do();
-            Assert.NotNull(response);
-            Assert.NotNull(response.Kind);
-            Assert.AreEqual("store#availabilities/getResponse", response.Kind);
-            Assert.Null(response.Items);
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Kind, Is.Not.Null);
+            Assert.That("store#availabilities/getResponse", Is.EqualTo(response.Kind));
+            Assert.That(response.Items, Is.Null);
         }
     }
 }

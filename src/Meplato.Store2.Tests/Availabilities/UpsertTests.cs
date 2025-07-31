@@ -29,7 +29,7 @@ namespace Meplato.Store2.Tests.Availabilities
             MockFromFile("availabilities.upsert.success");
 
             var service = GetAvailabilitiesService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var data = new UpsertRequest
             {
@@ -41,10 +41,10 @@ namespace Meplato.Store2.Tests.Availabilities
             };
 
             var response = await service.Upsert().Spn("1234").Availability(data).Do();
-            Assert.NotNull(response);
-            Assert.IsNotNull(response.Kind);
-            Assert.AreEqual("store#availabilities/upsertResponse", response.Kind);
-            Assert.IsNotNull(response.Link);
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Kind, Is.Not.Null);
+            Assert.That("store#availabilities/upsertResponse", Is.EqualTo(response.Kind));
+            Assert.That(response.Link, Is.Not.Null);
         }
     }
 }

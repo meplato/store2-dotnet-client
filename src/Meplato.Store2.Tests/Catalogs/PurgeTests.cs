@@ -28,11 +28,11 @@ namespace Meplato.Store2.Tests.Catalogs
             MockFromFile("catalogs.purge.success");
 
             var service = GetCatalogsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var response = await service.Purge().Pin("5094310527").Area("work").Do();
-            Assert.NotNull(response);
-            Assert.AreEqual("store#catalogPurge", response.Kind);
+            Assert.That(response, Is.Not.Null);
+            Assert.That("store#catalogPurge", Is.EqualTo(response.Kind));
         }
     }
 }

@@ -28,22 +28,22 @@ namespace Meplato.Store2.Tests.Catalogs
             MockFromFile("catalogs.search.success");
 
             var service = GetCatalogsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var response = await service.Search().Skip(0).Take(10).Do();
-            Assert.NotNull(response);
-            Assert.AreEqual("store#catalogs", response.Kind);
-            Assert.IsTrue(response.TotalItems > 0);
-            Assert.NotNull(response.Items);
+            Assert.That(response, Is.Not.Null);
+            Assert.That("store#catalogs", Is.EqualTo(response.Kind));
+            Assert.That(response.TotalItems > 0,Is.EqualTo(true));
+            Assert.That(response.Items, Is.Not.Null);
             foreach (var catalog in response.Items)
             {
-                Assert.NotNull(catalog);
-                Assert.AreNotEqual("", catalog.SelfLink);
-                Assert.IsTrue(catalog.Id > 0);
-                Assert.IsNotNull(catalog.Name);
-                Assert.IsNotEmpty(catalog.Name);
-                Assert.NotNull(catalog.Created);
-                Assert.NotNull(catalog.Updated);
+                Assert.That(catalog, Is.Not.Null);
+                Assert.That("", Is.Not.EqualTo(catalog.SelfLink));
+                Assert.That(catalog.Id > 0, Is.EqualTo(true));
+                Assert.That(catalog.Name, Is.Not.Null);
+                Assert.That(catalog.Name, Is.Not.Empty);
+                Assert.That(catalog.Created, Is.Not.Null);
+                Assert.That(catalog.Updated, Is.Not.Null);
             }
         }
 
@@ -53,7 +53,7 @@ namespace Meplato.Store2.Tests.Catalogs
             MockFromFile("catalogs.search.unauthorized");
 
             var service = GetCatalogsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
             service.User = "";
             service.Password = "";
             Assert.ThrowsAsync<ServiceException>(() => service.Search().Skip(0).Take(10).Do());

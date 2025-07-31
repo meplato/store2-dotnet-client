@@ -27,7 +27,7 @@ namespace Meplato.Store2.Tests
         {
             MockFromFile("ping.success");
             var service = GetRootService();
-            Assert.IsNotNull(service);
+            Assert.That(service, Is.Not.Null);
             await service.Ping().Do();
         }
 

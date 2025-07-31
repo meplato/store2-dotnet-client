@@ -28,37 +28,38 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.get.success");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var product = await service.Get().Pin("AD8CCDD5F9").Area("work").Spn("50763599").Do();
-            Assert.NotNull(product);
-            Assert.IsNotNull(product.Id);
-            Assert.IsNotEmpty(product.Id);
-            Assert.IsNotNull(product.Spn);
-            Assert.IsNotEmpty(product.Spn);
-            Assert.IsNotNull(product.Name);
-            Assert.IsNotEmpty(product.Name);
-            Assert.Greater(product.Price, 0.0);
-            Assert.IsNotNull(product.OrderUnit);
-            Assert.IsNotEmpty(product.OrderUnit);
-            Assert.NotNull(product.Created);
-            Assert.NotNull(product.Updated);
+            Assert.That(product, Is.Not.Null);
+            Assert.That(product.Id, Is.Not.Null);
+            Assert.That(product.Id, Is.Not.Empty);
+            Assert.That(product.Spn, Is.Not.Null);
+            Assert.That(product.Spn, Is.Not.Null);
+            Assert.That(product.Name, Is.Not.Null);
+            Assert.That(product.Name, Is.Not.Empty);
+            Assert.That(product.Price, Is.GreaterThan(0.0));
+            Assert.That(product.OrderUnit, Is.Not.Null);
+            Assert.That(product.OrderUnit, Is.Not.Null);
+            Assert.That(product.Created, Is.Not.Null);
+            Assert.That(product.Updated, Is.Not.Null);
 
-            Assert.NotNull(product.Conditions);
-            Assert.AreEqual(1, product.Conditions.Length);
-            Assert.AreEqual("new_product", product.Conditions[0].Kind);
+            Assert.That(product.Conditions, Is.Not.Null);
+            Assert.That(1,Is.EqualTo(product.Conditions.Length));
+            Assert.That("new_product", Is.EqualTo(product.Conditions[0].Kind));
 
-            Assert.NotNull(product.CustFields);
-            Assert.AreEqual(1, product.CustFields.Length);
-            Assert.AreEqual("Steuersatz", product.CustFields[0].Name);
-            Assert.AreEqual("19%", product.CustFields[0].Value);
 
-            Assert.NotNull(product.Blobs);
-            Assert.AreEqual(1, product.Blobs.Length);
-            Assert.AreEqual("normal", product.Blobs[0].Kind);
-            Assert.AreEqual("Normalbild", product.Blobs[0].Text);
-            Assert.AreEqual("50763599.jpg", product.Blobs[0].Source);
-            Assert.IsNull(product.Blobs[0].Language);
+            Assert.That(product.CustFields, Is.Not.Null);
+            Assert.That(1, Is.EqualTo(product.CustFields.Length));
+            Assert.That("Steuersatz", Is.EqualTo(product.CustFields[0].Name));
+            Assert.That("19%", Is.EqualTo(product.CustFields[0].Value));
+
+            Assert.That(product.Blobs, Is.Not.Null);
+            Assert.That(1, Is.EqualTo(product.Blobs.Length));
+            Assert.That("normal", Is.EqualTo(product.Blobs[0].Kind));
+            Assert.That("Normalbild", Is.EqualTo(product.Blobs[0].Text));
+            Assert.That("50763599.jpg", Is.EqualTo(product.Blobs[0].Source));
+            Assert.That(product.Blobs[0].Language,Is.Null);
         }
 
         [Test]
@@ -67,7 +68,7 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.get.not_found");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             Assert.ThrowsAsync<ServiceException>(
                 () => service.Get().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do());
@@ -79,7 +80,7 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.get.unauthorized");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
             service.User = "";
             service.Password = "";
 

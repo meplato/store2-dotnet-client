@@ -28,12 +28,12 @@ namespace Meplato.Store2.Tests.Availabilities
             MockFromFile("availabilities.delete.success");
 
             var service = GetAvailabilitiesService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var response = await service.Delete().Spn("1234").Do();
-            Assert.NotNull(response);
-            Assert.NotNull(response.Kind);
-            Assert.AreEqual("store#availabilities/deleteResponse", response.Kind);
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Kind,Is.Not.Null);
+            Assert.That("store#availabilities/deleteResponse", Is.EqualTo(response.Kind));
         }
     }
 }

@@ -28,12 +28,12 @@ namespace Meplato.Store2.Tests.Catalogs
             MockFromFile("catalogs.get.success");
 
             var service = GetCatalogsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var catalog = await service.Get().Pin("5094310527").Do();
-            Assert.NotNull(catalog);
-            Assert.Greater(catalog.Id, 0);
-            Assert.AreEqual("5094310527", catalog.Pin);
+            Assert.That(catalog, Is.Not.Null);
+            Assert.That(catalog.Id, Is.GreaterThan(0));
+            Assert.That("5094310527", Is.EqualTo(catalog.Pin));
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace Meplato.Store2.Tests.Catalogs
             MockFromFile("catalogs.get.not_found");
 
             var service = GetCatalogsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             Assert.ThrowsAsync<ServiceException>(() => service.Get().Pin("no-such-catalog").Do());
         }

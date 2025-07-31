@@ -28,22 +28,22 @@ namespace Meplato.Store2.Tests.Jobs
             MockFromFile("jobs.search.success");
 
             var service = GetJobsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var response = await service.Search().Skip(0).Take(10).Do();
-            Assert.NotNull(response);
-            Assert.AreEqual("store#jobs", response.Kind);
-            Assert.IsTrue(response.TotalItems > 0);
-            Assert.NotNull(response.Items);
+            Assert.That(response, Is.Not.Null);
+            Assert.That("store#jobs", Is.EqualTo(response.Kind));
+            Assert.That(response.TotalItems > 0, Is.EqualTo(true));
+            Assert.That(response.Items, Is.Not.Null);
             foreach (var job in response.Items)
             {
-                Assert.NotNull(job);
-                Assert.AreNotEqual("", job.SelfLink);
-                Assert.NotNull(job.Id);
-                Assert.AreNotEqual("", job.Id);
-                Assert.IsNotNull(job.MerchantName);
-                Assert.IsNotEmpty(job.MerchantName);
-                Assert.NotNull(job.Created);
+                Assert.That(job, Is.Not.Null);
+                Assert.That("", Is.Not.EqualTo(job.SelfLink));
+                Assert.That(job.Id, Is.Not.Null);
+                Assert.That("", Is.Not.EqualTo(job.Id));
+                Assert.That(job.MerchantName, Is.Not.Null);
+                Assert.That(job.MerchantName, Is.Not.Empty);
+                Assert.That(job.Created, Is.Not.Null);
             }
         }
 
@@ -53,7 +53,7 @@ namespace Meplato.Store2.Tests.Jobs
             MockFromFile("jobs.search.unauthorized");
 
             var service = GetJobsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
             service.User = "";
             service.Password = "";
             Assert.ThrowsAsync<ServiceException>(() => service.Search().Skip(0).Take(10).Do());

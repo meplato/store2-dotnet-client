@@ -26,8 +26,8 @@ namespace Meplato.Store2.Tests
         {
             var response = new Response(401, "{\"error\":{\"message\":\"Unauthorized\"}}");
             var ex = ServiceException.FromResponse(response);
-            Assert.NotNull(ex);
-            Assert.AreEqual("Unauthorized", ex.Message);
+            Assert.That(ex,Is.Not.Null);
+            Assert.That("Unauthorized", Is.EqualTo(ex.Message));
         }
 
         [Test]
@@ -36,8 +36,8 @@ namespace Meplato.Store2.Tests
             var httpResponse = FromFile("me.unauthorized");
             var response = new Response(httpResponse);
             var ex = ServiceException.FromResponse(response);
-            Assert.NotNull(ex);
-            Assert.AreEqual("Unauthorized", ex.Message);
+            Assert.That(ex, Is.Not.Null);
+            Assert.That("Unauthorized", Is.EqualTo(ex.Message));
         }
 
         [Test]
@@ -46,8 +46,8 @@ namespace Meplato.Store2.Tests
             var httpResponse = FromFile("ping.unauthorized");
             var response = new Response(httpResponse);
             var ex = ServiceException.FromResponse(response);
-            Assert.NotNull(ex);
-            Assert.AreEqual("Request failed", ex.Message);
+            Assert.That(ex, Is.Not.Null);
+            Assert.That("Request failed", Is.EqualTo(ex.Message));
         }
     }
 }

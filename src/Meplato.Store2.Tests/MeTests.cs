@@ -28,11 +28,11 @@ namespace Meplato.Store2.Tests
             MockFromFile("me.success");
 
             var service = GetRootService();
-            Assert.IsNotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var results = await service.Me().Do();
-            Assert.IsNotNull(results);
-            Assert.AreEqual("store#me", results.Kind);
+            Assert.That(results, Is.Not.Null);
+            Assert.That("store#me", Is.EqualTo(results.Kind));
         }
 
         [Test]

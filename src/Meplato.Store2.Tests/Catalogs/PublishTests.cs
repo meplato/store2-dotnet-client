@@ -28,13 +28,13 @@ namespace Meplato.Store2.Tests.Catalogs
             MockFromFile("catalogs.publish.success");
 
             var service = GetCatalogsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var response = await service.Publish().Pin("AD8CCDD5F9").Do();
-            Assert.NotNull(response);
-            Assert.AreEqual("store#catalogPublish", response.Kind);
-            Assert.AreNotEqual("", response.SelfLink);
-            Assert.AreNotEqual("", response.StatusLink);
+            Assert.That(response, Is.Not.Null);
+            Assert.That("store#catalogPublish", Is.EqualTo(response.Kind));
+            Assert.That("", Is.Not.EqualTo(response.SelfLink));
+            Assert.That("", Is.Not.EqualTo(response.StatusLink));
 
             // Here's how to watch for publish status by polling
             /*
