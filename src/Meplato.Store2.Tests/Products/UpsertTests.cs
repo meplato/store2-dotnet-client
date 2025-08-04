@@ -29,7 +29,7 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.upsert.success");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var data = new UpsertProduct
             {
@@ -40,10 +40,10 @@ namespace Meplato.Store2.Tests.Products
             };
 
             var response = await service.Upsert().Pin("AD8CCDD5F9").Area("work").Product(data).Do();
-            Assert.NotNull(response);
-            Assert.IsNotNull(response.Link);
-            Assert.IsNotEmpty(response.Link);
-            Assert.AreEqual("store#productsUpsertResponse", response.Kind);
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Link, Is.Not.Null);
+            Assert.That(response.Link, Is.Not.Empty);
+            Assert.That("store#productsUpsertResponse", Is.EqualTo(response.Kind));
         }
     }
 }

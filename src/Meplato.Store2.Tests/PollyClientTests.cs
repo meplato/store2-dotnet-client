@@ -57,9 +57,9 @@ namespace Meplato.Store2.Tests
                 attempt => TimeSpan.FromSeconds(0.1 * Math.Pow(2, attempt)),
                 (exception, waitTime) =>
                 {
-                    Assert.NotNull(exception);
-                    Assert.IsInstanceOf<ServiceException>(exception);
-                    Assert.AreEqual("Too many requests", exception.Message);
+                    Assert.That(exception, Is.Not.Null);
+                    Assert.That(exception, Is.InstanceOf<ServiceException>());
+                    Assert.That("Too many requests", Is.EqualTo(exception.Message));
                     retries++;
 
                     Console.WriteLine($"Retry {retries} with a wait time of {waitTime}");
@@ -75,21 +75,21 @@ namespace Meplato.Store2.Tests
             }
             catch (ServiceException ex)
             {
-                Assert.NotNull(ex);
-                Assert.IsInstanceOf<ServiceException>(ex);
-                Assert.AreEqual(429, ex.StatusCode);
-                Assert.AreEqual("Too many requests", ex.Message);
+                Assert.That(ex, Is.Not.Null);
+                Assert.That(ex, Is.InstanceOf<ServiceException>());
+                Assert.That(429, Is.EqualTo(ex.StatusCode));
+                Assert.That("Too many requests", Is.EqualTo(ex.Message));
                 failures++;
             }
             catch (Exception ex)
             {
-                Assert.Fail("expected ServiceException, got {0}", ex);
+                Assert.Fail($"expected ServiceException, got {ex}");
             }
 
-            Assert.Null(response);
-            Assert.AreEqual(0, successes);
-            Assert.AreEqual(1, failures);
-            Assert.AreEqual(5, retries);
+            Assert.That(response, Is.Null);
+            Assert.That(0, Is.EqualTo(successes));
+            Assert.That(1, Is.EqualTo(failures));
+            Assert.That(5, Is.EqualTo(retries));
         }
 
         [Test]
@@ -124,12 +124,12 @@ namespace Meplato.Store2.Tests
                 failures++;
             }
 
-            Assert.NotNull(response);
-            Assert.AreEqual(200, response.StatusCode);
-            Assert.AreEqual("{}", response.GetBodyString());
-            Assert.AreEqual(1, successes);
-            Assert.AreEqual(0, failures);
-            Assert.AreEqual(0, retries);
+            Assert.That(response, Is.Not.Null);
+            Assert.That(200, Is.EqualTo(response.StatusCode));
+            Assert.That("{}", Is.EqualTo(response.GetBodyString()));
+            Assert.That(1, Is.EqualTo(successes));
+            Assert.That(0, Is.EqualTo(failures));
+            Assert.That(0, Is.EqualTo(retries));
         }
     }
 }

@@ -26,31 +26,31 @@ namespace Meplato.Store2.Tests.Products
         public async Task SearchUpdate()
         {
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             MockFromFile("products.search.success");
             var response = await service.Search().Pin("AD8CCDD5F9").Area("work").Q("toner").Skip(0).Take(30).Do();
-            Assert.NotNull(response);
-            Assert.AreEqual("store#products", response.Kind);
-            Assert.IsTrue(response.TotalItems > 0);
-            Assert.NotNull(response.Items);
+            Assert.That(response, Is.Not.Null);
+            Assert.That("store#products", Is.EqualTo(response.Kind));
+            Assert.That(response.TotalItems > 0, Is.EqualTo(true));
+            Assert.That(response.Items, Is.Not.Null);
             foreach (var product in response.Items)
             {
-                Assert.IsNotNull(product);
-                Assert.IsNotNull(product.Id);
-                Assert.IsNotEmpty(product.Id);
-                Assert.AreEqual("store#product", product.Kind);
-                Assert.IsNotNull(product.SelfLink);
-                Assert.IsNotEmpty(product.SelfLink);
-                Assert.IsNotNull(product.Spn);
-                Assert.IsNotEmpty(product.Spn);
-                Assert.IsNotNull(product.Name);
-                Assert.IsNotEmpty(product.Name);
-                Assert.IsNotNull(product.OrderUnit);
-                Assert.IsNotEmpty(product.OrderUnit);
-                Assert.IsTrue(product.Price > 0);
-                Assert.IsNotNull(product.Created);
-                Assert.IsNotNull(product.Updated);
+                Assert.That(product, Is.Not.Null);
+                Assert.That(product.Id,Is.Not.Null);
+                Assert.That(product.Id, Is.Not.Empty);
+                Assert.That("store#product", Is.EqualTo(product.Kind));
+                Assert.That(product.SelfLink, Is.Not.Null);
+                Assert.That(product.SelfLink, Is.Not.Empty);
+                Assert.That(product.Spn, Is.Not.Null);
+                Assert.That(product.Spn, Is.Not.Empty);
+                Assert.That(product.Name,Is.Not.Null);
+                Assert.That(product.Name, Is.Not.Empty);
+                Assert.That(product.OrderUnit, Is.Not.Null);
+                Assert.That(product.OrderUnit, Is.Not.Empty);
+                Assert.That(product.Price > 0,Is.EqualTo(true));
+                Assert.That(product.Created, Is.Not.Null);
+                Assert.That(product.Updated, Is.Not.Null);
             }
         }
 
@@ -60,7 +60,7 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.search.unauthorized");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
             service.User = "";
             service.Password = "";
 

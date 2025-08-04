@@ -34,7 +34,7 @@ namespace Meplato.Store2.Tests
                 {"pageToken", null}
             });
 
-            Assert.AreEqual("http://store2.io/api/v2/catalogs/13/products/scroll", uri);
+            Assert.That("http://store2.io/api/v2/catalogs/13/products/scroll", Is.EqualTo(uri));
         }
     }
 }

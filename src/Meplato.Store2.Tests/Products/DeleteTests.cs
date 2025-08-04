@@ -28,7 +28,7 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.delete.success");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             await service.Delete().Pin("AD8CCDD5F9").Area("work").Spn("50763599").Do();
         }
@@ -39,7 +39,7 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.delete.not_found");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             Assert.ThrowsAsync<ServiceException>(
                 () => service.Delete().Pin("AD8CCDD5F9").Area("work").Spn("no-such-product").Do());

@@ -29,7 +29,7 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.create.success");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var create = new CreateProduct
             {
@@ -40,10 +40,10 @@ namespace Meplato.Store2.Tests.Products
             };
 
             var response = await service.Create().Pin("AD8CCDD5F9").Area("work").Product(create).Do();
-            Assert.NotNull(response);
-            Assert.IsNotNull(response.Link);
-            Assert.IsNotEmpty(response.Link);
-            Assert.AreEqual("store#productsCreateResponse", response.Kind);
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Link, Is.Not.Null);
+            Assert.That(response.Link,Is.Not.Null);
+            Assert.That("store#productsCreateResponse", Is.EqualTo(response.Kind));
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.create.parameter_missing");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var create = new CreateProduct
             {

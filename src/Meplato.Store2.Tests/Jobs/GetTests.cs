@@ -28,11 +28,11 @@ namespace Meplato.Store2.Tests.Jobs
             MockFromFile("jobs.get.success");
 
             var service = GetJobsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var job = await service.Get().Id("58097dc3-b279-49b5-a5da-23eb1c77d840").Do();
-            Assert.NotNull(job);
-            Assert.AreEqual("58097dc3-b279-49b5-a5da-23eb1c77d840", job.Id);
+            Assert.That(job, Is.Not.Null);
+            Assert.That("58097dc3-b279-49b5-a5da-23eb1c77d840", Is.EqualTo(job.Id));
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace Meplato.Store2.Tests.Jobs
             MockFromFile("jobs.get.not_found");
 
             var service = GetJobsService();
-            Assert.NotNull(service);
+            Assert.That(service,Is.Not.Null);
 
             Assert.ThrowsAsync<ServiceException>(() => service.Get().Id("no-such-job").Do());
         }

@@ -30,7 +30,7 @@ namespace Meplato.Store2.Tests.Products
             MockFromFile("products.update.success");
 
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             var update = new UpdateProduct
             {
@@ -40,10 +40,10 @@ namespace Meplato.Store2.Tests.Products
             };
 
             var response = await service.Update().Pin("AD8CCDD5F9").Area("work").Spn("MBA").Product(update).Do();
-            Assert.NotNull(response);
-            Assert.IsNotNull(response.Link);
-            Assert.IsNotEmpty(response.Link);
-            Assert.AreEqual("store#productsUpdateResponse", response.Kind);
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Link, Is.Not.Null);
+            Assert.That(response.Link, Is.Not.Empty);
+            Assert.That("store#productsUpdateResponse", Is.EqualTo(response.Kind));
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace Meplato.Store2.Tests.Products
                     CustomField12 = "37751543"
                 };
                 var expected = "{\"customField12\":\"37751543\",\"name\":\"Produkt 1000 (NEU!)\",\"ou\":\"PCE\",\"price\":2.99}";
-                Assert.AreEqual(expected, JsonConvert.SerializeObject(update));
+                Assert.That(expected, Is.EqualTo(JsonConvert.SerializeObject(update)));
             }
             // attributes explicitly set to null are serialized unlike omitted ones
             {
@@ -72,7 +72,7 @@ namespace Meplato.Store2.Tests.Products
                     QuantityMax = null,
                 };
                 var expected = "{\"ou\":\"C62\",\"price\":45.29,\"quantityMax\":null,\"quantityMin\":null}";
-                Assert.AreEqual(expected, JsonConvert.SerializeObject(update));
+                Assert.That(expected, Is.EqualTo(JsonConvert.SerializeObject(update)));
             }
         }
 

@@ -33,9 +33,9 @@ namespace Meplato.Store2.Tests
             };
 
             var response = await client.Execute(HttpMethod.Get, "http://localhost/", null, null, null);
-            Assert.NotNull(response);
-            Assert.AreEqual(200, response.StatusCode);
-            Assert.AreEqual("{}", response.GetBodyString());
+            Assert.That(response, Is.Not.Null);
+            Assert.That(200, Is.EqualTo(response.StatusCode));
+            Assert.That("{}", Is.EqualTo(response.GetBodyString()));
         }
 
         [Test]

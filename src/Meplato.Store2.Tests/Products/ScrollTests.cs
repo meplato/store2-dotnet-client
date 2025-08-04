@@ -26,64 +26,64 @@ namespace Meplato.Store2.Tests.Products
         public async Task ScrollUpdate()
         {
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             MockFromFile("products.scroll.success.1");
             var response = await service.Scroll().Pin("AD8CCDD5F9").Area("work").Do();
-            Assert.NotNull(response);
-            Assert.AreEqual("store#products", response.Kind);
-            Assert.IsNotNull(response.PageToken);
-            Assert.IsNotEmpty(response.PageToken);
+            Assert.That(response, Is.Not.Null);
+            Assert.That("store#products", Is.EqualTo(response.Kind));
+            Assert.That(response.PageToken, Is.Not.Null);
+            Assert.That(response.PageToken, Is.Not.Empty);
             var pageToken = response.PageToken;
-            Assert.IsTrue(response.TotalItems > 0);
+            Assert.That(response.TotalItems > 0, Is.EqualTo(true));
             if (response.Items != null)
                 foreach (var product in response.Items)
                 {
-                    Assert.NotNull(product);
-                    Assert.IsNotNull(product.Id);
-                    Assert.IsNotEmpty(product.Id);
-                    Assert.IsNotNull(product.Kind);
-                    Assert.IsNotEmpty(product.Kind);
-                    Assert.IsNotNull(product.SelfLink);
-                    Assert.IsNotEmpty(product.SelfLink);
-                    Assert.IsNotNull(product.Spn);
-                    Assert.IsNotEmpty(product.Spn);
-                    Assert.IsNotNull(product.Name);
-                    Assert.IsNotEmpty(product.Name);
-                    Assert.IsNotNull(product.OrderUnit);
-                    Assert.IsNotEmpty(product.OrderUnit);
-                    Assert.IsTrue(product.Price > 0);
-                    Assert.NotNull(product.Created);
-                    Assert.NotNull(product.Updated);
+                    Assert.That(product, Is.Not.Null);
+                    Assert.That(product.Id, Is.Not.Null);
+                    Assert.That(product.Id, Is.Not.Null);
+                    Assert.That(product.Kind, Is.Not.Null);
+                    Assert.That(product.Kind, Is.Not.Null);
+                    Assert.That(product.SelfLink, Is.Not.Null);
+                    Assert.That(product.SelfLink, Is.Not.Empty);
+                    Assert.That(product.Spn, Is.Not.Null);
+                    Assert.That(product.Spn, Is.Not.Empty);
+                    Assert.That(product.Name, Is.Not.Null);
+                    Assert.That(product.Name, Is.Not.Empty);
+                    Assert.That(product.OrderUnit, Is.Not.Null);
+                    Assert.That(product.OrderUnit, Is.Not.Empty);
+                    Assert.That(product.Price > 0, Is.EqualTo(true));
+                    Assert.That(product.Created, Is.Not.Null);
+                    Assert.That(product.Updated, Is.Not.Null);
                 }
 
             MockFromFile("products.scroll.success.2");
             response = await service.Scroll().Pin("AD8CCDD5F9").Area("work").PageToken(pageToken).Do();
-            Assert.NotNull(response);
-            Assert.AreEqual("store#products", response.Kind);
-            Assert.IsNotNull(response.PageToken);
-            Assert.IsNotEmpty(response.PageToken);
-            Assert.IsTrue(response.TotalItems > 0);
-            Assert.NotNull(response.Items);
+            Assert.That(response, Is.Not.Null);
+            Assert.That("store#products", Is.EqualTo(response.Kind));
+            Assert.That(response.PageToken, Is.Not.Null);
+            Assert.That(response.PageToken, Is.Not.Empty);
+            Assert.That(response.TotalItems > 0, Is.EqualTo(true));
+            Assert.That(response.Items, Is.Not.Null);
             if (response.Items != null)
                 foreach (var product in response.Items)
                 {
-                    Assert.NotNull(product);
-                    Assert.IsNotNull(product.Id);
-                    Assert.IsNotEmpty(product.Id);
-                    Assert.IsNotNull(product.Kind);
-                    Assert.IsNotEmpty(product.Kind);
-                    Assert.IsNotNull(product.SelfLink);
-                    Assert.IsNotEmpty(product.SelfLink);
-                    Assert.IsNotNull(product.Spn);
-                    Assert.IsNotEmpty(product.Spn);
-                    Assert.IsNotNull(product.Name);
-                    Assert.IsNotEmpty(product.Name);
-                    Assert.IsNotNull(product.OrderUnit);
-                    Assert.IsNotEmpty(product.OrderUnit);
-                    Assert.IsTrue(product.Price > 0);
-                    Assert.NotNull(product.Created);
-                    Assert.NotNull(product.Updated);
+                    Assert.That(product, Is.Not.Null);
+                    Assert.That(product.Id, Is.Not.Null);
+                    Assert.That(product.Id, Is.Not.Empty);
+                    Assert.That(product.Kind, Is.Not.Null);
+                    Assert.That(product.Kind, Is.Not.Empty);
+                    Assert.That(product.SelfLink, Is.Not.Null);
+                    Assert.That(product.SelfLink, Is.Not.Empty);
+                    Assert.That(product.Spn, Is.Not.Null);
+                    Assert.That(product.Spn, Is.Not.Empty);
+                    Assert.That(product.Name, Is.Not.Null);
+                    Assert.That(product.Name, Is.Not.Empty);
+                    Assert.That(product.OrderUnit, Is.Not.Null);
+                    Assert.That(product.OrderUnit, Is.Not.Empty);
+                    Assert.That(product.Price > 0, Is.EqualTo(true));
+                    Assert.That(product.Created, Is.Not.Null);
+                    Assert.That(product.Updated, Is.Not.Null);
                 }
         }
         
@@ -91,31 +91,31 @@ namespace Meplato.Store2.Tests.Products
         public async Task ScrollDifferentialUpdate()
         {
             var service = GetProductsService();
-            Assert.NotNull(service);
+            Assert.That(service, Is.Not.Null);
 
             MockFromFile("products.scroll.differential.success");
             var response = await service.Scroll().Pin("AD8CCDD5F9").Area("work").Version(3).Mode("diff").Do();
-            Assert.NotNull(response);
-            Assert.AreEqual("store#products", response.Kind);
-            Assert.IsNotNull(response.PageToken);
-            Assert.IsNotEmpty(response.PageToken);
-            Assert.IsTrue(response.TotalItems > 0);
+            Assert.That(response, Is.Not.Null);
+            Assert.That("store#products", Is.EqualTo(response.Kind));
+            Assert.That(response.PageToken,Is.Not.Null);
+            Assert.That(response.PageToken, Is.Not.Null);
+            Assert.That(response.TotalItems > 0,Is.EqualTo(true));
             if (response.Items != null)
                 foreach (var product in response.Items)
                 {
-                    Assert.NotNull(product);
-                    Assert.IsNotNull(product.Id);
-                    Assert.IsNotEmpty(product.Id);
-                    Assert.IsNotNull(product.Kind);
-                    Assert.IsNotEmpty(product.Kind);
-                    Assert.IsNotNull(product.SelfLink);
-                    Assert.IsNotEmpty(product.SelfLink);
-                    Assert.IsNotNull(product.Spn);
-                    Assert.IsNotEmpty(product.Spn);
-                    Assert.IsNotNull(product.Mode);
-                    Assert.IsNotEmpty(product.Mode);
-                    Assert.NotNull(product.Created);
-                    Assert.NotNull(product.Updated);
+                    Assert.That(product, Is.Not.Null);
+                    Assert.That(product.Id, Is.Not.Null);
+                    Assert.That(product.Id, Is.Not.Empty);
+                    Assert.That(product.Kind, Is.Not.Null);
+                    Assert.That(product.Kind, Is.Not.Empty);
+                    Assert.That(product.SelfLink, Is.Not.Null);
+                    Assert.That(product.SelfLink, Is.Not.Empty);
+                    Assert.That(product.Spn, Is.Not.Null);
+                    Assert.That(product.Spn, Is.Not.Empty);
+                    Assert.That(product.Mode, Is.Not.Null);
+                    Assert.That(product.Mode, Is.Not.Empty);
+                    Assert.That(product.Created, Is.Not.Null);
+                    Assert.That(product.Updated, Is.Not.Null);
                 }
         }
     }
