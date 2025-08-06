@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("Meplato Store 2")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Meplato Store API")]
+[assembly: AssemblyDescription("Meplato Store API for .NET allows you to manage and modify electronic product catalogs in the Meplato Catalog Cloud.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Meplato Store 2")]
+[assembly: AssemblyCompany("Meplato GmbH")]
+[assembly: AssemblyProduct("Meplato Store")]
 [assembly: AssemblyCopyright("Copyright © 2015 Meplato GmbH")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
